@@ -6,7 +6,10 @@
  */
 
 #include "CapstoneMapping.h"
+CapstoneMapping::CapstoneMapping(): width(0.0), height(0.0)
+{
 
+}
 CapstoneMapping::CapstoneMapping(double w, double h): width(w), height(h)
 {
     // TODO Auto-generated constructor stub
@@ -19,6 +22,10 @@ CapstoneMapping::~CapstoneMapping()
 {
     // TODO Auto-generated destructor stub
     //this->mapping_surface = nullptr;
+}
+const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
+{
+    return mapping_surface;
 }
 
 Cairo::RefPtr<Cairo::Surface> CapstoneMapping::createBigMap()
@@ -56,4 +63,34 @@ Cairo::RefPtr<Cairo::Surface> CapstoneMapping::createBigMap()
     context ->stroke();
     std::cout << "Creating big surface."   <<std::endl;
     return big_surface;
+}
+
+float CapstoneMapping::getCenterLatitude() const
+{
+    return center_latitude;
+}
+
+void CapstoneMapping::setCenterLatitude(float centerLatitude )
+{
+    center_latitude = centerLatitude;
+}
+
+float CapstoneMapping::getCenterLongitude() const
+{
+    return center_longitude;
+}
+
+void CapstoneMapping::setCenterLongitude(float centerLongitude )
+{
+    center_longitude = centerLongitude;
+}
+
+double CapstoneMapping::getHeight() const
+{
+    return height;
+}
+
+double CapstoneMapping::getWidth() const
+{
+    return width;
 }
