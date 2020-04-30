@@ -8,20 +8,39 @@
 #include "CapstoneMapping.h"
 CapstoneMapping::CapstoneMapping(): width(0.0), height(0.0)
 {
+    std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
 
 }
 CapstoneMapping::CapstoneMapping(double w, double h): width(w), height(h)
 {
     // TODO Auto-generated constructor stub
-    std::cout << "Constructing big surface."   <<std::endl;
+    std::cout << "Constructing CapstoneMapping. doubles " <<this  <<std::endl;
     mapping_surface =  this->createBigMap();
+    this->downloader =  std::make_unique< OSMDownloader>();
     //mapping_surface->write_to_png("grid.png");
 }
+CapstoneMapping::CapstoneMapping(const CapstoneMapping &other)
+{
+    std::cout << "copy Constructing CapstoneMapping." <<this  <<std::endl;
+    this->downloader =  std::make_unique< OSMDownloader>();
+    width = other.width;
+    height = other.height;
 
+}
+
+CapstoneMapping& CapstoneMapping::operator =(const CapstoneMapping &other)
+{
+
+    this->downloader =  std::make_unique< OSMDownloader>();
+    width = other.width;
+    height = other.height;
+    return *this;
+}
 CapstoneMapping::~CapstoneMapping()
 {
     // TODO Auto-generated destructor stub
     //this->mapping_surface = nullptr;
+    std::cout <<"capstone mapping destr "<< this   <<std::endl;
 }
 const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 {
@@ -65,30 +84,14 @@ Cairo::RefPtr<Cairo::Surface> CapstoneMapping::createBigMap()
     return big_surface;
 }
 
-float CapstoneMapping::getCenterLatitude() const
-{
-    return center_latitude;
-}
 
-void CapstoneMapping::setCenterLatitude(float centerLatitude )
-{
-    center_latitude = centerLatitude;
-}
-
-float CapstoneMapping::getCenterLongitude() const
-{
-    return center_longitude;
-}
-
-void CapstoneMapping::setCenterLongitude(float centerLongitude )
-{
-    center_longitude = centerLongitude;
-}
 
 double CapstoneMapping::getHeight() const
 {
     return height;
 }
+
+
 
 double CapstoneMapping::getWidth() const
 {
