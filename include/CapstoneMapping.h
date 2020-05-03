@@ -11,27 +11,24 @@
 #include <memory>
 #include <gtkmm.h>
 #include "OSMDownloader.h"
+#include "ScreenLatLonUtility.h"
 
 class CapstoneMapping {
 public:
     CapstoneMapping();
-    CapstoneMapping(double w, double h);
     ~CapstoneMapping();
     CapstoneMapping(const CapstoneMapping& other);
     CapstoneMapping &operator=(const CapstoneMapping& other);
 
-
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     Cairo::RefPtr<Cairo::Surface> createBigMap();
-    std::unique_ptr< OSMDownloader> downloader;
 
-    double getHeight() const;
-    double getWidth() const;
+    std::unique_ptr< ScreenLatLonUtility > latlon_utility ;
 
 private:
+    std::unique_ptr< OSMDownloader> downloader;
     Cairo::RefPtr<Cairo::Surface> mapping_surface;
-    double width;
-    double height;
+
 
 };
 

@@ -6,25 +6,21 @@
  */
 
 #include "CapstoneMapping.h"
-CapstoneMapping::CapstoneMapping(): width(0.0), height(0.0)
+CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
-
-}
-CapstoneMapping::CapstoneMapping(double w, double h): width(w), height(h)
-{
-    // TODO Auto-generated constructor stub
-    std::cout << "Constructing CapstoneMapping. doubles " <<this  <<std::endl;
+    latlon_utility =  std::make_unique<ScreenLatLonUtility>();
     mapping_surface =  this->createBigMap();
+
     this->downloader =  std::make_unique< OSMDownloader>();
     //mapping_surface->write_to_png("grid.png");
 }
+
 CapstoneMapping::CapstoneMapping(const CapstoneMapping &other)
 {
     std::cout << "copy Constructing CapstoneMapping." <<this  <<std::endl;
     this->downloader =  std::make_unique< OSMDownloader>();
-    width = other.width;
-    height = other.height;
+
 
 }
 
@@ -32,8 +28,7 @@ CapstoneMapping& CapstoneMapping::operator =(const CapstoneMapping &other)
 {
 
     this->downloader =  std::make_unique< OSMDownloader>();
-    width = other.width;
-    height = other.height;
+
     return *this;
 }
 CapstoneMapping::~CapstoneMapping()
@@ -49,51 +44,43 @@ const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 
 Cairo::RefPtr<Cairo::Surface> CapstoneMapping::createBigMap()
 {
-    Cairo::RefPtr<Cairo::Surface> big_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height) )  );
+    double pixel_width = this->latlon_utility->getMapPixelSize().w;
+    double pixel_height= this->latlon_utility->getMapPixelSize().h;
+    Cairo::RefPtr<Cairo::Surface> big_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(big_surface);
     // coordinates for the center of the window
     int i;
-    context ->set_line_width(2.0);
-    context ->move_to(0, 0);
+    int grid_incr = pixel_width/3;
 
+    context ->set_line_width(2.0);
+    context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
+    context ->arc(this->latlon_utility->getMapPixelCenter().x,this->latlon_utility->getMapPixelCenter().y,25.0,0.0,6.28);
+    context ->stroke();
     //Paint the background.
     context->set_source_rgba( 0.0, 0.0, 0.0, 0.1);
     context->paint();
     //Draw some horizontal lines.
     context->set_source_rgba( 0.0, 1.0, 0.0, 1.0);
-    for(i=0;i<width;i+=100)
+    for(i=0;i<pixel_width;i+=grid_incr)
       {
         context->move_to( 0.0, double(i));
-        context->line_to( width, double(i));
+        context->line_to( pixel_width, double(i));
         context->stroke();
       }
     //Draw some vertical lines.
-    for(i=0;i<height;i+=100)
+    for(i=0;i<pixel_height;i+= grid_incr)
       {
         context->move_to( double(i), 0.0);
-        context->line_to(  double(i), height);
+        context->line_to(  double(i), pixel_height);
         context->stroke();
       }
     //Outside box.
     context->set_line_width( 16.0);
     context->set_source_rgba( 1.0, 0.0, 1.0, 1.0);
-    context->rectangle( 0.0, 0.0, width, height);
+    context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
 
     context ->stroke();
     std::cout << "Creating big surface."   <<std::endl;
     return big_surface;
 }
 
-
-
-double CapstoneMapping::getHeight() const
-{
-    return height;
-}
-
-
-
-double CapstoneMapping::getWidth() const
-{
-    return width;
-}
