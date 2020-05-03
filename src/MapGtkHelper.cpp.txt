@@ -1,5 +1,0 @@
-#include "MapGtkHelper.h"
-
-//using namespace MapGtkHelper;
-
-
