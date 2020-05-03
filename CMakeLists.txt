@@ -12,10 +12,7 @@ pkg_check_modules(CAIROMM cairomm-1.0)
 pkg_check_modules(LIBCURL libcurl) 
 pkg_check_modules(XERCES xerces-c) 
 
-include_directories(${GTKMM_INCLUDE_DIRS} 
-${CAIROMM_INCLUDE_DIRS} 
-${LIBCURL_INCLUDE_DIRS} 
-${XERCES_INCLUDE_DIRS} include)
+include_directories(${GTKMM_INCLUDE_DIRS} ${CAIROMM_INCLUDE_DIRS} ${LIBCURL_INCLUDE_DIRS} ${XERCES_INCLUDE_DIRS} ./include)
 
 file(GLOB SOURCES "src/*.cpp")
 
