@@ -4,7 +4,7 @@
 #include <gtkmm.h>
 #include <cairomm/cairomm.h>
 
-#include "ScreenLatLonUtility.h"
+#include "CapstoneMappingUtility.h"
 #include"CapstoneMapping.h"
 
 //using namespace MapGtkHelper;
@@ -16,13 +16,15 @@ screen_size_t  big_map_pixel_size = capstone_mapping->latlon_utility->getMapPixe
 Cairo::RefPtr<Cairo::Surface> little_surface;
 
 bool recenter = true;
-int allocated_width;
-int allocated_height;
+screen_size_t allocated;
+//int allocated_width;
+//int allocated_height;
 
 double translateX = 0.0;
 double translateY = 0.0;
 screen_point_t pressedAt;
 screen_point_t  origin;
+
 latlon_point_t map_center;
 
 bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr);
@@ -39,7 +41,8 @@ int main (int argc, char **argv)
     std::cin>>enteredLat>>enteredLon;
     std::stringstream(enteredLat)>>map_center.latitude;
     std::stringstream(enteredLon)>>map_center.longitude;
-    std::cout <<"https://overpass-api.de/api/map?bbox="<<map_center.longitude-.025<<","<<map_center.latitude-.025 <<","<<map_center.longitude+.025<<","<<map_center.latitude+.025   <<std::endl;
+    capstone_mapping->latlon_utility->setMapLatlonCenter(map_center);
+    capstone_mapping->createBigMap();
     }
     Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "org.gtkmm.capstone_mapping");
     Glib::RefPtr<Gtk::Builder>  refBuilder = Gtk::Builder::create();
@@ -73,9 +76,16 @@ int main (int argc, char **argv)
                 pressedAt.y = button_event->y;
                 translateX = 0.0;
                 translateY = 0.0;
+
                 return true;
             }      );
-
+            map_area->signal_button_release_event().connect(
+                    [] (GdkEventButton* button_event)->bool{
+                latlon_point_t releasedAtLatlon = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(pressedAt, allocated, origin);
+                std::cout <<  releasedAtLatlon.latitude<<"  "<<releasedAtLatlon.longitude  <<std::endl;
+                std::cout << capstone_mapping->latlon_utility->getMapPixelCenter().x<<" "<<capstone_mapping->latlon_utility->getMapPixelCenter().y   <<std::endl;
+                return true;
+            }  );
 
         }//if map area
         app->run(*(main_window));
@@ -89,22 +99,28 @@ bool on_map_moved(GdkEventMotion* motion_event)
          translateX =  (motion_event->x - pressedAt.x)*-1.0;
         translateY = (motion_event->y - pressedAt.y)*-1.0;
         if(map_area){
-            double edgeX = big_map_pixel_size.w - allocated_width;
-            double edgeY = big_map_pixel_size.h - allocated_height;
+            double edgeX = big_map_pixel_size.w - allocated.w;
+            double edgeY = big_map_pixel_size.h - allocated.h;
             origin.x += translateX;
             origin.y += translateY;
             if(origin.x < 0){
-                recenter = true;
+                origin.x=0.0;
+//                recenter = true;
             }
             if(origin.y < 0){
-                recenter = true;
+                origin.y=0.0;
+//                recenter = true;
             }
             if(origin.x > edgeX){
-                recenter = true;
+                origin.x=edgeX;
+//                recenter = true;
             }
             if(origin.y > edgeY){
-                recenter = true;
+                origin.y=edgeY;
+//                recenter = true;
             }
+
+            capstone_mapping->latlon_utility->setMapPixelCenter(screen_point_t( origin.x + allocated.w/2.0,  origin.y +allocated.h/2.0  )  );
             map_area->queue_draw();
         }
     }
@@ -113,15 +129,15 @@ bool on_map_moved(GdkEventMotion* motion_event)
     return true;
 }
 bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr){
-    allocated_width = map_area->get_allocated_width();
-    allocated_height = map_area->get_allocated_height();
+    allocated.w = map_area->get_allocated_width();
+    allocated.h= map_area->get_allocated_height();
     if(recenter){
-        origin.x = big_map_pixel_size.w/2.0-allocated_width/2;
-        origin.y = big_map_pixel_size.h/2.0-allocated_height/2;
+        origin.x = big_map_pixel_size.w/2.0-allocated.w/2;
+        origin.y = big_map_pixel_size.h/2.0-allocated.h/2;
         recenter=false;
     }
 
-    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), origin.x, origin.y, double(allocated_width), double(allocated_height));
+    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), origin.x, origin.y, double(allocated.w), double(allocated.h));
     cr->set_source( little_surface, double(0), double(0));
     cr->paint();
     return false;

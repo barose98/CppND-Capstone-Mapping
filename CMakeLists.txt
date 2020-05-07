@@ -13,12 +13,13 @@ pkg_check_modules(LIBCURL libcurl)
 pkg_check_modules(XERCES xerces-c) 
 
 include_directories(${GTKMM_INCLUDE_DIRS} ${CAIROMM_INCLUDE_DIRS} ${LIBCURL_INCLUDE_DIRS} ${XERCES_INCLUDE_DIRS} ./include)
+message(${XERCES_LINK_LIBRARIES})
 
 file(GLOB SOURCES "src/*.cpp")
 
 add_executable(mapping ${SOURCES})
 
 set_property(TARGET mapping PROPERTY CXX_STANDARD 17)
-target_link_libraries(mapping ${GTKMM_LINK_LIBRARIES} stdc++fs pthread)
+target_link_libraries(mapping ${GTKMM_LINK_LIBRARIES} ${LIBCURL_LINK_LIBRARIES} ${XERCES_LINK_LIBRARIES} stdc++fs pthread)
 # TODO: Run -Werror in CI.
 target_compile_options(mapping PRIVATE -Wall -Wextra)

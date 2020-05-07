@@ -7,11 +7,11 @@
 
 #ifndef SRC_CAPSTONEMAPPING_H_
 #define SRC_CAPSTONEMAPPING_H_
+#include <CapstoneMappingUtility.h>
 #include <iostream>
 #include <memory>
 #include <gtkmm.h>
 #include "OSMDownloader.h"
-#include "ScreenLatLonUtility.h"
 
 class CapstoneMapping {
 public:
@@ -21,9 +21,9 @@ public:
     CapstoneMapping &operator=(const CapstoneMapping& other);
 
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
-    Cairo::RefPtr<Cairo::Surface> createBigMap();
+    void createBigMap();
 
-    std::unique_ptr< ScreenLatLonUtility > latlon_utility ;
+    std::unique_ptr< CapstoneMappingUtility > latlon_utility ;
 
 private:
     std::unique_ptr< OSMDownloader> downloader;

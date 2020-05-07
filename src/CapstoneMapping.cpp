@@ -9,8 +9,8 @@
 CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
-    latlon_utility =  std::make_unique<ScreenLatLonUtility>();
-    mapping_surface =  this->createBigMap();
+    latlon_utility =  std::make_unique<CapstoneMappingUtility>();
+    //mapping_surface =  this->createBigMap();
 
     this->downloader =  std::make_unique< OSMDownloader>();
     //mapping_surface->write_to_png("grid.png");
@@ -42,7 +42,7 @@ const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
     return mapping_surface;
 }
 
-Cairo::RefPtr<Cairo::Surface> CapstoneMapping::createBigMap()
+void CapstoneMapping::createBigMap()
 {
     double pixel_width = this->latlon_utility->getMapPixelSize().w;
     double pixel_height= this->latlon_utility->getMapPixelSize().h;
@@ -80,7 +80,11 @@ Cairo::RefPtr<Cairo::Surface> CapstoneMapping::createBigMap()
     context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
 
     context ->stroke();
-    std::cout << "Creating big surface."   <<std::endl;
-    return big_surface;
+
+    bounding_box_t bbox(latlon_utility->getMapLatlonCenter(),latlon_utility->getMapLatlonEdge());
+    std::cout << "Creating big surface.  "<< (this->downloader.get()  ) <<std::endl;
+    this->downloader->downloadOSMap(bbox);
+    this->mapping_surface = big_surface;
 }
+
 
