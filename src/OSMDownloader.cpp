@@ -7,11 +7,13 @@
 
 #include "OSMDownloader.h"
 
+//CapstoneMappingQueue<unsigned char> *OSMDownloader::mapping_queue = nullptr;
 
 OSMDownloader::OSMDownloader()
 {
     // TODO Auto-generated constructor stub
-    std::cout <<  "OSMD Constructor "<<this  <<std::endl;
+    std::cout <<  "OSMD Constructor "<<this<<std::endl;
+
 }
 
 OSMDownloader::~OSMDownloader()
@@ -23,13 +25,15 @@ OSMDownloader::~OSMDownloader()
 
 OSMDownloader::OSMDownloader(const OSMDownloader &other)
 {
-    std::cout <<  "OSMD copy"  <<std::endl;
+
+    std::cout <<  "OSMD copy constructor "<<this <<std::endl;
 
 }
 
 OSMDownloader& OSMDownloader::operator =(const OSMDownloader &other)
 {
-    std::cout <<  "OSMD copy assignment"  <<std::endl;
+    std::cout <<  "OSMD copy assignment "<<this  <<std::endl;
+
     return *this;
 }
 
@@ -37,9 +41,9 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
 {
     std::stringstream url_stringstream;
     url_stringstream<<OSM_URL<<box.left<<","<<box.bottom<<","<<box.right<<","<<box.top;
-    std::cout << url_stringstream.str()   <<std::endl;
+    std::cout << url_stringstream.str() <<std::endl;
 
-     CURL *conn = NULL;
+    CURL *conn = NULL;
     CURLcode code;
     curl_global_init(CURL_GLOBAL_DEFAULT);
     std::cout << "init_map_curl: "<<init_mapping_curl(conn, url_stringstream.str().c_str())   <<std::endl;
@@ -49,7 +53,7 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
         return "ERROR";
     }
     curl_easy_cleanup(conn);
-    return buffer;//url_stringstream.str();
+    return url_stringstream.str();
 
 
 }

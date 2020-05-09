@@ -31,19 +31,19 @@ struct bounding_box_t {
 struct screen_point_t{
     screen_point_t();
     screen_point_t(double x, double y);
-    double x;
-    double y;
+    double X;
+    double Y;
 };
 struct screen_size_t{
     screen_size_t();
     screen_size_t(double w,double h);
-    double w;
-    double h;
+    double width;
+    double height;
 };
 class CapstoneMappingUtility {
 public:
     CapstoneMappingUtility();
-    latlon_point_t calculateAnyLatLonPoint(screen_point_t point, screen_size_t allocated, screen_point_t offset) const;
+    latlon_point_t calculateAnyLatLonPoint(screen_point_t point, screen_point_t offset) const;
     float getMapLatlonSize() const;
     screen_point_t getMapPixelCenter() const;
     const screen_size_t& getMapPixelSize() const;

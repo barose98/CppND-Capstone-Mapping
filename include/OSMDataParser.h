@@ -14,7 +14,7 @@
 
 #include <xercesc/parsers/SAXParser.hpp>
 #include <xercesc/sax/HandlerBase.hpp>
-#include <xercesc/framework/URLInputSource.hpp>
+#include <xercesc/framework/MemBufInputSource.hpp>
 #include <xercesc/util/XMLString.hpp>
 
 #include "MappingSAXHandler.h"
@@ -23,7 +23,7 @@ class OSMDataParser {
 public:
     OSMDataParser();
     ~OSMDataParser();
-    void parseOSMXML(Cairo::RefPtr<Cairo::Context> context );
+    void parseOSMXML(std::string &buffer, Cairo::RefPtr<Cairo::Context> context );
 };
 
 #endif /* SRC_OSMDATAPARSER_H_ */

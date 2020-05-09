@@ -12,9 +12,11 @@
 
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 #include <curl/curl.h>
 
 #include "CapstoneMappingUtility.h"
+#include "CapstoneMappingQueue.h"
 
 class OSMDownloader {
 public:
@@ -30,14 +32,17 @@ public:
         if(writerData == NULL)
           return 0;
         writerData->append(data, size*nmemb);
-        std::cout <<  data;
+        std::string strdata(data);
+//        strdata.erase(strdata.begin() , std::find_if(strdata.begin() , strdata.end() , []  (int c){return !std::isspace(c);  } )  );
+
+        std::cout << strdata.length()<<"     "<<writerData->length()<<std::endl;
         return size * nmemb;
     }
-
 
     char errorBuffer[CURL_ERROR_SIZE];
     std::string buffer;
 
 };
+
 
 #endif /* OSMDOWNLOADER_H_ */

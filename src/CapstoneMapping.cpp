@@ -10,8 +10,7 @@ CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
     latlon_utility =  std::make_unique<CapstoneMappingUtility>();
-    //mapping_surface =  this->createBigMap();
-
+    this->mapping_queue = std::make_shared<CapstoneMappingQueue<unsigned char>>();
     this->downloader =  std::make_unique< OSMDownloader>();
     //mapping_surface->write_to_png("grid.png");
 }
@@ -44,17 +43,23 @@ const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 
 void CapstoneMapping::createBigMap()
 {
-    double pixel_width = this->latlon_utility->getMapPixelSize().w;
-    double pixel_height= this->latlon_utility->getMapPixelSize().h;
-    Cairo::RefPtr<Cairo::Surface> big_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
-    Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(big_surface);
+    bounding_box_t bbox(latlon_utility->getMapLatlonCenter(),latlon_utility->getMapLatlonEdge());
+    getting_thread = std::thread([this,  bbox](){this->downloader->downloadOSMap(bbox); } );
+//    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
+
+    std::cout << "Creating big surface.  " <<std::endl;
+    double pixel_width = this->latlon_utility->getMapPixelSize().width;
+    double pixel_height= this->latlon_utility->getMapPixelSize().height;
+
+    mapping_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
+    Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
     // coordinates for the center of the window
     int i;
     int grid_incr = pixel_width/3;
 
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
-    context ->arc(this->latlon_utility->getMapPixelCenter().x,this->latlon_utility->getMapPixelCenter().y,25.0,0.0,6.28);
+    context ->arc(this->latlon_utility->getMapPixelCenter().X,this->latlon_utility->getMapPixelCenter().Y,25.0,0.0,6.28);
     context ->stroke();
     //Paint the background.
     context->set_source_rgba( 0.0, 0.0, 0.0, 0.1);
@@ -80,11 +85,11 @@ void CapstoneMapping::createBigMap()
     context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
 
     context ->stroke();
+    std::cout <<  "finished drawing"  <<std::endl;
+//    getting_thread.join();
+    return;
 
-    bounding_box_t bbox(latlon_utility->getMapLatlonCenter(),latlon_utility->getMapLatlonEdge());
-    std::cout << "Creating big surface.  "<< (this->downloader.get()  ) <<std::endl;
-    this->downloader->downloadOSMap(bbox);
-    this->mapping_surface = big_surface;
+    //this->mapping_surface = big_surface;
 }
 
 

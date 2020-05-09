@@ -43,6 +43,7 @@ int main (int argc, char **argv)
     std::stringstream(enteredLon)>>map_center.longitude;
     capstone_mapping->latlon_utility->setMapLatlonCenter(map_center);
     capstone_mapping->createBigMap();
+    std::cout <<  "finished creating"  <<std::endl;
     }
     Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "org.gtkmm.capstone_mapping");
     Glib::RefPtr<Gtk::Builder>  refBuilder = Gtk::Builder::create();
@@ -72,8 +73,8 @@ int main (int argc, char **argv)
             map_area->signal_draw().connect(sigc::ptr_fun(on_map_draw )  );
             map_area->signal_button_press_event().connect(
                     [] (GdkEventButton* button_event)->bool{
-                pressedAt.x = button_event->x;
-                pressedAt.y = button_event->y;
+                pressedAt.X = button_event->x;
+                pressedAt.Y = button_event->y;
                 translateX = 0.0;
                 translateY = 0.0;
 
@@ -81,9 +82,9 @@ int main (int argc, char **argv)
             }      );
             map_area->signal_button_release_event().connect(
                     [] (GdkEventButton* button_event)->bool{
-                latlon_point_t releasedAtLatlon = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(pressedAt, allocated, origin);
-                std::cout <<  releasedAtLatlon.latitude<<"  "<<releasedAtLatlon.longitude  <<std::endl;
-                std::cout << capstone_mapping->latlon_utility->getMapPixelCenter().x<<" "<<capstone_mapping->latlon_utility->getMapPixelCenter().y   <<std::endl;
+                latlon_point_t latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->latlon_utility->getMapPixelCenter(),  origin);
+                std::cout << latlon_center.latitude<<" "<<latlon_center.longitude   <<std::endl;
+                std::cout <<   capstone_mapping->mapping_queue.get() <<std::endl;
                 return true;
             }  );
 
@@ -91,53 +92,59 @@ int main (int argc, char **argv)
         app->run(*(main_window));
     }
     delete main_window;
+
     return 0;
 }
 bool on_map_moved(GdkEventMotion* motion_event)
 {
     if(motion_event->state & GDK_BUTTON1_MASK){
-         translateX =  (motion_event->x - pressedAt.x)*-1.0;
-        translateY = (motion_event->y - pressedAt.y)*-1.0;
+       translateX =  (motion_event->x - pressedAt.X)*-1.0;
+        translateY = (motion_event->y - pressedAt.Y)*-1.0;
         if(map_area){
-            double edgeX = big_map_pixel_size.w - allocated.w;
-            double edgeY = big_map_pixel_size.h - allocated.h;
-            origin.x += translateX;
-            origin.y += translateY;
-            if(origin.x < 0){
-                origin.x=0.0;
+            double edgeX = big_map_pixel_size.width - allocated.width;
+            double edgeY = big_map_pixel_size.height - allocated.height;
+            origin.X += translateX;
+            origin.Y += translateY;
+            if(origin.X < 0){
+                origin.X=0.0;
 //                recenter = true;
             }
-            if(origin.y < 0){
-                origin.y=0.0;
+            if(origin.Y < 0){
+                origin.Y=0.0;
 //                recenter = true;
             }
-            if(origin.x > edgeX){
-                origin.x=edgeX;
+            if(origin.X > edgeX){
+                origin.X=edgeX;
 //                recenter = true;
             }
-            if(origin.y > edgeY){
-                origin.y=edgeY;
+            if(origin.Y > edgeY){
+                origin.Y=edgeY;
 //                recenter = true;
             }
 
-            capstone_mapping->latlon_utility->setMapPixelCenter(screen_point_t( origin.x + allocated.w/2.0,  origin.y +allocated.h/2.0  )  );
+            capstone_mapping->latlon_utility->setMapPixelCenter(screen_point_t( origin.X + allocated.width/2.0,  origin.Y +allocated.height/2.0  )  );
             map_area->queue_draw();
         }
+    }else{
+        std::stringstream ss;
+        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(screen_point_t(motion_event->x , motion_event->y) , origin);
+        ss<<current.latitude<<" "<<current.longitude;
+        map_area->set_tooltip_text(ss.str().c_str());
     }
-    pressedAt.x = motion_event->x;
-    pressedAt.y = motion_event->y;
+    pressedAt.X = motion_event->x;
+    pressedAt.Y = motion_event->y;
     return true;
 }
 bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr){
-    allocated.w = map_area->get_allocated_width();
-    allocated.h= map_area->get_allocated_height();
+    allocated.width = map_area->get_allocated_width();
+    allocated.height= map_area->get_allocated_height();
     if(recenter){
-        origin.x = big_map_pixel_size.w/2.0-allocated.w/2;
-        origin.y = big_map_pixel_size.h/2.0-allocated.h/2;
+        origin.X = big_map_pixel_size.width/2.0-allocated.width/2;
+        origin.Y = big_map_pixel_size.height/2.0-allocated.height/2;
         recenter=false;
     }
 
-    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), origin.x, origin.y, double(allocated.w), double(allocated.h));
+    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), origin.X, origin.Y, double(allocated.width), double(allocated.height));
     cr->set_source( little_surface, double(0), double(0));
     cr->paint();
     return false;

@@ -18,11 +18,12 @@ OSMDataParser::~OSMDataParser()
     // TODO Auto-generated destructor stub
 }
 
-void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Context> context)
+void OSMDataParser::parseOSMXML(std::string &buffer, Cairo::RefPtr<Cairo::Context> context)
 {
 
     std::cout << "osm data parse"  <<std::endl;
     xercesc::SAXParser* parser = new xercesc::SAXParser();
+//    xercesc::MemBufInputSource source = new  xercesc::MemBufInputSource()
     try {
         xercesc::XMLPlatformUtils::Initialize();
     }
