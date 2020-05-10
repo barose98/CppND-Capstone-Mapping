@@ -70,7 +70,7 @@ int main (int argc, char **argv)
             }      );
             map_area->signal_button_release_event().connect(
                     [] (GdkEventButton* button_event)->bool{
-                latlon_point_t latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->screen_utility->getMapPixelCenter(),  capstone_mapping->screen_utility->getOrigin());
+                latlon_point_t latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->screen_utility->getMapPixelCenter(), capstone_mapping->screen_utility->getMapPixelCenter(),  capstone_mapping->screen_utility->getOrigin());
                 std::cout << latlon_center.latitude<<" "<<latlon_center.longitude   <<std::endl;
 
                 return true;
@@ -93,7 +93,7 @@ bool on_map_moved(GdkEventMotion* motion_event)
         }
     }else{
         std::stringstream ss;
-        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(screen_point_t(motion_event->x , motion_event->y) , capstone_mapping->screen_utility->getOrigin());
+        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(screen_point_t(motion_event->x , motion_event->y) , capstone_mapping->screen_utility->getMapPixelCenter(),capstone_mapping->screen_utility->getOrigin());
         ss<<current.latitude<<" "<<current.longitude;
         map_area->set_tooltip_text(ss.str().c_str());
     }

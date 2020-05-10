@@ -12,7 +12,7 @@
 
 class LatLonUtility {
 public:
-    latlon_point_t calculateAnyLatLonPoint(screen_point_t point, screen_point_t offset) const;
+    latlon_point_t calculateAnyLatLonPoint(screen_point_t point,  screen_point_t mapPixelCenter,screen_point_t offset) const;
     float getMapLatlonSize() const;
     float getMapLatlonEdge() const;
     latlon_point_t getMapLatlonCenter() const;
