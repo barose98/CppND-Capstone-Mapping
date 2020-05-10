@@ -10,29 +10,14 @@ CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
     latlon_utility =  std::make_unique<CapstoneMappingUtility>();
-    this->mapping_queue = std::make_shared<CapstoneMappingQueue<unsigned char>>();
-    this->downloader =  std::make_unique< OSMDownloader>();
+    this->mapping_queue = std::make_shared<CapstoneMappingQueue<char*>>();
+    this->downloader =  std::make_unique< OSMDownloader>(mapping_queue.get());
+
     //mapping_surface->write_to_png("grid.png");
 }
 
-CapstoneMapping::CapstoneMapping(const CapstoneMapping &other)
-{
-    std::cout << "copy Constructing CapstoneMapping." <<this  <<std::endl;
-    this->downloader =  std::make_unique< OSMDownloader>();
-
-
-}
-
-CapstoneMapping& CapstoneMapping::operator =(const CapstoneMapping &other)
-{
-
-    this->downloader =  std::make_unique< OSMDownloader>();
-
-    return *this;
-}
 CapstoneMapping::~CapstoneMapping()
 {
-    // TODO Auto-generated destructor stub
     //this->mapping_surface = nullptr;
     std::cout <<"capstone mapping destr "<< this   <<std::endl;
 }

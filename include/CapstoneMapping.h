@@ -21,13 +21,13 @@ class CapstoneMapping {
 public:
     CapstoneMapping();
     ~CapstoneMapping();
-    CapstoneMapping(const CapstoneMapping& other);
-    CapstoneMapping &operator=(const CapstoneMapping& other);
+//    CapstoneMapping(const CapstoneMapping& other);
+//    CapstoneMapping &operator=(const CapstoneMapping& other);
 
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     void createBigMap();
 
-    std::shared_ptr<CapstoneMappingQueue<unsigned char>> mapping_queue;
+    std::shared_ptr<CapstoneMappingQueue<char*>> mapping_queue;
     std::unique_ptr< CapstoneMappingUtility> latlon_utility ;
     std::unique_ptr< OSMDownloader> downloader;
 

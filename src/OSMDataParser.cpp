@@ -9,13 +9,13 @@
 
 OSMDataParser::OSMDataParser()
 {
-    // TODO Auto-generated constructor stub
+    //
 
 }
 
 OSMDataParser::~OSMDataParser()
 {
-    // TODO Auto-generated destructor stub
+    //
 }
 
 void OSMDataParser::parseOSMXML(std::string &buffer, Cairo::RefPtr<Cairo::Context> context)

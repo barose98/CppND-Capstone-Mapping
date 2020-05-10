@@ -19,8 +19,8 @@ template <class T>
 class CapstoneMappingQueue {
 public:
 //    CapstoneMappingQueue();
-    void write(T msg, int num);
-    T read();
+    void push(T msg, int num);
+    T pull();
     int getTotalSize();
 private:
     std::mutex _mutex;

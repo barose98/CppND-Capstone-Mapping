@@ -1,5 +1,4 @@
-/*
- * OSMDownloader.cpp
+/** OSMDownloader.cpp
  *
  *  Created on: Apr 30, 2020
  *      Author: roseba
@@ -7,18 +6,18 @@
 
 #include "OSMDownloader.h"
 
-//CapstoneMappingQueue<unsigned char> *OSMDownloader::mapping_queue = nullptr;
+//std::shared_ptr<CapstoneMappingQueue<char*>> OSMDownloader::mapping_queue = std::make_shared<CapstoneMappingQueue< char*>>();
 
-OSMDownloader::OSMDownloader()
+OSMDownloader::OSMDownloader(CapstoneMappingQueue<char*> *queue)
 {
-    // TODO Auto-generated constructor stub
-    std::cout <<  "OSMD Constructor "<<this<<std::endl;
 
+    std::cout <<  "OSMD Constructor "<<this<<std::endl;
+    mapping_queue = std::shared_ptr<CapstoneMappingQueue< char*>>(queue);
 }
 
 OSMDownloader::~OSMDownloader()
 {
-    // TODO Auto-generated destructor stub
+
     std::cout <<  "OSMD Destructor "<<this  <<std::endl;
 }
 
@@ -27,14 +26,22 @@ OSMDownloader::OSMDownloader(const OSMDownloader &other)
 {
 
     std::cout <<  "OSMD copy constructor "<<this <<std::endl;
-
+    mapping_queue = other.mapping_queue;
 }
 
 OSMDownloader& OSMDownloader::operator =(const OSMDownloader &other)
 {
     std::cout <<  "OSMD copy assignment "<<this  <<std::endl;
-
+    mapping_queue = other.mapping_queue;
     return *this;
+}
+int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  void  *writerData){
+    if(writerData == NULL)
+      return 0;
+
+    CapstoneMappingQueue<char*> *queue =(CapstoneMappingQueue<char*>*)writerData;
+//    queue->push(data, size*nmemb);
+    return size * nmemb;
 }
 
 std::string OSMDownloader::downloadOSMap(bounding_box_t box)
@@ -86,7 +93,7 @@ bool OSMDownloader::init_mapping_curl(CURL *&conn, const char *url)
         std::cerr <<  "setting writer callback option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, &buffer);
+    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, (void *)mapping_queue.get()  );
     if(code != CURLE_OK){
         std::cerr <<  "setting write data option failed"  <<std::endl;
         return false;
