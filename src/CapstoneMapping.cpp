@@ -9,9 +9,21 @@
 CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
-    latlon_utility =  std::make_unique<CapstoneMappingUtility>();
-    this->mapping_queue = std::make_shared<CapstoneMappingQueue<char*>>();
-    this->downloader =  std::make_unique< OSMDownloader>(mapping_queue.get());
+
+
+    latlon_utility =  std::make_unique<LatLonUtility>();
+    screen_utility =  std::make_unique<ScreenUtility>();
+    this->mapping_queue = std::make_shared<CapstoneMappingQueue<unsigned char>>();
+    this->downloader =  std::make_unique< OSMDownloader>();
+    //mapping_surface->write_to_png("grid.png");
+}
+
+CapstoneMapping::CapstoneMapping(const CapstoneMapping &other)
+{
+    std::cout << "copy Constructing CapstoneMapping." <<this  <<std::endl;
+    this->downloader =  std::make_unique< OSMDownloader>();
+
+>>>>>>> encapsule
 
     //mapping_surface->write_to_png("grid.png");
 }
@@ -33,8 +45,8 @@ void CapstoneMapping::createBigMap()
 //    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
 
     std::cout << "Creating big surface.  " <<std::endl;
-    double pixel_width = this->latlon_utility->getMapPixelSize().width;
-    double pixel_height= this->latlon_utility->getMapPixelSize().height;
+    double pixel_width = this->screen_utility->getMapPixelSize().width;
+    double pixel_height= this->screen_utility->getMapPixelSize().height;
 
     mapping_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
@@ -44,7 +56,7 @@ void CapstoneMapping::createBigMap()
 
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
-    context ->arc(this->latlon_utility->getMapPixelCenter().X,this->latlon_utility->getMapPixelCenter().Y,25.0,0.0,6.28);
+    context ->arc(this->screen_utility->getMapPixelCenter().X,this->screen_utility->getMapPixelCenter().Y,25.0,0.0,6.28);
     context ->stroke();
     //Paint the background.
     context->set_source_rgba( 0.0, 0.0, 0.0, 0.1);
