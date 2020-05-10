@@ -11,7 +11,7 @@
 #include <iostream>
 #include <memory>
 #include <thread>
-#include <future>
+#include <string>
 #include <gtkmm.h>
 #include "OSMDownloader.h"
  #include "CapstoneMappingQueue.h"
@@ -29,7 +29,7 @@ public:
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     void createBigMap();
 
-    std::shared_ptr<CapstoneMappingQueue<unsigned char>> mapping_queue;
+    std::shared_ptr<CapstoneMappingQueue<std::string>> mapping_queue;
     std::unique_ptr< LatLonUtility> latlon_utility ;
     std::unique_ptr< ScreenUtility> screen_utility ;
     std::unique_ptr< OSMDownloader> downloader;

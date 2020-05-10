@@ -21,9 +21,9 @@
 
 class OSMDownloader {
 public:
-    std::shared_ptr<CapstoneMappingQueue< char*>> mapping_queue;
+    std::shared_ptr<CapstoneMappingQueue< std::string>> mapping_queue;
 
-    OSMDownloader(CapstoneMappingQueue<char*> *queue);
+    OSMDownloader();
     ~OSMDownloader();
     OSMDownloader(const OSMDownloader &other);
     OSMDownloader &operator=(const OSMDownloader &other);
