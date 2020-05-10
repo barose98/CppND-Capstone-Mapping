@@ -75,3 +75,15 @@ void ScreenUtility::setRecenter(bool recenter )
 {
     this->recenter = recenter;
 }
+const screen_size_t& ScreenUtility::getMapPixelSize() const
+{
+    return map_pixel_size;
+}
+screen_point_t ScreenUtility::getMapPixelCenter() const
+{
+    return map_pixel_center;
+}
+void ScreenUtility::setMapPixelCenter(const screen_point_t mapPixelCenter)
+{
+    map_pixel_center = mapPixelCenter;
+}

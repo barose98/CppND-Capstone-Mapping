@@ -16,6 +16,8 @@
 #include "OSMDownloader.h"
  #include "CapstoneMappingQueue.h"
 #include "CapstoneMappingUtility.h"
+#include "ScreenUtility.h"
+#include "LatLonUtility.h"
 
 class CapstoneMapping {
 public:
@@ -28,7 +30,8 @@ public:
     void createBigMap();
 
     std::shared_ptr<CapstoneMappingQueue<unsigned char>> mapping_queue;
-    std::unique_ptr< CapstoneMappingUtility> latlon_utility ;
+    std::unique_ptr< LatLonUtility> latlon_utility ;
+    std::unique_ptr< ScreenUtility> screen_utility ;
     std::unique_ptr< OSMDownloader> downloader;
 
 private:

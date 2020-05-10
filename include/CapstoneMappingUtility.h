@@ -43,22 +43,6 @@ struct screen_size_t{
 class CapstoneMappingUtility {
 public:
     CapstoneMappingUtility();
-    latlon_point_t calculateAnyLatLonPoint(screen_point_t point, screen_point_t offset) const;
-    float getMapLatlonSize() const;
-    screen_point_t getMapPixelCenter() const;
-    const screen_size_t& getMapPixelSize() const;
-    float getMapLatlonEdge() const;
-    latlon_point_t getMapLatlonCenter() const;
-    void setMapLatlonCenter(latlon_point_t mapLatlonCenter);
-    void setMapPixelCenter(const screen_point_t mapPixelCenter);
-
-private:
-   screen_size_t map_pixel_size;
-   screen_point_t map_pixel_center = screen_point_t(MAP_PIXEL_SIZE/2.0,MAP_PIXEL_SIZE/2.0);;
-    float map_latlon_size;
-    float map_latlon_edge;
-    latlon_point_t map_latlon_center;
-
 };
 
 #endif /* SRC_SCREENLATLONUTILITY_H_ */

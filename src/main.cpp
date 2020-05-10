@@ -5,10 +5,9 @@
 #include <cairomm/cairomm.h>
 
 #include "CapstoneMappingUtility.h"
-#include "ScreenUtility.h"
 #include"CapstoneMapping.h"
 
-ScreenUtility screen_util;
+//ScreenUtility screen_util;
 
 Gtk::Window* main_window ;
 Gtk::DrawingArea* map_area ;
@@ -65,13 +64,13 @@ int main (int argc, char **argv)
                 screen_point_t pressedAt;
                 pressedAt.X = button_event->x;
                 pressedAt.Y = button_event->y;
-                screen_util.setPressedAt(pressedAt);
+                capstone_mapping->screen_utility->setPressedAt(pressedAt);
 
                 return true;
             }      );
             map_area->signal_button_release_event().connect(
                     [] (GdkEventButton* button_event)->bool{
-                latlon_point_t latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->latlon_utility->getMapPixelCenter(),  screen_util.getOrigin());
+                latlon_point_t latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->screen_utility->getMapPixelCenter(),  capstone_mapping->screen_utility->getOrigin());
                 std::cout << latlon_center.latitude<<" "<<latlon_center.longitude   <<std::endl;
 
                 return true;
@@ -87,38 +86,38 @@ int main (int argc, char **argv)
 bool on_map_moved(GdkEventMotion* motion_event)
 {
     if(motion_event->state & GDK_BUTTON1_MASK){
-        screen_util.moveOrigin(motion_event->x, motion_event->y);
+        capstone_mapping->screen_utility->moveOrigin(motion_event->x, motion_event->y);
         if(map_area){
-            capstone_mapping->latlon_utility->setMapPixelCenter(screen_point_t( screen_util.getOrigin().X + screen_util.getAllocated().width/2.0,  screen_util.getOrigin().Y +screen_util.getAllocated().height/2.0  )  );
+            capstone_mapping->screen_utility->setMapPixelCenter(screen_point_t( capstone_mapping->screen_utility->getOrigin().X + capstone_mapping->screen_utility->getAllocated().width/2.0,  capstone_mapping->screen_utility->getOrigin().Y +capstone_mapping->screen_utility->getAllocated().height/2.0  )  );
             map_area->queue_draw();
         }
     }else{
         std::stringstream ss;
-        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(screen_point_t(motion_event->x , motion_event->y) , screen_util.getOrigin());
+        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(screen_point_t(motion_event->x , motion_event->y) , capstone_mapping->screen_utility->getOrigin());
         ss<<current.latitude<<" "<<current.longitude;
         map_area->set_tooltip_text(ss.str().c_str());
     }
     screen_point_t pressedAt;
     pressedAt.X = motion_event->x;
     pressedAt.Y = motion_event->y;
-    screen_util.setPressedAt(pressedAt);
+    capstone_mapping->screen_utility->setPressedAt(pressedAt);
     return true;
 }
 bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr){
     screen_size_t allocated;
     allocated.width = map_area->get_allocated_width();
     allocated.height= map_area->get_allocated_height();
-    screen_util.setAllocated(allocated);
-    if(screen_util.isRecenter()){
+    capstone_mapping->screen_utility->setAllocated(allocated);
+    if(capstone_mapping->screen_utility->isRecenter()){
         screen_point_t origin;
-        screen_size_t  big_map_pixel_size = capstone_mapping->latlon_utility->getMapPixelSize();
-        origin.X = big_map_pixel_size.width/2.0-screen_util.getAllocated().width/2;
-        origin.Y = big_map_pixel_size.height/2.0-screen_util.getAllocated().height/2;
-        screen_util.setOrigin(origin);
-        screen_util.setRecenter(false);
+        screen_size_t  big_map_pixel_size = capstone_mapping->screen_utility->getMapPixelSize();
+        origin.X = big_map_pixel_size.width/2.0-capstone_mapping->screen_utility->getAllocated().width/2;
+        origin.Y = big_map_pixel_size.height/2.0-capstone_mapping->screen_utility->getAllocated().height/2;
+        capstone_mapping->screen_utility->setOrigin(origin);
+        capstone_mapping->screen_utility->setRecenter(false);
     }
     Cairo::RefPtr<Cairo::Surface> little_surface;
-    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), screen_util.getOrigin().X, screen_util.getOrigin().Y, double(allocated.width), double(allocated.height));
+    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), capstone_mapping->screen_utility->getOrigin().X, capstone_mapping->screen_utility->getOrigin().Y, double(allocated.width), double(allocated.height));
     cr->set_source( little_surface, double(0), double(0));
     cr->paint();
     return false;
