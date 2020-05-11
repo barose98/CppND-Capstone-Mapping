@@ -16,7 +16,7 @@
 #include <algorithm>
 #include <curl/curl.h>
 
-#include "CapstoneMappingUtility.h"
+#include <MappingStructs.h>
 #include "CapstoneMappingQueue.h"
 
 class OSMDownloader {

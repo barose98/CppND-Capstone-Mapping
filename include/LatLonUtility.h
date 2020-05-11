@@ -7,8 +7,8 @@
 
 #ifndef SRC_LATLONUTILITY_H_
 #define SRC_LATLONUTILITY_H_
+#include <MappingStructs.h>
 #include <cmath>
-#include "CapstoneMappingUtility.h"
 
 class LatLonUtility {
 public:

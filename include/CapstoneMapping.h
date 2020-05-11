@@ -13,9 +13,9 @@
 #include <thread>
 #include <string>
 #include <gtkmm.h>
+#include <MappingStructs.h>
 #include "OSMDownloader.h"
  #include "CapstoneMappingQueue.h"
-#include "CapstoneMappingUtility.h"
 #include "ScreenUtility.h"
 #include "LatLonUtility.h"
 

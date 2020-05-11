@@ -4,14 +4,7 @@
  *  Created on: May 1, 2020
  *      Author: roseba
  */
-#include <CapstoneMappingUtility.h>
-
-
-CapstoneMappingUtility::CapstoneMappingUtility()//:map_pixel_size(pixelSize),map_latlon_size(latlonSize)
-{
-    std::cout << "SLLU Constructor "   <<std::endl;
-}
-
+#include <MappingStructs.h>
 
 latlon_point_t::latlon_point_t():latitude(0.0),longitude(0.0)
 {

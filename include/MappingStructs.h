@@ -12,9 +12,6 @@
 #define MAP_LATLON_SIZE 0.025
  #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
 
-#include <iostream>
-#include <memory>
-
 struct latlon_point_t{
     latlon_point_t();
     latlon_point_t(float latitude,float longitude);
@@ -40,9 +37,6 @@ struct screen_size_t{
     double width;
     double height;
 };
-class CapstoneMappingUtility {
-public:
-    CapstoneMappingUtility();
-};
+
 
 #endif /* SRC_SCREENLATLONUTILITY_H_ */

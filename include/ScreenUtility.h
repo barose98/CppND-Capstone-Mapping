@@ -8,8 +8,8 @@
 #ifndef SRC_SCREENUTILITY_H_
 #define SRC_SCREENUTILITY_H_
 
+#include <MappingStructs.h>
 #include <iostream>
-#include "CapstoneMappingUtility.h"
 
 class ScreenUtility {
 public:

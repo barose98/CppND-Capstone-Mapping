@@ -3,8 +3,8 @@
 #include <memory>
 #include <gtkmm.h>
 #include <cairomm/cairomm.h>
+#include <MappingStructs.h>
 
-#include "CapstoneMappingUtility.h"
 #include"CapstoneMapping.h"
 
 //ScreenUtility screen_util;
@@ -70,8 +70,9 @@ int main (int argc, char **argv)
             }      );
             map_area->signal_button_release_event().connect(
                     [] (GdkEventButton* button_event)->bool{
-                latlon_point_t latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->screen_utility->getMapPixelCenter(), capstone_mapping->screen_utility->getMapPixelCenter(),  capstone_mapping->screen_utility->getOrigin());
-                std::cout << latlon_center.latitude<<" "<<latlon_center.longitude   <<std::endl;
+                latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->screen_utility->getMapPixelCenter(), capstone_mapping->screen_utility->getMapPixelCenter(),  capstone_mapping->screen_utility->getOrigin());
+                capstone_mapping->latlon_utility->setMapLatlonCenter(current_latlon_center);
+                std::cout << current_latlon_center.latitude<<" "<<current_latlon_center.longitude   <<std::endl;
 
                 return true;
             }  );

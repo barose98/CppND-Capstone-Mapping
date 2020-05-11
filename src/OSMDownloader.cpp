@@ -93,7 +93,7 @@ bool OSMDownloader::init_mapping_curl(CURL *&conn, const char *url)
         std::cerr <<  "setting writer callback option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, (void *)mapping_queue.get()  );
+    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, (void *)&buffer );
     if(code != CURLE_OK){
         std::cerr <<  "setting write data option failed"  <<std::endl;
         return false;
