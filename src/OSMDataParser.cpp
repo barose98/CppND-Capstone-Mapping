@@ -7,21 +7,28 @@
 
 #include "OSMDataParser.h"
 
-OSMDataParser::OSMDataParser()
+OSMDataParser::OSMDataParser(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): parser_queue(queue)
 {
     //
-
+    std::cout <<  "OSM Parser Constructor "<<this<<std::endl;
 }
 
 OSMDataParser::~OSMDataParser()
 {
-    //
+    std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
 }
 
-void OSMDataParser::parseOSMXML(std::string &buffer, Cairo::RefPtr<Cairo::Context> context)
+void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Context> context)
 {
 
-    std::cout << "osm data parse"  <<std::endl;
+    std::cout << "osm data parse "  <<std::endl;
+    std::string this_chunk;
+    do{
+        this_chunk = parser_queue->pull();
+
+    }while( this_chunk.substr(this_chunk.length()-7 , 6 )  != "</osm>");
+
+    std::cout <<  "Done Parsing" <<std::endl;
     xercesc::SAXParser* parser = new xercesc::SAXParser();
 //    xercesc::MemBufInputSource source = new  xercesc::MemBufInputSource()
     try {

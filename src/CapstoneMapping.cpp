@@ -6,6 +6,7 @@
  */
 
 #include "CapstoneMapping.h"
+
 CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
@@ -13,7 +14,8 @@ CapstoneMapping::CapstoneMapping()
     latlon_utility =  std::make_unique<LatLonUtility>();
     screen_utility =  std::make_unique<ScreenUtility>();
     this->mapping_queue = std::make_shared<CapstoneMappingQueue<std::string>>();
-    this->downloader =  std::make_unique< OSMDownloader>();
+    this->downloader =  std::make_unique< OSMDownloader>(mapping_queue);
+    this->parser =  std::make_unique< OSMDataParser>(mapping_queue);
     //mapping_surface->write_to_png("grid.png");
 }
 
@@ -32,7 +34,9 @@ void CapstoneMapping::createBigMap()
 {
     bounding_box_t bbox(latlon_utility->getMapLatlonCenter(),latlon_utility->getMapLatlonEdge());
     getting_thread = std::thread([this,  bbox](){this->downloader->downloadOSMap(bbox); } );
+
 //    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
+
 
     std::cout << "Creating big surface.  " <<std::endl;
     double pixel_width = this->screen_utility->getMapPixelSize().width;
@@ -46,7 +50,7 @@ void CapstoneMapping::createBigMap()
 
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
-    context ->arc(this->screen_utility->getMapPixelCenter().X,this->screen_utility->getMapPixelCenter().Y,25.0,0.0,6.28);
+    context ->arc(this->screen_utility->getMapPixelCenter().X,this->screen_utility->getMapPixelCenter().Y,25.0,0.0,2.0*M_PI);
     context ->stroke();
     //Paint the background.
     context->set_source_rgba( 0.0, 0.0, 0.0, 0.1);
@@ -72,8 +76,9 @@ void CapstoneMapping::createBigMap()
     context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
 
     context ->stroke();
+    parsing_thread = std::thread([this, context](){this->parser->parseOSMXML(context) ; } );
     std::cout <<  "finished drawing"  <<std::endl;
-//    getting_thread.join();
+
     return;
 
     //this->mapping_surface = big_surface;

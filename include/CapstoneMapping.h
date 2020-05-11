@@ -15,6 +15,7 @@
 #include <gtkmm.h>
 #include <MappingStructs.h>
 #include "OSMDownloader.h"
+#include "OSMDataParser.h"
  #include "CapstoneMappingQueue.h"
 #include "ScreenUtility.h"
 #include "LatLonUtility.h"
@@ -33,9 +34,12 @@ public:
     std::unique_ptr< LatLonUtility> latlon_utility ;
     std::unique_ptr< ScreenUtility> screen_utility ;
     std::unique_ptr< OSMDownloader> downloader;
+    std::unique_ptr<OSMDataParser> parser;
+    std::thread getting_thread;
+    std::thread parsing_thread;
 
 private:
-    std::thread getting_thread;
+
     Cairo::RefPtr<Cairo::Surface> mapping_surface;
 
 

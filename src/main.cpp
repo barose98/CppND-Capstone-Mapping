@@ -81,7 +81,8 @@ int main (int argc, char **argv)
         app->run(*(main_window));
     }
     delete main_window;
-
+    capstone_mapping->getting_thread.detach();
+    capstone_mapping->parsing_thread.detach();
     return 0;
 }
 bool on_map_moved(GdkEventMotion* motion_event)

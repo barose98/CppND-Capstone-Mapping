@@ -8,7 +8,7 @@
 
 //std::shared_ptr<CapstoneMappingQueue<char*>> OSMDownloader::mapping_queue = std::make_shared<CapstoneMappingQueue< char*>>();
 
-OSMDownloader::OSMDownloader()
+OSMDownloader::OSMDownloader(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): downloader_queue(queue)
 {
 
     std::cout <<  "OSMD Constructor "<<this<<std::endl;
@@ -21,26 +21,12 @@ OSMDownloader::~OSMDownloader()
     std::cout <<  "OSMD Destructor "<<this  <<std::endl;
 }
 
-
-OSMDownloader::OSMDownloader(const OSMDownloader &other)
-{
-
-    std::cout <<  "OSMD copy constructor "<<this <<std::endl;
-    mapping_queue = other.mapping_queue;
-}
-
-OSMDownloader& OSMDownloader::operator =(const OSMDownloader &other)
-{
-    std::cout <<  "OSMD copy assignment "<<this  <<std::endl;
-    mapping_queue = other.mapping_queue;
-    return *this;
-}
-int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  void  *writerData){
+int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<CapstoneMappingQueue< std::string>>  *writerData){
     if(writerData == NULL)
       return 0;
-
-    CapstoneMappingQueue<char*> *queue =(CapstoneMappingQueue<char*>*)writerData;
-//    queue->push(data, size*nmemb);
+    std::shared_ptr<CapstoneMappingQueue< std::string>> queue =(std::shared_ptr<CapstoneMappingQueue< std::string>>)*writerData;
+//    std::cout <<  std::string(data)  <<std::endl;
+    queue->push(std::string(data), size*nmemb);
     return size * nmemb;
 }
 
@@ -93,7 +79,7 @@ bool OSMDownloader::init_mapping_curl(CURL *&conn, const char *url)
         std::cerr <<  "setting writer callback option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, (void *)&buffer );
+    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, (void *)&downloader_queue);
     if(code != CURLE_OK){
         std::cerr <<  "setting write data option failed"  <<std::endl;
         return false;
