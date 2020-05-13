@@ -8,7 +8,7 @@
 #ifndef OSMDOWNLOADER_H_
 #define OSMDOWNLOADER_H_
 
- #define OSM_URL "https://overpass-api.de/api/map?bbox="
+ #define OSM_URL "https://overpass-api.de/api/interpreter"
 
 #include <memory>
 #include <iostream>
@@ -29,9 +29,11 @@ public:
     bool init_mapping_curl(CURL *&conn, const char *url);
 
     static int osm_map_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<CapstoneMappingQueue< std::string>> *writerData);
+    static int osm_header_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<CapstoneMappingQueue< std::string>> *writerData);
 
 private:
     std::shared_ptr<CapstoneMappingQueue< std::string>> downloader_queue;
+    std::chrono::time_point<std::chrono::system_clock> downloadStarted;
     char errorBuffer[CURL_ERROR_SIZE];
     std::string buffer;
 

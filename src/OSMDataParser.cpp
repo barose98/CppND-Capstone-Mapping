@@ -10,7 +10,7 @@
 OSMDataParser::OSMDataParser(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): parser_queue(queue)
 {
     //
-    std::cout <<  "OSM Parser Constructor "<<this<<std::endl;
+    std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
 }
 
 OSMDataParser::~OSMDataParser()
@@ -20,54 +20,20 @@ OSMDataParser::~OSMDataParser()
 
 void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Context> context)
 {
+    std::cout << "osm data parse"  <<std::endl;
+    //XML_Parser parser = XML_ParserCreate(NULL);
 
-    std::cout << "osm data parse "  <<std::endl;
-    std::string this_chunk;
-    do{
-        this_chunk = parser_queue->pull();
-
-    }while( this_chunk.substr(this_chunk.length()-7 , 6 )  != "</osm>");
-
-    std::cout <<  "Done Parsing" <<std::endl;
-    xercesc::SAXParser* parser = new xercesc::SAXParser();
-//    xercesc::MemBufInputSource source = new  xercesc::MemBufInputSource()
-    try {
-        xercesc::XMLPlatformUtils::Initialize();
-    }
-    catch (const  xercesc::XMLException& exception) {
-        char* message =  xercesc::XMLString::transcode(exception.getMessage());
-        std::cerr <<  message  <<std::endl;
+    std::string xml_data = "";
+    do{//(parser_queue->hasMoreData()){
+        xml_data+= parser_queue->pull() ;
+        std::cout << ".";
+    }while( !xml_data.empty() && xml_data.substr(xml_data.length()-7 , 6 )  != "</osm>");
 
 
-    }
-    MappingSAXHandler *mapping_handler = new MappingSAXHandler();
-    xercesc::ErrorHandler *mapping_error_handler = ( xercesc::ErrorHandler*)mapping_handler;
-    parser->setDocumentHandler(mapping_handler);
-    parser->setErrorHandler(mapping_error_handler);
 
-/*    try{
-        parser->parse(src);
-    }
-    catch (const  xercesc::XMLException& toCatch) {
-         char* message =  xercesc::XMLString::transcode(toCatch.getMessage());
-         std::cerr << message   <<std::endl;
-         xercesc::XMLString::release(&message);
-
-     }
-     catch (const  xercesc::SAXParseException& toCatch) {
-         char* message =  xercesc::XMLString::transcode(toCatch.getMessage());
-         std::cerr <<  message  <<std::endl;
-         xercesc::XMLString::release(&message);
-
-     }
-     catch (...) {
-         std::cerr << "Unexpected Exception \n" ;
-
-     }*/
-    delete parser;
-    delete mapping_handler;
+    std::cout <<  "Drawing" <<std::endl;
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
-//    context ->arc(this->latlon_utility->getMapPixelCenter().x,this->latlon_utility->getMapPixelCenter().y,25.0,0.0,6.28);
+
     context ->stroke();
 }

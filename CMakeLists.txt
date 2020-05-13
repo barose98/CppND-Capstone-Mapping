@@ -10,16 +10,16 @@ find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0) 
 pkg_check_modules(CAIROMM cairomm-1.0) 
 pkg_check_modules(LIBCURL libcurl) 
-pkg_check_modules(XERCES xerces-c) 
+pkg_check_modules(EXPAT expat) 
 
-include_directories(${GTKMM_INCLUDE_DIRS} ${CAIROMM_INCLUDE_DIRS} ${LIBCURL_INCLUDE_DIRS} ${XERCES_INCLUDE_DIRS} ./include)
-message(${XERCES_LINK_LIBRARIES})
+include_directories(${GTKMM_INCLUDE_DIRS} ${CAIROMM_INCLUDE_DIRS} ${LIBCURL_INCLUDE_DIRS} ${EXPAT_INCLUDE_DIRS} ./include)
 
 file(GLOB SOURCES "src/*.cpp")
 
 add_executable(mapping ${SOURCES})
+configure_file("capstone-mapping.glade" "capstone-mapping.glade"  COPYONLY)
 
 set_property(TARGET mapping PROPERTY CXX_STANDARD 17)
-target_link_libraries(mapping ${GTKMM_LINK_LIBRARIES} ${LIBCURL_LINK_LIBRARIES} ${XERCES_LINK_LIBRARIES} stdc++fs pthread)
+target_link_libraries(mapping ${GTKMM_LINK_LIBRARIES} ${LIBCURL_LINK_LIBRARIES} ${EXPAT_LINK_LIBRARIES} stdc++fs pthread)
 # TODO: Run -Werror in CI.
 target_compile_options(mapping PRIVATE -Wall -Wextra)

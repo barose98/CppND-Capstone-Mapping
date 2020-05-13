@@ -37,7 +37,7 @@ int main (int argc, char **argv)
     Glib::RefPtr<Gtk::Builder>  refBuilder = Gtk::Builder::create();
 
     try    {
-        refBuilder->add_from_file("../capstone-mapping.glade");
+        refBuilder->add_from_file("./capstone-mapping.glade");
     }
     catch(const Glib::FileError& ex)    {
         std::cerr << "FileError: " << ex.what() << std::endl;

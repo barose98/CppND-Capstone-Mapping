@@ -11,12 +11,7 @@
 #include <memory>
 #include <gtkmm.h>
 
-#include <xercesc/parsers/SAXParser.hpp>
-#include <xercesc/sax/HandlerBase.hpp>
-#include <xercesc/framework/MemBufInputSource.hpp>
-#include <xercesc/util/XMLString.hpp>
-
-#include "MappingSAXHandler.h"
+#include <expat.h>
 #include "CapstoneMappingQueue.h"
 
 class OSMDataParser {

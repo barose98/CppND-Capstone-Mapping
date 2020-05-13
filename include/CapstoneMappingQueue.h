@@ -21,13 +21,13 @@ class CapstoneMappingQueue {
 public:
     CapstoneMappingQueue();
     ~CapstoneMappingQueue();
-    void push(T msg, int num);
+    void push(T msg);
     T pull();
-    int getTotalSize();
+    bool hasMoreData();
 private:
     std::mutex _mutex;
     std::condition_variable _cond;
-    std::deque<T> _xml_chunks;
+    std::deque<T> xml_chunks;
     int total_size;
 };
 
@@ -44,12 +44,11 @@ inline CapstoneMappingQueue<T>::~CapstoneMappingQueue()
 }
 
 template<class T>
- void CapstoneMappingQueue<T>::push(T data, int num)
+ void CapstoneMappingQueue<T>::push(T data)
 {
     // perform vector modification under the lock
     std::lock_guard<std::mutex> uLock(_mutex);
-    _xml_chunks.push_back(std::move(data));
-    total_size += num;
+    xml_chunks.push_back(std::move(data));
     _cond.notify_one();
 }
 
@@ -58,21 +57,20 @@ inline T CapstoneMappingQueue<T>::pull()
 {
     // perform queue modification under the lock
     std::unique_lock<std::mutex> uLock(_mutex);
-    _cond.wait(uLock, [this] { return !_xml_chunks.empty(); }); // pass unique lock to condition variable
+    _cond.wait(uLock, [this] { return !xml_chunks.empty(); }); // pass unique lock to condition variable
 
     // remove last vector element from queue
-    T msg = std::move(_xml_chunks.front());
-    _xml_chunks.pop_front();
+    T msg = std::move(xml_chunks.front());
+    xml_chunks.pop_front();
     total_size -= sizeof(msg);
-    //std::cout <<  total_size  <<std::endl;
 
     return msg; // will not be copied due to return value optimization (RVO) in C++
 }
 
 template<class T>
-inline int CapstoneMappingQueue<T>::getTotalSize()
+inline bool CapstoneMappingQueue<T>::hasMoreData()
 {
-    return total_size;
+    return xml_chunks.empty() ;
 }
 
 #endif /* SRC_CAPSTONEMAPPINGQUEUE_H_ */
