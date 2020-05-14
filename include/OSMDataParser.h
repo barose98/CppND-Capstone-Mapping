@@ -18,7 +18,7 @@ class OSMDataParser {
 public:
     OSMDataParser(std::shared_ptr<CapstoneMappingQueue<std::string>> queue);
     ~OSMDataParser();
-    void parseOSMXML(Cairo::RefPtr<Cairo::Context> context );
+    void parseOSMXML(Cairo::RefPtr<Cairo::Surface> mapping_surface);
 private:
     std::shared_ptr<CapstoneMappingQueue< std::string>> parser_queue;
 };

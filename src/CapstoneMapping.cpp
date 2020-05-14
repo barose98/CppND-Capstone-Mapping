@@ -32,51 +32,25 @@ const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 
 void CapstoneMapping::createBigMap()
 {
-    bounding_box_t bbox(latlon_utility->getMapLatlonCenter(),latlon_utility->getMapLatlonEdge());
+    bounding_box_t bbox(latlon_utility->getBigMapLatlonOrigin(),latlon_utility->getBigMapLatlonEdge());
     getting_thread = std::thread([this,  bbox](){this->downloader->downloadOSMap(bbox); } );
 
 //    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
 
 
     std::cout << "Creating big surface.  " <<std::endl;
-    double pixel_width = this->screen_utility->getMapPixelSize().width;
-    double pixel_height= this->screen_utility->getMapPixelSize().height;
+    double pixel_width = this->screen_utility->getBigMapPixelSize().width;
+    double pixel_height= this->screen_utility->getBigMapPixelSize().height;
 
     mapping_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
-    // coordinates for the center of the window
-    int i;
-    int grid_incr = pixel_width/3;
 
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
-    context ->arc(this->screen_utility->getMapPixelCenter().X,this->screen_utility->getMapPixelCenter().Y,25.0,0.0,2.0*M_PI);
+    context ->arc(this->screen_utility->getBigMapPixelCenter().X,this->screen_utility->getBigMapPixelCenter().Y,25.0,0.0,2.0*M_PI);
     context ->stroke();
-    //Paint the background.
-    context->set_source_rgba( 0.0, 0.0, 0.0, 0.1);
-    context->paint();
-    //Draw some horizontal lines.
-    context->set_source_rgba( 0.0, 1.0, 0.0, 1.0);
-    for(i=0;i<pixel_width;i+=grid_incr)
-      {
-        context->move_to( 0.0, double(i));
-        context->line_to( pixel_width, double(i));
-        context->stroke();
-      }
-    //Draw some vertical lines.
-    for(i=0;i<pixel_height;i+= grid_incr)
-      {
-        context->move_to( double(i), 0.0);
-        context->line_to(  double(i), pixel_height);
-        context->stroke();
-      }
-    //Outside box.
-    context->set_line_width( 16.0);
-    context->set_source_rgba( 1.0, 0.0, 1.0, 1.0);
-    context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
 
-    context ->stroke();
-    parsing_thread = std::thread([this, context](){this->parser->parseOSMXML(context) ; } );
+    parsing_thread = std::thread([this](){this->parser->parseOSMXML(mapping_surface) ; } );
     std::cout <<  "finished drawing"  <<std::endl;
 
     return;
@@ -85,3 +59,11 @@ void CapstoneMapping::createBigMap()
 }
 
 
+void CapstoneMapping::setInitialBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter)
+{
+//    Store the LatLon origin here.
+    latlon_point_t origin;
+    origin.latitude = bigMapLatlonCenter.latitude - latlon_utility->getBigMapLatlonEdge()/2;
+    origin.longitude = bigMapLatlonCenter.longitude - latlon_utility->getBigMapLatlonEdge()/2;
+    latlon_utility->setBigMapLatlonOrigin(origin);
+}

@@ -38,7 +38,7 @@ int OSMDownloader::osm_header_writer(char *data,  size_t size,  size_t nmemb,  s
 std::string OSMDownloader::downloadOSMap(bounding_box_t box)
 {
     std::stringstream url_stringstream;
-    url_stringstream<<OSM_URL<<"?data=way("<<box.bottom<<","<<box.left<<","<<box.top<<","<<box.right<<");(._;>;);out;";
+    url_stringstream<<OSM_URL<<"?data=way("<<box.south<<","<<box.west<<","<<box.north<<","<<box.eastt<<");(._;>;);out;";
 
     std::cout << url_stringstream.str() <<std::endl;
     downloadStarted  = std::chrono::system_clock::now();

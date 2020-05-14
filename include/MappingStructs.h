@@ -11,6 +11,7 @@
 #define MAP_PIXEL_SIZE 2500.0
 #define MAP_LATLON_SIZE 0.025
  #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
+#define PIXELS_PER_DEGREE MAP_PIXEL_SIZE / MAP_LATLON_SIZE
 
 struct latlon_point_t{
     latlon_point_t();
@@ -19,11 +20,11 @@ struct latlon_point_t{
     float longitude;
 };
 struct bounding_box_t {
-    bounding_box_t(latlon_point_t center, float edge);
-    float left;
-    float top;
-    float right;
-    float bottom;
+    bounding_box_t(latlon_point_t origin, float edge);
+    float west;
+    float north;
+    float eastt;
+    float south;
 } ;
 struct screen_point_t{
     screen_point_t();

@@ -24,12 +24,10 @@ class CapstoneMapping {
 public:
     CapstoneMapping();
     ~CapstoneMapping();
-//    CapstoneMapping(const CapstoneMapping& other);
-//    CapstoneMapping &operator=(const CapstoneMapping& other);
 
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     void createBigMap();
-
+    void setInitialBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter);
     std::shared_ptr<CapstoneMappingQueue<std::string>> mapping_queue;
     std::unique_ptr< LatLonUtility> latlon_utility ;
     std::unique_ptr< ScreenUtility> screen_utility ;
@@ -41,7 +39,6 @@ public:
 private:
 
     Cairo::RefPtr<Cairo::Surface> mapping_surface;
-
 
 };
 

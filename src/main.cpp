@@ -29,7 +29,7 @@ int main (int argc, char **argv)
     std::stringstream(enteredLat)>>latlon_center.latitude;
     std::stringstream(enteredLon)>>latlon_center.longitude;
     }
-    capstone_mapping->latlon_utility->setMapLatlonCenter(latlon_center);
+    capstone_mapping->setInitialBigMapLatlonCenter(latlon_center);
     capstone_mapping->createBigMap();
     std::cout <<  "finished creating"  <<std::endl;
 
@@ -70,8 +70,11 @@ int main (int argc, char **argv)
             }      );
             map_area->signal_button_release_event().connect(
                     [] (GdkEventButton* button_event)->bool{
-                latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(capstone_mapping->screen_utility->getMapPixelCenter(), capstone_mapping->screen_utility->getMapPixelCenter(),  capstone_mapping->screen_utility->getOrigin());
-                capstone_mapping->latlon_utility->setMapLatlonCenter(current_latlon_center);
+                screen_point_t bigMapReleased;
+                bigMapReleased.X = capstone_mapping->screen_utility->getOffset().X +button_event->x;
+                bigMapReleased.Y = capstone_mapping->screen_utility->getOffset().Y +button_event->y;
+                latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(bigMapReleased);
+                capstone_mapping->latlon_utility->setLittleMapLatlonCenter(current_latlon_center);
                 std::cout << current_latlon_center.latitude<<" "<<current_latlon_center.longitude   <<std::endl;
 
                 return true;
@@ -88,14 +91,17 @@ int main (int argc, char **argv)
 bool on_map_moved(GdkEventMotion* motion_event)
 {
     if(motion_event->state & GDK_BUTTON1_MASK){
-        capstone_mapping->screen_utility->moveOrigin(motion_event->x, motion_event->y);
+        capstone_mapping->screen_utility->moveOffset(motion_event->x, motion_event->y);
         if(map_area){
-            capstone_mapping->screen_utility->setMapPixelCenter(screen_point_t( capstone_mapping->screen_utility->getOrigin().X + capstone_mapping->screen_utility->getAllocated().width/2.0,  capstone_mapping->screen_utility->getOrigin().Y +capstone_mapping->screen_utility->getAllocated().height/2.0  )  );
+            //capstone_mapping->screen_utility->setBigMapPixelCenter(screen_point_t( capstone_mapping->screen_utility->getOffset().X + capstone_mapping->screen_utility->getAllocated().width/2.0,  capstone_mapping->screen_utility->getOffset().Y +capstone_mapping->screen_utility->getAllocated().height/2.0  )  );
             map_area->queue_draw();
         }
     }else{
         std::stringstream ss;
-        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(screen_point_t(motion_event->x , motion_event->y) , capstone_mapping->screen_utility->getMapPixelCenter(),capstone_mapping->screen_utility->getOrigin());
+        screen_point_t bigMapMoved;
+        bigMapMoved.X = capstone_mapping->screen_utility->getOffset().X +motion_event->x;
+        bigMapMoved.Y = capstone_mapping->screen_utility->getOffset().Y +motion_event->y;
+        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(bigMapMoved);
         ss<<current.latitude<<" "<<current.longitude;
         map_area->set_tooltip_text(ss.str().c_str());
     }
@@ -111,15 +117,15 @@ bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr){
     allocated.height= map_area->get_allocated_height();
     capstone_mapping->screen_utility->setAllocated(allocated);
     if(capstone_mapping->screen_utility->isRecenter()){
-        screen_point_t origin;
-        screen_size_t  big_map_pixel_size = capstone_mapping->screen_utility->getMapPixelSize();
-        origin.X = big_map_pixel_size.width/2.0-capstone_mapping->screen_utility->getAllocated().width/2;
-        origin.Y = big_map_pixel_size.height/2.0-capstone_mapping->screen_utility->getAllocated().height/2;
-        capstone_mapping->screen_utility->setOrigin(origin);
+        screen_point_t offset;
+        screen_size_t  big_map_pixel_size = capstone_mapping->screen_utility->getBigMapPixelSize();
+        offset.X = big_map_pixel_size.width/2.0-capstone_mapping->screen_utility->getAllocated().width/2;
+        offset.Y = big_map_pixel_size.height/2.0-capstone_mapping->screen_utility->getAllocated().height/2;
+        capstone_mapping->screen_utility->setOffset(offset);
         capstone_mapping->screen_utility->setRecenter(false);
     }
     Cairo::RefPtr<Cairo::Surface> little_surface;
-    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), capstone_mapping->screen_utility->getOrigin().X, capstone_mapping->screen_utility->getOrigin().Y, double(allocated.width), double(allocated.height));
+    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), capstone_mapping->screen_utility->getOffset().X, capstone_mapping->screen_utility->getOffset().Y, double(allocated.width), double(allocated.height));
     cr->set_source( little_surface, double(0), double(0));
     cr->paint();
     return false;

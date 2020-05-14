@@ -7,63 +7,63 @@
 
 #include "ScreenUtility.h"
 
-const screen_point_t& ScreenUtility::getPressedAt() const
+const screen_point_t ScreenUtility::getPressedAt() const
 {
     return pressedAt;
 }
 
-void ScreenUtility::setPressedAt(const screen_point_t &pressedAt)
+void ScreenUtility::setPressedAt(const screen_point_t pressedAt)
 {
     this->pressedAt = pressedAt;
 }
 
-void ScreenUtility::moveOrigin(double xDelta, double yDelta)
+void ScreenUtility::moveOffset(double xDelta, double yDelta)
 {
     double translateX =  (xDelta - pressedAt.X)*-1.0;
      double translateY = (yDelta - pressedAt.Y)*-1.0;
 
          double edgeX =MAP_PIXEL_SIZE - allocated.width;
          double edgeY = MAP_PIXEL_SIZE - allocated.height;
-         origin.X += translateX;
-         origin.Y += translateY;
-         if(origin.X < 0){
-             origin.X=0.0;
+         offset.X += translateX;
+         offset.Y += translateY;
+         if(offset.X < 0){
+             offset.X=0.0;
 //                recenter = true;
          }
-         if(origin.Y < 0){
-             origin.Y=0.0;
+         if(offset.Y < 0){
+             offset.Y=0.0;
 //                recenter = true;
          }
-         if(origin.X > edgeX){
-             origin.X=edgeX;
+         if(offset.X > edgeX){
+             offset.X=edgeX;
 //                recenter = true;
          }
-         if(origin.Y > edgeY){
-             origin.Y=edgeY;
+         if(offset.Y > edgeY){
+             offset.Y=edgeY;
 //                recenter = true;
          }
 
 
 }
 
-const screen_size_t& ScreenUtility::getAllocated() const
+const screen_size_t ScreenUtility::getAllocated() const
 {
     return allocated;
 }
 
-void ScreenUtility::setAllocated(const screen_size_t &allocated)
+void ScreenUtility::setAllocated(const screen_size_t allocated)
 {
     this->allocated = allocated;
 }
 
-const screen_point_t& ScreenUtility::getOrigin() const
+const screen_point_t ScreenUtility::getOffset() const
 {
-    return origin;
+    return offset;
 }
 
-void ScreenUtility::setOrigin(const screen_point_t &origin)
+void ScreenUtility::setOffset(const screen_point_t origin)
 {
-    this->origin = origin;
+    this->offset = origin;
 }
 
 bool ScreenUtility::isRecenter() const
@@ -75,15 +75,12 @@ void ScreenUtility::setRecenter(bool recenter )
 {
     this->recenter = recenter;
 }
-const screen_size_t& ScreenUtility::getMapPixelSize() const
+const screen_size_t ScreenUtility::getBigMapPixelSize() const
 {
-    return map_pixel_size;
+    return screen_size_t(MAP_PIXEL_SIZE,MAP_PIXEL_SIZE);
 }
-screen_point_t ScreenUtility::getMapPixelCenter() const
+screen_point_t ScreenUtility::getBigMapPixelCenter() const
 {
-    return map_pixel_center;
+    return screen_point_t(MAP_PIXEL_SIZE/2,MAP_PIXEL_SIZE/2);
 }
-void ScreenUtility::setMapPixelCenter(const screen_point_t mapPixelCenter)
-{
-    map_pixel_center = mapPixelCenter;
-}
+
