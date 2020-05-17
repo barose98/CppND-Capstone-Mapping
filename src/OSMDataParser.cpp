@@ -18,17 +18,55 @@ OSMDataParser::~OSMDataParser()
     std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
 }
 
-void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Surface> mapping_surface)
+void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Surface> &mapping_surface, std::stringstream &xml_data){
+    std::cout << "osm data parse "  <<std::endl;
+
+    auto  startElement = [](void *userData, const XML_Char *name, const XML_Char **atts)
+            {
+        struct ParserStruct *state = (struct ParserStruct *) userData;
+        state->tags++;
+        state->depth++;
+        std::cout <<  name  <<std::endl;
+        /* Get a clean slate for reading in character data. */
+        delete state->characters.memory;
+        state->characters.memory = NULL;
+        state->characters.size = 0;
+            };
+
+    auto endElement = [](void *userData, const XML_Char *name){
+      struct ParserStruct *state = (struct ParserStruct *) userData;
+      state->depth--;
+    };
+    ParserStruct *state = new ParserStruct();
+    state->ok =1;
+    XML_Parser parser = XML_ParserCreateNS(NULL, '\0');
+    XML_SetUserData(parser, state);
+    XML_SetElementHandler(parser, startElement, endElement);
+    if(state->ok && XML_Parse(parser, xml_data.str().c_str(), xml_data.str().size(), 0) == 0) {
+        int error_code = XML_GetErrorCode(parser);
+        std::cerr << "ERROR PARSING"   <<std::endl;
+    }
+
+    delete state->characters.memory;
+    delete state;
+    XML_ParserFree(parser);
+}
+void OSMDataParser::receiveOSMXML(Cairo::RefPtr<Cairo::Surface> mapping_surface)
 {
-    std::cout << "osm data parse"  <<std::endl;
-    std::string xml_data = "";
-    do{//(parser_queue->hasMoreData()){
-        xml_data+= parser_queue->pull() ;
-        std::cout << ".";
-    }while( !xml_data.empty() && xml_data.substr(xml_data.length()-7 , 6 )  != "</osm>");
+    std::cout << "osm data receive "  <<std::endl;
+    std::stringstream xml_data;
+    do{
+//        std::string chunk
+        xml_data<< parser_queue->pull() ;
+        if(xml_data.str().find("<downloaderError/>") != std::string::npos){
+            std::cerr <<  xml_data.str()  <<std::endl;
+            xml_data = std::stringstream("");
+            break;
+        }
+    }while( !xml_data.str().empty() && xml_data.str().substr(xml_data.str().length()-7 , 6 )  != "</osm>");
 
-
-
+    if(!xml_data.str().empty())
+        parseOSMXML(mapping_surface, xml_data);
     std::cout <<  "Drawing" <<std::endl;
     //Paint the background.
 

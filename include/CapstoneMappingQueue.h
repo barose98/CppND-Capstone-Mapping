@@ -60,11 +60,10 @@ inline T CapstoneMappingQueue<T>::pull()
     _cond.wait(uLock, [this] { return !xml_chunks.empty(); }); // pass unique lock to condition variable
 
     // remove last vector element from queue
-    T msg = std::move(xml_chunks.front());
+    T chunk = std::move(xml_chunks.front());
     xml_chunks.pop_front();
-    total_size -= sizeof(msg);
 
-    return msg; // will not be copied due to return value optimization (RVO) in C++
+    return chunk; // will not be copied due to return value optimization (RVO) in C++
 }
 
 template<class T>

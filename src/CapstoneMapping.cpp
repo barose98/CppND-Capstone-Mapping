@@ -34,28 +34,23 @@ void CapstoneMapping::createBigMap()
 {
     bounding_box_t bbox(latlon_utility->getBigMapLatlonOrigin(),latlon_utility->getBigMapLatlonEdge());
     getting_thread = std::thread([this,  bbox](){this->downloader->downloadOSMap(bbox); } );
-
 //    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
 
-
-    std::cout << "Creating big surface.  " <<std::endl;
     double pixel_width = this->screen_utility->getBigMapPixelSize().width;
     double pixel_height= this->screen_utility->getBigMapPixelSize().height;
 
     mapping_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
+    std::cout << "Creating big surface.  "<<mapping_surface.refcount_() <<std::endl;
 
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
     context ->arc(this->screen_utility->getBigMapPixelCenter().X,this->screen_utility->getBigMapPixelCenter().Y,25.0,0.0,2.0*M_PI);
     context ->stroke();
 
-    parsing_thread = std::thread([this](){this->parser->parseOSMXML(mapping_surface) ; } );
+    parsing_thread = std::thread([this](){this->parser->receiveOSMXML(mapping_surface) ; } );
     std::cout <<  "finished drawing"  <<std::endl;
 
-    return;
-
-    //this->mapping_surface = big_surface;
 }
 
 

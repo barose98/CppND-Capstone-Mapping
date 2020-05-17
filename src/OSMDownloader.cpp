@@ -29,9 +29,10 @@ int OSMDownloader::osm_header_writer(char *data,  size_t size,  size_t nmemb,  s
     int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<CapstoneMappingQueue< std::string>>  *writerData){
     if(writerData == NULL)
       return 0;
+    std::string chunk = std::string(data);
     std::shared_ptr<CapstoneMappingQueue< std::string>> queue =(std::shared_ptr<CapstoneMappingQueue< std::string>>)*writerData;
-//    std::cout <<  std::string(data)  <<std::endl;
-    queue->push(std::string(data));
+    //std::cout <<  size<< " "<<nmemb<<" "<<chunk.length()<<std::endl;
+    queue->push(chunk);
     return size * nmemb;
 }
 
@@ -45,10 +46,15 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
     CURL *conn = NULL;
     CURLcode code;
     curl_global_init(CURL_GLOBAL_DEFAULT);
-    std::cout << "init_map_curl: "<<init_mapping_curl(conn, url_stringstream.str().c_str())   <<std::endl;
+    if(!init_mapping_curl(conn, url_stringstream.str().c_str()) )
+    {
+    std::cout << "init_map_curl failed "  <<std::endl;
+    downloader_queue->push("<downloaderError/>");
+    }
     code = curl_easy_perform(conn);
     if(code != CURLE_OK){
         std::cerr <<  "getting OSM map failed: "<<code  <<std::endl;
+        downloader_queue->push("<downloaderError/>");
         return "ERROR";
     }
     long timeSinceDownloadStarted= std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - downloadStarted).count();
