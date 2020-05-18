@@ -15,7 +15,8 @@ CapstoneMapping::CapstoneMapping()
     screen_utility =  std::make_shared<ScreenUtility>();
     this->mapping_queue = std::make_shared<CapstoneMappingQueue<std::string>>();
     this->downloader =  std::make_unique< OSMDownloader>(mapping_queue);
-    this->parser =  std::make_unique< OSMDataParser>(latlon_utility, screen_utility, mapping_queue);
+    this->parser =  std::make_unique< OSMDataParser>( mapping_queue);
+    this->drawer =  std::make_shared< MappingCairoDrawer>(mapping_surface, latlon_utility, screen_utility);
     //mapping_surface->write_to_png("grid.png");
 }
 
@@ -43,12 +44,14 @@ void CapstoneMapping::createBigMap()
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
     std::cout << "Creating big surface.  "<<mapping_surface.refcount_() <<std::endl;
 
+    this->drawer->setMappingSurface(mapping_surface);
+
     context ->set_line_width(2.0);
     context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
     context ->arc(this->screen_utility->getBigMapPixelCenter().X,this->screen_utility->getBigMapPixelCenter().Y,25.0,0.0,2.0*M_PI);
     context ->stroke();
 
-    parsing_thread = std::thread([this](){this->parser->receiveOSMXML(mapping_surface) ; } );
+    parsing_thread = std::thread([this](){this->parser->receiveOSMXML(this->drawer) ; } );
     std::cout <<  "finished drawing"  <<std::endl;
 
 }

@@ -8,10 +8,13 @@
 #ifndef SRC_CAPSTONEMAPPINGUTILITY_H_
 #define SRC_CAPSTONEMAPPINGUTILITY_H_
 
-#define MAP_PIXEL_SIZE 2500.0
+#include <memory>
+
+#define MAP_PIXEL_SIZE 5000.0
 #define MAP_LATLON_SIZE 0.025
  #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
 #define PIXELS_PER_DEGREE MAP_PIXEL_SIZE / MAP_LATLON_SIZE
+
 
 struct latlon_point_t{
     latlon_point_t();
@@ -39,5 +42,9 @@ struct screen_size_t{
     double height;
 };
 
+struct NodeStruct{
+    std::string id;
+    latlon_point_t point;
+};
 
 #endif /* SRC_SCREENLATLONUTILITY_H_ */

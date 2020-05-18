@@ -14,6 +14,7 @@
 #include <string>
 #include <gtkmm.h>
 #include <MappingStructs.h>
+#include "MappingCairoDrawer.h"
 #include "OSMDownloader.h"
 #include "OSMDataParser.h"
  #include "CapstoneMappingQueue.h"
@@ -33,11 +34,11 @@ public:
     std::shared_ptr< ScreenUtility> screen_utility ;
     std::unique_ptr< OSMDownloader> downloader;
     std::unique_ptr<OSMDataParser> parser;
+    std::shared_ptr<MappingCairoDrawer> drawer;
     std::thread getting_thread;
     std::thread parsing_thread;
 
 private:
-
     Cairo::RefPtr<Cairo::Surface> mapping_surface;
 
 };
