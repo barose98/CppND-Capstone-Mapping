@@ -11,11 +11,11 @@ CapstoneMapping::CapstoneMapping()
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
 
-    latlon_utility =  std::make_unique<LatLonUtility>();
-    screen_utility =  std::make_unique<ScreenUtility>();
+    latlon_utility =  std::make_shared<LatLonUtility>();
+    screen_utility =  std::make_shared<ScreenUtility>();
     this->mapping_queue = std::make_shared<CapstoneMappingQueue<std::string>>();
     this->downloader =  std::make_unique< OSMDownloader>(mapping_queue);
-    this->parser =  std::make_unique< OSMDataParser>(mapping_queue);
+    this->parser =  std::make_unique< OSMDataParser>(latlon_utility, screen_utility, mapping_queue);
     //mapping_surface->write_to_png("grid.png");
 }
 

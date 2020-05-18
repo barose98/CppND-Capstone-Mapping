@@ -13,7 +13,7 @@
 
 class ScreenUtility {
 public:
-    latlon_point_t calculateAnyScreenPoint(latlon_point_t big_query_point) const;
+    screen_point_t calculateAnyScreenPoint(latlon_point_t big_query_point) const;
     const screen_point_t getPressedAt() const;
     void setPressedAt(const screen_point_t pressedAt);
     void moveOffset(double xDelta, double yDelta);

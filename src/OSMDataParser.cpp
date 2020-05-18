@@ -7,9 +7,8 @@
 
 #include "OSMDataParser.h"
 
-OSMDataParser::OSMDataParser(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): parser_queue(queue)
+OSMDataParser::OSMDataParser(std::shared_ptr< LatLonUtility> latl_utility, std::shared_ptr<ScreenUtility>  scr_utility, std::shared_ptr<CapstoneMappingQueue<std::string>> queue): parser_queue(queue), latlon_utility(latl_utility), screen_utility(scr_utility)
 {
-    //
     std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
 }
 
@@ -21,24 +20,46 @@ OSMDataParser::~OSMDataParser()
 void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Surface> &mapping_surface, std::stringstream &xml_data){
     std::cout << "osm data parse "  <<std::endl;
 
-    auto  startElement = [](void *userData, const XML_Char *name, const XML_Char **atts)
+    auto  startElement = [](void *userData, const XML_Char *name, const XML_Char **attrs)
             {
         struct ParserStruct *state = (struct ParserStruct *) userData;
-        state->tags++;
         state->depth++;
-        std::cout <<  name  <<std::endl;
-        /* Get a clean slate for reading in character data. */
-        delete state->characters.memory;
-        state->characters.memory = NULL;
-        state->characters.size = 0;
+        if(state->depth == 2)
+            state->node_name = name;
+
+        if(state->node_name== "node"  ){
+            if(state->depth == 2){
+                NodeStruct node;
+                node.id = attrs[1];
+                node.point.latitude =std::stof(attrs[3]);
+                node.point.longitude =std::stof(attrs[5]);
+//                state->nodes.emplace_back(std::move(node));
+                latlon_point_t  diff(double(std::abs( state->latlon_utility->getBigMapLatlonOrigin().latitude -node.point.latitude )), double(std::abs(node.point.longitude) - std::abs(state->latlon_utility->getBigMapLatlonOrigin().longitude )));
+                screen_point_t screen = state->screen_utility->calculateAnyScreenPoint(diff);
+                Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(state->mapping_surface);
+                context ->set_line_width(2.0);
+                context->set_source_rgba( 0.0, 0.0, 1.0, 1.0);
+                context->arc(screen.X, screen.Y, 5.0, 0.0, 2.0*M_PI);
+                context ->stroke();
+
+            }else{
+
+            }
+
+        }
+
             };
 
-    auto endElement = [](void *userData, const XML_Char *name){
+      auto endElement = [](void *userData, const XML_Char *name){
       struct ParserStruct *state = (struct ParserStruct *) userData;
       state->depth--;
     };
+
     ParserStruct *state = new ParserStruct();
     state->ok =1;
+    state->latlon_utility = this->latlon_utility;
+    state->screen_utility = this->screen_utility;
+    state->mapping_surface = mapping_surface;
     XML_Parser parser = XML_ParserCreateNS(NULL, '\0');
     XML_SetUserData(parser, state);
     XML_SetElementHandler(parser, startElement, endElement);
@@ -47,7 +68,6 @@ void OSMDataParser::parseOSMXML(Cairo::RefPtr<Cairo::Surface> &mapping_surface, 
         std::cerr << "ERROR PARSING"   <<std::endl;
     }
 
-    delete state->characters.memory;
     delete state;
     XML_ParserFree(parser);
 }
@@ -67,11 +87,12 @@ void OSMDataParser::receiveOSMXML(Cairo::RefPtr<Cairo::Surface> mapping_surface)
 
     if(!xml_data.str().empty())
         parseOSMXML(mapping_surface, xml_data);
+
     std::cout <<  "Drawing" <<std::endl;
     //Paint the background.
 
-    int pixel_width = 5000;
-    int pixel_height = 5000;
+    int pixel_width = screen_utility->getBigMapPixelSize().width;
+    int pixel_height = screen_utility->getBigMapPixelSize().height;
     int i;
     int grid_incr = pixel_width/3;
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
@@ -99,3 +120,5 @@ void OSMDataParser::receiveOSMXML(Cairo::RefPtr<Cairo::Surface> mapping_surface)
 
     context ->stroke();
 }
+
+

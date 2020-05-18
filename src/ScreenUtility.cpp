@@ -84,3 +84,7 @@ screen_point_t ScreenUtility::getBigMapPixelCenter() const
     return screen_point_t(MAP_PIXEL_SIZE/2,MAP_PIXEL_SIZE/2);
 }
 
+screen_point_t ScreenUtility::calculateAnyScreenPoint(latlon_point_t big_query_point) const
+{
+    return screen_point_t(big_query_point.longitude * PIXELS_PER_DEGREE, big_query_point.latitude * PIXELS_PER_DEGREE);
+}

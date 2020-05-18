@@ -29,8 +29,8 @@ public:
     void createBigMap();
     void setInitialBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter);
     std::shared_ptr<CapstoneMappingQueue<std::string>> mapping_queue;
-    std::unique_ptr< LatLonUtility> latlon_utility ;
-    std::unique_ptr< ScreenUtility> screen_utility ;
+    std::shared_ptr< LatLonUtility> latlon_utility ;
+    std::shared_ptr< ScreenUtility> screen_utility ;
     std::unique_ptr< OSMDownloader> downloader;
     std::unique_ptr<OSMDataParser> parser;
     std::thread getting_thread;
