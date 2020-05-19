@@ -37,3 +37,11 @@ bounding_box_t::bounding_box_t(latlon_point_t origin,float edge)
         eastt= origin.longitude+edge;
         south= origin.latitude-edge;
 }
+
+percentage_point_t::percentage_point_t():percentX(0.0), percentY(0.0)
+{
+}
+
+percentage_point_t::percentage_point_t(float x, float y):percentX(x), percentY(y)
+{
+}

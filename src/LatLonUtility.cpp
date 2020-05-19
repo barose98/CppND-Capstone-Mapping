@@ -7,15 +7,11 @@
 
 #include "LatLonUtility.h"
 
-latlon_point_t LatLonUtility::calculateAnyLatLonPoint(screen_point_t big_query_point) const
+latlon_point_t LatLonUtility::calculateAnyLatLonPoint(percentage_point_t big_query_point) const
 {
-//    latlon_point_t offset_percent(float(offset.y/map_pixel_size.h), float(offset.x/map_pixel_size.w) );
-//    latlon_point_t little_percent(float(released.y/allocated.h),  float(released.x/allocated.w) )  ;
-//    latlon_point_t big_percent(float((offset.y + released.y) /map_pixel_size.h),  float((offset.x +released.x) /map_pixel_size.w) )  ;
-//    screen_point_t diff_pixels( double(  mapPixelCenter.X - ( big_query_point.X + offset.X) ) , double( mapPixelCenter.Y - ( big_query_point.Y + offset.Y )) );
-//    latlon_point_t latlon_diff( float(diff_pixels.Y * DEGREES_PER_PIXEL) , float(diff_pixels.X * -DEGREES_PER_PIXEL) );
-    return latlon_point_t( (big_query_point.Y * DEGREES_PER_PIXEL)+getBigMapLatlonOrigin().latitude ,
-                                            (big_query_point.X * DEGREES_PER_PIXEL)+getBigMapLatlonOrigin().longitude);
+
+    return latlon_point_t( (big_query_point.percentY * getBigMapLatlonEdge())+calculateBigMapLatlonOrigin().latitude ,
+                                            (big_query_point.percentX * getBigMapLatlonEdge())+calculateBigMapLatlonOrigin().longitude);
     }
 
     float LatLonUtility::getBigMapLatlonEdge() const
@@ -28,10 +24,18 @@ latlon_point_t LatLonUtility::calculateAnyLatLonPoint(screen_point_t big_query_p
         return MAP_LATLON_SIZE;
     }
 
-    latlon_point_t LatLonUtility::getBigMapLatlonOrigin() const
+    latlon_point_t LatLonUtility::calculateBigMapLatlonOrigin() const
     {
         return latlon_point_t(big_map_latlon_center.latitude - getBigMapLatlonEdge()/2 , big_map_latlon_center.longitude - getBigMapLatlonEdge()/2);
     }
+
+    percentage_point_t LatLonUtility::calculateAnyLatLonPercentage(latlon_point_t big_query_point) const
+{
+    latlon_point_t  diff(double(std::abs( calculateBigMapLatlonOrigin().latitude) - std::abs( big_query_point.latitude )),
+                                    double( std::abs(calculateBigMapLatlonOrigin().longitude ) - std::abs(big_query_point.longitude) ));
+    return percentage_point_t(diff.longitude / getBigMapLatlonEdge(), diff.latitude / getBigMapLatlonEdge());
+
+}
 
     void LatLonUtility::setBigMapLatlonCenter(latlon_point_t bigMapLatlonOrigin)
     {

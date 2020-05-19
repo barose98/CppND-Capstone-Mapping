@@ -84,7 +84,14 @@ screen_point_t ScreenUtility::getBigMapPixelCenter() const
     return screen_point_t(MAP_PIXEL_SIZE/2,MAP_PIXEL_SIZE/2);
 }
 
-screen_point_t ScreenUtility::calculateAnyScreenPoint(latlon_point_t big_query_point) const
+screen_point_t ScreenUtility::calculateAnyScreenPoint(percentage_point_t big_query_point) const
 {
-    return screen_point_t(big_query_point.longitude * PIXELS_PER_DEGREE, big_query_point.latitude * PIXELS_PER_DEGREE);
+    return screen_point_t(big_query_point.percentX * getBigMapPixelSize().width,
+                                            big_query_point.percentY * getBigMapPixelSize().height  );
+}
+
+percentage_point_t ScreenUtility::calculateAnyScreenPercentage(screen_point_t big_query_point) const
+{
+        return percentage_point_t(float(big_query_point.X / getBigMapPixelSize().width),
+                                                        float(big_query_point.Y / getBigMapPixelSize().height)  );
 }

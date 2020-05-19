@@ -55,14 +55,9 @@ void MappingCairoDrawer::drawGrid()
 
 void MappingCairoDrawer::drawNode(NodeStruct node)
 {
-    latlon_point_t origin = latlon_utility->getBigMapLatlonOrigin();
-    //std::cout <<  origin.latitude<<" "<<origin.longitude<<" _ "<<node.point.latitude<<" "<<node.point.longitude  <<std::endl;
-    latlon_point_t  diff(double(std::abs( origin.latitude) - std::abs( node.point.latitude )),
-                                    double( std::abs(origin.longitude ) - std::abs(node.point.longitude) ));
-//    std::cout <<diff.latitude<<" "<<diff.longitude    <<std::endl;
-    screen_point_t screen = screen_utility->calculateAnyScreenPoint(diff);
+    percentage_point_t percent = latlon_utility->calculateAnyLatLonPercentage(node.point);
+    screen_point_t screen = screen_utility->calculateAnyScreenPoint(percent);
 //    std::cout << screen.X <<" "<<screen.Y<<std::endl;
-//    std::cout <<std::endl;
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
 
     context ->set_line_width(2.0);

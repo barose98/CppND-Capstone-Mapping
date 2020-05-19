@@ -12,17 +12,18 @@
 
 class LatLonUtility {
 public:
-    latlon_point_t calculateAnyLatLonPoint(screen_point_t big_query_point) const;
+    latlon_point_t calculateAnyLatLonPoint(percentage_point_t big_query_point) const;
+    percentage_point_t calculateAnyLatLonPercentage(latlon_point_t big_query_point) const;
+    latlon_point_t calculateBigMapLatlonOrigin() const;
 
-    latlon_point_t getLittleMapLatlonCenter() const;
-    void setLittleMapLatlonCenter(latlon_point_t mapLatlonCenter);
     latlon_point_t getBigMapLatlonCenter() const;
-    float getBigMapLatlonEdge() const;
-    void setBigMapLatlonEdge(float bigMapLatlonEdge = std::sqrt(MAP_LATLON_SIZE));
-
+    latlon_point_t getLittleMapLatlonCenter() const;
     float getBigMapLatlonSize() const;
+    float getBigMapLatlonEdge() const;
+
+    void setLittleMapLatlonCenter(latlon_point_t mapLatlonCenter);
+    void setBigMapLatlonEdge(float bigMapLatlonEdge = std::sqrt(MAP_LATLON_SIZE));
     void setBigMapLatlonSize(float bigMapLatlonSize = MAP_LATLON_SIZE);
-    latlon_point_t getBigMapLatlonOrigin() const;
     void setBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter);
 
 private:

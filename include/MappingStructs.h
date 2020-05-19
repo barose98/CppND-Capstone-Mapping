@@ -13,10 +13,16 @@
 
 #define MAP_PIXEL_SIZE 5000.0
 #define MAP_LATLON_SIZE 0.025
- #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
-#define PIXELS_PER_DEGREE MAP_PIXEL_SIZE / MAP_LATLON_SIZE
+// #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
+//#define PIXELS_PER_DEGREE MAP_PIXEL_SIZE / MAP_LATLON_SIZE
 
 
+struct percentage_point_t{
+    percentage_point_t();
+    percentage_point_t(float X, float Y);
+    float percentX;
+    float percentY;
+};
 struct latlon_point_t{
     latlon_point_t();
     latlon_point_t(float latitude,float longitude);

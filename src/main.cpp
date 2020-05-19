@@ -29,7 +29,7 @@ int main (int argc, char **argv)
     std::stringstream(enteredLat)>>latlon_center.latitude;
     std::stringstream(enteredLon)>>latlon_center.longitude;
     }
-    capstone_mapping->setInitialBigMapLatlonCenter(latlon_center);
+    capstone_mapping->latlon_utility->setBigMapLatlonCenter(latlon_center);
     capstone_mapping->createBigMap();
     std::cout <<  "finished creating"  <<std::endl;
 
@@ -73,7 +73,8 @@ int main (int argc, char **argv)
                 screen_point_t bigMapReleased;
                 bigMapReleased.X = capstone_mapping->screen_utility->getOffset().X +button_event->x;
                 bigMapReleased.Y = capstone_mapping->screen_utility->getOffset().Y +button_event->y;
-                latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(bigMapReleased);
+                percentage_point_t percent = capstone_mapping->screen_utility->calculateAnyScreenPercentage(bigMapReleased);
+                latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(percent);
                 capstone_mapping->latlon_utility->setLittleMapLatlonCenter(current_latlon_center);
                 std::cout << current_latlon_center.latitude<<" "<<current_latlon_center.longitude   <<std::endl;
 
@@ -101,7 +102,8 @@ bool on_map_moved(GdkEventMotion* motion_event)
         screen_point_t bigMapMoved;
         bigMapMoved.X = capstone_mapping->screen_utility->getOffset().X +motion_event->x;
         bigMapMoved.Y = capstone_mapping->screen_utility->getOffset().Y +motion_event->y;
-        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(bigMapMoved);
+        percentage_point_t percent = capstone_mapping->screen_utility->calculateAnyScreenPercentage(bigMapMoved);
+        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(percent);
         ss<<current.latitude<<" "<<current.longitude;
         map_area->set_tooltip_text(ss.str().c_str());
     }
