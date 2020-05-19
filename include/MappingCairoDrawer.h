@@ -26,8 +26,10 @@ public:
     ~MappingCairoDrawer();
     void drawGrid();
     void drawNode(NodeStruct node);
+    void drawWay(WayStruct way);
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     void setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface);
+    std::vector<NodeStruct> nodes;
 
 private:
     Cairo::RefPtr<Cairo::Surface> mapping_surface;

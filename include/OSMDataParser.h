@@ -22,7 +22,7 @@ struct ParserStruct {
   int ok;
   std::string node_name = "";
   size_t depth;
-  std::vector<NodeStruct> nodes;
+  WayStruct currentWay;
   std::shared_ptr<MappingCairoDrawer> drawer;
 };
 

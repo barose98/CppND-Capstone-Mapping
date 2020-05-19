@@ -59,9 +59,6 @@ void CapstoneMapping::createBigMap()
 
 void CapstoneMapping::setInitialBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter)
 {
-//    Store the LatLon origin here.
-    latlon_point_t origin;
-    origin.latitude = bigMapLatlonCenter.latitude - latlon_utility->getBigMapLatlonEdge()/2;
-    origin.longitude = bigMapLatlonCenter.longitude - latlon_utility->getBigMapLatlonEdge()/2;
-    latlon_utility->setBigMapLatlonOrigin(origin);
+
+    latlon_utility->setBigMapLatlonCenter(bigMapLatlonCenter);
 }

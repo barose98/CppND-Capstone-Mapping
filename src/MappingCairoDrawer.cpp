@@ -77,6 +77,11 @@ const Cairo::RefPtr<Cairo::Surface>& MappingCairoDrawer::getMappingSurface() con
     return mapping_surface;
 }
 
+void MappingCairoDrawer::drawWay(WayStruct way)
+{
+    std::cout <<  way.nds.size()  <<std::endl;
+}
+
 void MappingCairoDrawer::setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface)
 {
     mapping_surface = mappingSurface;

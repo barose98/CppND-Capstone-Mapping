@@ -9,6 +9,7 @@
 #define SRC_CAPSTONEMAPPINGUTILITY_H_
 
 #include <memory>
+#include <vector>
 
 #define MAP_PIXEL_SIZE 5000.0
 #define MAP_LATLON_SIZE 0.025
@@ -46,5 +47,8 @@ struct NodeStruct{
     std::string id;
     latlon_point_t point;
 };
-
+struct WayStruct{
+    std::string id;
+    std::vector<std::string> nds;
+};
 #endif /* SRC_SCREENLATLONUTILITY_H_ */

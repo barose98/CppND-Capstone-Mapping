@@ -30,12 +30,12 @@ latlon_point_t LatLonUtility::calculateAnyLatLonPoint(screen_point_t big_query_p
 
     latlon_point_t LatLonUtility::getBigMapLatlonOrigin() const
     {
-        return big_map_latlon_origin;
+        return latlon_point_t(big_map_latlon_center.latitude - getBigMapLatlonEdge()/2 , big_map_latlon_center.longitude - getBigMapLatlonEdge()/2);
     }
 
-    void LatLonUtility::setBigMapLatlonOrigin(latlon_point_t bigMapLatlonOrigin)
+    void LatLonUtility::setBigMapLatlonCenter(latlon_point_t bigMapLatlonOrigin)
     {
-        big_map_latlon_origin = bigMapLatlonOrigin;
+        big_map_latlon_center = bigMapLatlonOrigin;
 }
 
 latlon_point_t LatLonUtility::getLittleMapLatlonCenter() const

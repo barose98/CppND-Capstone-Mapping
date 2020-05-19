@@ -25,17 +25,33 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
         state->depth++;
         if(state->depth == 2)
             state->node_name = name;
-
         if(state->node_name== "node"  ){
             if(state->depth == 2){
+                //the actual node
                 NodeStruct node;
                 node.id = attrs[1];
                 node.point.latitude =std::stof(attrs[3]);
                 node.point.longitude =std::stof(attrs[5]);
-
-//                state->nodes.emplace_back(std::move(node));
+                state->drawer->nodes.emplace_back(node);
                 state->drawer->drawNode(node);
             }else{
+                //tags within node
+            }
+        }else  if(state->node_name== "way"  ){
+            if(state->depth == 2){
+                //the actual way
+//                std::cout << std::endl;
+                WayStruct way;
+                way.id=attrs[1];
+                state->currentWay = way;
+                }else if(state->depth == 3){
+                    if ( std::string(name)=="nd"){
+                        state->currentWay.nds.emplace_back(attrs[1]);
+//                                        for(int i=0;attrs[i];i+=2){
+//                                            std::cout <<  attrs[i]<<"="<<attrs[i+1]  <<" ";
+//                                        }
+                    }
+
             }
         }
 
@@ -43,6 +59,9 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
 
       auto endElement = [](void *userData, const XML_Char *name){
       struct ParserStruct *state = (struct ParserStruct *) userData;
+      if ( std::string(name)=="way"){
+          state->drawer->drawWay(state->currentWay);
+      }
       state->depth--;
     };
 

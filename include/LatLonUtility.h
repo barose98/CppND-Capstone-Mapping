@@ -23,10 +23,10 @@ public:
     float getBigMapLatlonSize() const;
     void setBigMapLatlonSize(float bigMapLatlonSize = MAP_LATLON_SIZE);
     latlon_point_t getBigMapLatlonOrigin() const;
-    void setBigMapLatlonOrigin(latlon_point_t bigMapLatlonOrigin);
+    void setBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter);
 
 private:
-    latlon_point_t big_map_latlon_origin;
+    latlon_point_t big_map_latlon_center;
 };
 
 #endif /* SRC_LATLONUTILITY_H_ */
