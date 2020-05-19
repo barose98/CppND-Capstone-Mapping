@@ -33,7 +33,7 @@ const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 
 void CapstoneMapping::createBigMap()
 {
-    bounding_box_t bbox(latlon_utility->calculateBigMapLatlonOrigin(),latlon_utility->getBigMapLatlonEdge());
+    bounding_box_t bbox(latlon_utility->calculateBigMapLatlonOrigin(), latlon_utility->getBigMapLatlonEdge());
     getting_thread = std::thread([this,  bbox](){this->downloader->downloadOSMap(bbox); } );
 //    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
 

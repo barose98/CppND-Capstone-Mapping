@@ -10,6 +10,7 @@
 OSMDataParser::OSMDataParser(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): parser_queue(queue)
 {
     std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
+    state = new ParserStruct();
 }
 
 OSMDataParser::~OSMDataParser()
@@ -33,7 +34,7 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
                 node.point.latitude =std::stof(attrs[3]);
                 node.point.longitude =std::stof(attrs[5]);
                 state->drawer->nodes.emplace_back(node);
-                state->drawer->drawNode(node);
+//                state->drawer->drawNode(node);
             }else{
                 //tags within node
             }
@@ -50,8 +51,15 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
 //                                        for(int i=0;attrs[i];i+=2){
 //                                            std::cout <<  attrs[i]<<"="<<attrs[i+1]  <<" ";
 //                                        }
+                    }else{
+                        if(std::string(attrs[1]) == "waterway"){
+                            state->currentWay.water = attrs[3];
+                        }else if(std::string(attrs[1]) == "highway"){
+                        state->currentWay.highway = attrs[3];
+                    }else if(std::string(attrs[1]) == "name"){
+                        state->currentWay.name = attrs[3];
                     }
-
+                }
             }
         }
 
@@ -60,12 +68,13 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
       auto endElement = [](void *userData, const XML_Char *name){
       struct ParserStruct *state = (struct ParserStruct *) userData;
       if ( std::string(name)=="way"){
-          state->drawer->drawWay(state->currentWay);
+          state->drawer->ways.emplace_back(state->currentWay);
+//          state->drawer->drawWay(state->currentWay);
       }
       state->depth--;
     };
 
-    ParserStruct *state = new ParserStruct();
+
     state->ok =1;
     state->drawer = drawer;
 
@@ -77,7 +86,7 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
         std::cerr << "ERROR PARSING"   <<std::endl;
     }
 
-    delete state;
+
     XML_ParserFree(parser);
 }
 void OSMDataParser::receiveOSMXML(std::shared_ptr<MappingCairoDrawer> drawer)
@@ -100,6 +109,13 @@ void OSMDataParser::receiveOSMXML(std::shared_ptr<MappingCairoDrawer> drawer)
     drawer->drawGrid();
     std::cout <<  "Drawing" <<std::endl;
     //Paint the background.
+    for(WayStruct way : drawer->ways){
+        drawer->drawWay(way);
+//        if(!way.name.empty())
+//            std::cout <<  way.name  <<std::endl;
+    }
+    std::cout <<  "Finished Drawing" <<std::endl;
+    delete state;
 
 }
 

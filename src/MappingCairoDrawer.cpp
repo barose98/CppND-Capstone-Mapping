@@ -62,7 +62,7 @@ void MappingCairoDrawer::drawNode(NodeStruct node)
 
     context ->set_line_width(2.0);
     context->set_source_rgba( 0.0, 0.0, 1.0, 1.0);
-    context->arc(screen.X, screen.Y, 5.0, 0.0, 2.0*M_PI);
+    context->arc(screen.X, screen.Y, 3.0, 0.0, 2.0*M_PI);
     context ->stroke();
 
 }
@@ -72,9 +72,44 @@ const Cairo::RefPtr<Cairo::Surface>& MappingCairoDrawer::getMappingSurface() con
     return mapping_surface;
 }
 
-void MappingCairoDrawer::drawWay(WayStruct way)
+void MappingCairoDrawer::drawWay(WayStruct &way)
 {
-    std::cout <<  way.nds.size()  <<std::endl;
+    std::string front = way.nds.front();
+    NodeStruct found = *(std::find_if(nodes.begin(), nodes.end(), [front](NodeStruct other){return front == other.id;  }  )  );
+
+
+    Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
+    context ->set_line_width(2.0);
+
+    setColor(context, way);
+    percentage_point_t percent = latlon_utility->calculateAnyLatLonPercentage(found.point);
+    screen_point_t screen = screen_utility->calculateAnyScreenPoint(percent);
+    context->move_to(screen.X, screen.Y);
+    for(int i = 1; i<way.nds.size();++i){
+        NodeStruct node = *(std::find_if(nodes.begin(), nodes.end(), [i, way](NodeStruct other){return way.nds.at(i) == other.id;  }  )  );
+        percentage_point_t percent = latlon_utility->calculateAnyLatLonPercentage(node.point);
+        screen_point_t screen = screen_utility->calculateAnyScreenPoint(percent);
+        context->line_to(screen.X, screen.Y);
+    }
+    context ->stroke();
+}
+
+void MappingCairoDrawer::setColor(Cairo::RefPtr<Cairo::Context> &context, WayStruct &way)
+{
+
+    if(!way.water.empty()){
+        context->set_source_rgba( 0.0, 0.5, 1.0, 1.0);
+    }else if(!way.highway.empty()){
+/*        if(!way.name.empty() && way.name == "South Toe River Road"){
+            std::cout << way.name   <<std::endl;
+            context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
+            return;
+        }*/
+        context->set_source_rgba( 1.0, 1.0, 0.0, 1.0);
+
+    }else{
+        context->set_source_rgba( 1.0, 1.0, 1.0, 1.0);
+    }
 }
 
 void MappingCairoDrawer::setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface)

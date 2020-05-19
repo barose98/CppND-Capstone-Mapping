@@ -12,7 +12,7 @@
 #include <vector>
 
 #define MAP_PIXEL_SIZE 5000.0
-#define MAP_LATLON_SIZE 0.025
+#define MAP_LATLON_SIZE 0.0025
 // #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
 //#define PIXELS_PER_DEGREE MAP_PIXEL_SIZE / MAP_LATLON_SIZE
 
@@ -33,7 +33,7 @@ struct bounding_box_t {
     bounding_box_t(latlon_point_t origin, float edge);
     float west;
     float north;
-    float eastt;
+    float east;
     float south;
 } ;
 struct screen_point_t{
@@ -55,6 +55,9 @@ struct NodeStruct{
 };
 struct WayStruct{
     std::string id;
+    std::string water;
+    std::string highway;
+    std::string name;
     std::vector<std::string> nds;
 };
 #endif /* SRC_SCREENLATLONUTILITY_H_ */

@@ -9,6 +9,7 @@
 #define SRC_MAPPINGCAIRODRAWER_H_
 
 #include <memory>
+#include <algorithm>
 #include <gtkmm.h>
 
 #include "MappingStructs.h"
@@ -24,12 +25,14 @@ public:
             std::shared_ptr< ScreenUtility> screen_utility
     );
     ~MappingCairoDrawer();
+    void setColor(Cairo::RefPtr<Cairo::Context> &context,  WayStruct &way);
     void drawGrid();
     void drawNode(NodeStruct node);
-    void drawWay(WayStruct way);
+    void drawWay(WayStruct &way);
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     void setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface);
     std::vector<NodeStruct> nodes;
+    std::vector<WayStruct> ways;
 
 private:
     Cairo::RefPtr<Cairo::Surface> mapping_surface;

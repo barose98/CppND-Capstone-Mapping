@@ -34,7 +34,7 @@ public:
     void parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std::stringstream &xml_data);
 private:
     std::shared_ptr<CapstoneMappingQueue< std::string>> parser_queue;
-
+    ParserStruct *state;
 };
 
 #endif /* SRC_OSMDATAPARSER_H_ */

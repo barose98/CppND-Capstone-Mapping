@@ -30,12 +30,13 @@ screen_point_t::screen_point_t(double x, double y):X(x),Y(y)
 {
 }
 
-bounding_box_t::bounding_box_t(latlon_point_t origin,float edge)
+bounding_box_t::bounding_box_t(latlon_point_t origin, float edge)
 {
         west = origin.longitude;
         north= origin.latitude;
-        eastt= origin.longitude+edge;
+        east= origin.longitude+edge;
         south= origin.latitude-edge;
+
 }
 
 percentage_point_t::percentage_point_t():percentX(0.0), percentY(0.0)
