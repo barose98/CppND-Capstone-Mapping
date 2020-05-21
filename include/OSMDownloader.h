@@ -17,22 +17,22 @@
 #include <curl/curl.h>
 
 #include <MappingStructs.h>
-#include "CapstoneMappingQueue.h"
+#include <OSMDownloadQueue.h>
 
 class OSMDownloader {
 public:
 
-    OSMDownloader(std::shared_ptr<CapstoneMappingQueue<std::string>> queue);
+    OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue);
     ~OSMDownloader();
 
     std::string downloadOSMap(bounding_box_t box);
     bool init_mapping_curl(CURL *&conn, const char *url);
 
-    static int osm_map_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<CapstoneMappingQueue< std::string>> *writerData);
-    static int osm_header_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<CapstoneMappingQueue< std::string>> *writerData);
+    static int osm_map_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
+    static int osm_header_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
 
 private:
-    std::shared_ptr<CapstoneMappingQueue< std::string>> downloader_queue;
+    std::shared_ptr<OSMDownloadQueue< std::string>> downloader_queue;
     std::chrono::time_point<std::chrono::system_clock> downloadStarted;
     char errorBuffer[CURL_ERROR_SIZE];
     std::string buffer;

@@ -17,14 +17,14 @@
 #include "LatLonUtility.h"
 //#include "OSMDataParser.h"
 
-class MappingCairoDrawer {
+class CairoDrawer {
 public:
-    MappingCairoDrawer(
+    CairoDrawer(
             Cairo::RefPtr<Cairo::Surface> mapping_surface,
             std::shared_ptr< LatLonUtility> latlon_utility ,
             std::shared_ptr< ScreenUtility> screen_utility
     );
-    ~MappingCairoDrawer();
+    ~CairoDrawer();
     void setColor(Cairo::RefPtr<Cairo::Context> &context,  WayStruct &way);
     void drawGrid();
     void drawNode(NodeStruct node);

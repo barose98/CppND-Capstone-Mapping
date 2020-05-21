@@ -5,14 +5,14 @@
  *      Author: roseba
  */
 
-#include "MappingCairoDrawer.h"
+#include <CairoDrawer.h>
 
-MappingCairoDrawer::~MappingCairoDrawer()
+CairoDrawer::~CairoDrawer()
 {
     // TODO Auto-generated destructor stub
 }
 
-MappingCairoDrawer::MappingCairoDrawer(Cairo::RefPtr<Cairo::Surface> mapp_surface,
+CairoDrawer::CairoDrawer(Cairo::RefPtr<Cairo::Surface> mapp_surface,
                                                                                 std::shared_ptr<LatLonUtility> lat_utility,
                                                                                 std::shared_ptr<ScreenUtility> scre_utility):mapping_surface(mapp_surface),
                                                                                                                                                     latlon_utility(lat_utility),
@@ -20,7 +20,7 @@ MappingCairoDrawer::MappingCairoDrawer(Cairo::RefPtr<Cairo::Surface> mapp_surfac
 {
 }
 
-void MappingCairoDrawer::drawGrid()
+void CairoDrawer::drawGrid()
 {
 
     int pixel_width = screen_utility->getBigMapPixelSize().width;
@@ -48,7 +48,7 @@ void MappingCairoDrawer::drawGrid()
 
 }
 
-void MappingCairoDrawer::drawNode(NodeStruct node)
+void CairoDrawer::drawNode(NodeStruct node)
 {
     percentage_point_t percent = latlon_utility->calculateAnyLatLonPercentage(node.point);
     screen_point_t screen = screen_utility->calculateAnyScreenPoint(percent);
@@ -62,12 +62,12 @@ void MappingCairoDrawer::drawNode(NodeStruct node)
 
 }
 
-const Cairo::RefPtr<Cairo::Surface>& MappingCairoDrawer::getMappingSurface() const
+const Cairo::RefPtr<Cairo::Surface>& CairoDrawer::getMappingSurface() const
 {
     return mapping_surface;
 }
 
-void MappingCairoDrawer::drawWay(WayStruct &way)
+void CairoDrawer::drawWay(WayStruct &way)
 {
     std::string front = way.nds.front();
     NodeStruct found = *(std::find_if(nodes.begin(), nodes.end(), [front](NodeStruct other){return front == other.id;  }  )  );
@@ -95,7 +95,7 @@ void MappingCairoDrawer::drawWay(WayStruct &way)
 
 }
 
-void MappingCairoDrawer::setColor(Cairo::RefPtr<Cairo::Context> &context, WayStruct &way)
+void CairoDrawer::setColor(Cairo::RefPtr<Cairo::Context> &context, WayStruct &way)
 {
     if(!way.waterway.empty() ){
         context->set_source_rgba( 0.0, 0.5, 1.0, 1.0);
@@ -113,7 +113,7 @@ void MappingCairoDrawer::setColor(Cairo::RefPtr<Cairo::Context> &context, WayStr
     }
 }
 
-void MappingCairoDrawer::setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface)
+void CairoDrawer::setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface)
 {
     mapping_surface = mappingSurface;
 }

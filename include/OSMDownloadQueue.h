@@ -17,10 +17,10 @@
 //#include "CapstoneMappingQueue_Impl.h"
 
 template <class T>
-class CapstoneMappingQueue {
+class OSMDownloadQueue {
 public:
-    CapstoneMappingQueue();
-    ~CapstoneMappingQueue();
+    OSMDownloadQueue();
+    ~OSMDownloadQueue();
     void push(T msg);
     T pull();
     bool hasMoreData();
@@ -32,19 +32,19 @@ private:
 };
 
 template<class T>
-inline CapstoneMappingQueue<T>::CapstoneMappingQueue(): total_size(0)
+inline OSMDownloadQueue<T>::OSMDownloadQueue(): total_size(0)
 {
     std::cout <<  "Queue Constructor "<<this<<std::endl;
 }
 
 template<class T>
-inline CapstoneMappingQueue<T>::~CapstoneMappingQueue()
+inline OSMDownloadQueue<T>::~OSMDownloadQueue()
 {
     std::cout <<  "Queue Destructor "<<this<<std::endl;
 }
 
 template<class T>
- void CapstoneMappingQueue<T>::push(T data)
+ void OSMDownloadQueue<T>::push(T data)
 {
     // perform vector modification under the lock
     std::lock_guard<std::mutex> uLock(_mutex);
@@ -53,7 +53,7 @@ template<class T>
 }
 
 template<class T>
-inline T CapstoneMappingQueue<T>::pull()
+inline T OSMDownloadQueue<T>::pull()
 {
     // perform queue modification under the lock
     std::unique_lock<std::mutex> uLock(_mutex);
@@ -67,7 +67,7 @@ inline T CapstoneMappingQueue<T>::pull()
 }
 
 template<class T>
-inline bool CapstoneMappingQueue<T>::hasMoreData()
+inline bool OSMDownloadQueue<T>::hasMoreData()
 {
     return xml_chunks.empty() ;
 }

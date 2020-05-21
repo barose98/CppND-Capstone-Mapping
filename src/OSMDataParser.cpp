@@ -7,7 +7,7 @@
 
 #include "OSMDataParser.h"
 
-OSMDataParser::OSMDataParser(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): parser_queue(queue)
+OSMDataParser::OSMDataParser(std::shared_ptr<OSMDownloadQueue<std::string>> queue): parser_queue(queue)
 {
     std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
     state = new ParserStruct();
@@ -18,7 +18,7 @@ OSMDataParser::~OSMDataParser()
     std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
 }
 
-void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std::stringstream &xml_data){
+void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data){
     std::cout << "osm data parse "  <<std::endl;
     auto  startElement = [](void *userData, const XML_Char *name, const XML_Char **attrs)
             {
@@ -91,7 +91,7 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
 
     XML_ParserFree(parser);
 }
-void OSMDataParser::receiveOSMXML(std::shared_ptr<MappingCairoDrawer> drawer)
+void OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 {
     std::cout << "OSM Data Receiving"  <<std::endl;
     std::stringstream xml_data;

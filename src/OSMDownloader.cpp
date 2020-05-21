@@ -8,7 +8,7 @@
 
 //std::shared_ptr<CapstoneMappingQueue<char*>> OSMDownloader::mapping_queue = std::make_shared<CapstoneMappingQueue< char*>>();
 
-OSMDownloader::OSMDownloader(std::shared_ptr<CapstoneMappingQueue<std::string>> queue): downloader_queue(queue)
+OSMDownloader::OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue): downloader_queue(queue)
 {
 
     std::cout <<  "OSMD Constructor "<<this<<std::endl;
@@ -21,17 +21,17 @@ OSMDownloader::~OSMDownloader()
     std::cout <<  "OSMD Destructor "<<this  <<std::endl;
 }
 
-int OSMDownloader::osm_header_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<CapstoneMappingQueue< std::string>>  *writerData){
+int OSMDownloader::osm_header_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
 
     std::cout << data[1]   <<std::endl;
     return size * nmemb;
 }
 
-    int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<CapstoneMappingQueue< std::string>>  *writerData){
+    int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
     if(writerData == NULL)
       return 0;
     std::string chunk = std::string(data);
-    std::shared_ptr<CapstoneMappingQueue< std::string>> queue =(std::shared_ptr<CapstoneMappingQueue< std::string>>)*writerData;
+    std::shared_ptr<OSMDownloadQueue< std::string>> queue =(std::shared_ptr<OSMDownloadQueue< std::string>>)*writerData;
     //std::cout <<  size<< " "<<nmemb<<" "<<chunk.length()<<std::endl;
     queue->push(chunk);
     return size * nmemb;

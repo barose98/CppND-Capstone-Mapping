@@ -13,10 +13,10 @@ CapstoneMapping::CapstoneMapping()
 
     latlon_utility =  std::make_shared<LatLonUtility>();
     screen_utility =  std::make_shared<ScreenUtility>();
-    this->mapping_queue = std::make_shared<CapstoneMappingQueue<std::string>>();
+    this->mapping_queue = std::make_shared<OSMDownloadQueue<std::string>>();
     this->downloader =  std::make_unique< OSMDownloader>(mapping_queue);
     this->parser =  std::make_unique< OSMDataParser>( mapping_queue);
-    this->drawer =  std::make_shared< MappingCairoDrawer>(mapping_surface, latlon_utility, screen_utility);
+    this->drawer =  std::make_shared< CairoDrawer>(mapping_surface, latlon_utility, screen_utility);
     //mapping_surface->write_to_png("grid.png");
 }
 
