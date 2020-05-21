@@ -5,7 +5,7 @@ add_definitions(-std=c++17)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-project(Mapping)
+project(capstone-mapping)
 find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0) 
 pkg_check_modules(CAIROMM cairomm-1.0) 
@@ -16,10 +16,11 @@ include_directories(${GTKMM_INCLUDE_DIRS} ${CAIROMM_INCLUDE_DIRS} ${LIBCURL_INCL
 
 file(GLOB SOURCES "src/*.cpp")
 
-add_executable(mapping ${SOURCES})
+add_executable(capstone-mapping ${SOURCES})
+
 configure_file("capstone-mapping.glade" "capstone-mapping.glade"  COPYONLY)
 
-set_property(TARGET mapping PROPERTY CXX_STANDARD 17)
-target_link_libraries(mapping ${GTKMM_LINK_LIBRARIES} ${LIBCURL_LINK_LIBRARIES} ${EXPAT_LINK_LIBRARIES} stdc++fs pthread)
+set_property(TARGET capstone-mapping PROPERTY CXX_STANDARD 17)
+target_link_libraries(capstone-mapping ${GTKMM_LINK_LIBRARIES} ${LIBCURL_LINK_LIBRARIES} ${EXPAT_LINK_LIBRARIES} stdc++fs pthread)
 # TODO: Run -Werror in CI.
-target_compile_options(mapping PRIVATE -Wall -Wextra)
+target_compile_options(capstone-mapping PRIVATE -Wall -Wextra)

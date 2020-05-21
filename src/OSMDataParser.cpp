@@ -48,17 +48,20 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
                 }else if(state->depth == 3){
                     if ( std::string(name)=="nd"){
                         state->currentWay.nds.emplace_back(attrs[1]);
-//                                        for(int i=0;attrs[i];i+=2){
-//                                            std::cout <<  attrs[i]<<"="<<attrs[i+1]  <<" ";
-//                                        }
+
                     }else{
                         if(std::string(attrs[1]) == "waterway"){
-                            state->currentWay.water = attrs[3];
+                            state->currentWay.waterway = attrs[3];
                         }else if(std::string(attrs[1]) == "highway"){
-                        state->currentWay.highway = attrs[3];
-                    }else if(std::string(attrs[1]) == "name"){
-                        state->currentWay.name = attrs[3];
-                    }
+                            state->currentWay.highway = attrs[3];
+                        }else if(std::string(attrs[1]) == "name"){
+                            state->currentWay.name = attrs[3];
+                        }else if(std::string(attrs[1]) == "building"){
+                            state->currentWay.isBuilding = true;
+                        }else if(std::string(attrs[3]) == "water"){
+                            state->currentWay.isWater= true;
+                            state->currentWay.waterway = attrs[1];
+                        }
                 }
             }
         }
@@ -73,7 +76,6 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
       }
       state->depth--;
     };
-
 
     state->ok =1;
     state->drawer = drawer;
@@ -91,7 +93,7 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<MappingCairoDrawer> drawer, std:
 }
 void OSMDataParser::receiveOSMXML(std::shared_ptr<MappingCairoDrawer> drawer)
 {
-    std::cout << "osm data receive "  <<std::endl;
+    std::cout << "OSM Data Receiving"  <<std::endl;
     std::stringstream xml_data;
     do{
 //        std::string chunk
@@ -102,17 +104,16 @@ void OSMDataParser::receiveOSMXML(std::shared_ptr<MappingCairoDrawer> drawer)
             break;
         }
     }while( !xml_data.str().empty() && xml_data.str().substr(xml_data.str().length()-7 , 6 )  != "</osm>");
-
+    std::cout << "OSM Data Received"  <<std::endl;
     if(!xml_data.str().empty()){
+        std::cout <<  "Parsing" <<std::endl;
         this->parseOSMXML(drawer, xml_data);
+        std::cout <<  "Finished Parsing" <<std::endl;
     }
-    drawer->drawGrid();
     std::cout <<  "Drawing" <<std::endl;
-    //Paint the background.
+
     for(WayStruct way : drawer->ways){
         drawer->drawWay(way);
-//        if(!way.name.empty())
-//            std::cout <<  way.name  <<std::endl;
     }
     std::cout <<  "Finished Drawing" <<std::endl;
     delete state;

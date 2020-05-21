@@ -55,8 +55,10 @@ struct NodeStruct{
 };
 struct WayStruct{
     std::string id;
-    std::string water;
+    std::string waterway;
+    bool isWater;
     std::string highway;
+    bool isBuilding;
     std::string name;
     std::vector<std::string> nds;
 };

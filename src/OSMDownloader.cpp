@@ -22,7 +22,8 @@ OSMDownloader::~OSMDownloader()
 }
 
 int OSMDownloader::osm_header_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<CapstoneMappingQueue< std::string>>  *writerData){
-    std::cout << data   <<std::endl;
+
+    std::cout << data[1]   <<std::endl;
     return size * nmemb;
 }
 

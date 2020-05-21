@@ -42,8 +42,6 @@ void CapstoneMapping::createBigMap()
 
     mapping_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
-    std::cout << "Creating big surface.  "<<mapping_surface.refcount_() <<std::endl;
-
     this->drawer->setMappingSurface(mapping_surface);
 
     context ->set_line_width(2.0);
@@ -51,8 +49,14 @@ void CapstoneMapping::createBigMap()
     context ->arc(this->screen_utility->getBigMapPixelCenter().X,this->screen_utility->getBigMapPixelCenter().Y,25.0,0.0,2.0*M_PI);
     context ->stroke();
 
+    //Outside box.
+    context->set_line_width( 26.0);
+    context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
+    std::vector<double> dash={2.0, 8.0};
+    context->set_dash(dash, 0.0);
+    context ->stroke();
+
     parsing_thread = std::thread([this](){this->parser->receiveOSMXML(this->drawer) ; } );
-    std::cout <<  "finished drawing"  <<std::endl;
 
 }
 

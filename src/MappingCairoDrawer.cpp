@@ -45,12 +45,7 @@ void MappingCairoDrawer::drawGrid()
         context->line_to(  double(i), pixel_height);
         context->stroke();
       }
-    //Outside box.
-    context->set_line_width( 16.0);
-    context->set_source_rgba( 1.0, 0.0, 1.0, 1.0);
-    context->rectangle( 0.0, 0.0, pixel_width, pixel_height);
 
-    context ->stroke();
 }
 
 void MappingCairoDrawer::drawNode(NodeStruct node)
@@ -86,25 +81,31 @@ void MappingCairoDrawer::drawWay(WayStruct &way)
     screen_point_t screen = screen_utility->calculateAnyScreenPoint(percent);
     context->move_to(screen.X, screen.Y);
     for(int i = 1; i<way.nds.size();++i){
-        NodeStruct node = *(std::find_if(nodes.begin(), nodes.end(), [i, way](NodeStruct other){return way.nds.at(i) == other.id;  }  )  );
-        percentage_point_t percent = latlon_utility->calculateAnyLatLonPercentage(node.point);
-        screen_point_t screen = screen_utility->calculateAnyScreenPoint(percent);
+        found = *(std::find_if(nodes.begin(), nodes.end(), [i, way](NodeStruct other){return way.nds.at(i) == other.id;  }  )  );
+        percent = latlon_utility->calculateAnyLatLonPercentage(found.point);
+        screen = screen_utility->calculateAnyScreenPoint(percent);
         context->line_to(screen.X, screen.Y);
     }
-    context ->stroke();
+    if(!way.isBuilding && !way.isWater){
+        context ->stroke();
+    }else{
+        context->close_path();
+        context->fill();
+    }
+
 }
 
 void MappingCairoDrawer::setColor(Cairo::RefPtr<Cairo::Context> &context, WayStruct &way)
 {
-
-    if(!way.water.empty()){
+    if(!way.waterway.empty() ){
         context->set_source_rgba( 0.0, 0.5, 1.0, 1.0);
     }else if(!way.highway.empty()){
-/*        if(!way.name.empty() && way.name == "South Toe River Road"){
-            std::cout << way.name   <<std::endl;
+       if(way.highway == "footway" || way.highway == "path"){
             context->set_source_rgba( 1.0, 0.0, 0.0, 1.0);
+            std::vector<double> dash={10.0};
+            context->set_dash(dash, 0.0);
             return;
-        }*/
+        }
         context->set_source_rgba( 1.0, 1.0, 0.0, 1.0);
 
     }else{
