@@ -15,8 +15,6 @@
 class CapstoneDrawingArea: public Gtk::DrawingArea {
 public:
     CapstoneDrawingArea();
-    CapstoneDrawingArea(const Gtk::DrawingArea &other);
-    CapstoneDrawingArea operator=(const Gtk::DrawingArea &other);
     ~CapstoneDrawingArea();
     void initalize(latlon_point_t big_latlon_center);
 
@@ -27,8 +25,6 @@ protected:
     virtual bool on_draw(const Cairo::RefPtr<Cairo::Context> &cr) override;
 
 private:
-//    bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr);
-//    bool on_map_moved(GdkEventMotion* motion_event);
     std::unique_ptr<CapstoneMapping> capstone_mapping ;
 };
 

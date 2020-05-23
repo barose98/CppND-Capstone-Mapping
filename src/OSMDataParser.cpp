@@ -72,7 +72,6 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::string
       struct ParserStruct *state = (struct ParserStruct *) userData;
       if ( std::string(name)=="way"){
           state->drawer->ways.emplace_back(state->currentWay);
-//          state->drawer->drawWay(state->currentWay);
       }
       state->depth--;
     };
@@ -85,12 +84,13 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::string
     XML_SetElementHandler(parser, startElement, endElement);
     if(state->ok && XML_Parse(parser, xml_data.str().c_str(), xml_data.str().size(), 0) == 0) {
         int error_code = XML_GetErrorCode(parser);
-        std::cerr << "ERROR PARSING"   <<std::endl;
+        std::cerr << "ERROR PARSING error_code: "<< error_code   <<std::endl;
     }
 
 
     XML_ParserFree(parser);
 }
+
 void OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 {
     std::cout << "OSM Data Receiving"  <<std::endl;

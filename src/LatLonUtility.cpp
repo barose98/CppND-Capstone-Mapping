@@ -42,11 +42,3 @@ latlon_point_t LatLonUtility::calculateAnyLatLonPoint(percentage_point_t big_que
     {
         big_map_latlon_center = bigMapLatlonOrigin;
 }
-
-latlon_point_t LatLonUtility::getLittleMapLatlonCenter() const
-{
-}
-
-void LatLonUtility::setLittleMapLatlonCenter(latlon_point_t mapLatlonCenter)
-{
-}

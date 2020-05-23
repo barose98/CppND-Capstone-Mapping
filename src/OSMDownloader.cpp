@@ -21,18 +21,23 @@ OSMDownloader::~OSMDownloader()
     std::cout <<  "OSMD Destructor "<<this  <<std::endl;
 }
 
-int OSMDownloader::osm_header_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
+int OSMDownloader::osmHeaderWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  &writerData)
+{
+    if(writerData == NULL)
+      return 0;
+    std::string header(data);
+    std::size_t ok = header.find("200 OK");
+    if(ok ==  std::string::npos)
+        writerData->push("<downloaderError/>");
 
-    std::cout << data[1]   <<std::endl;
     return size * nmemb;
 }
 
-    int OSMDownloader::osm_map_writer(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
+    int OSMDownloader::osmMapWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  &writerData){
     if(writerData == NULL)
       return 0;
     std::string chunk = std::string(data);
-    std::shared_ptr<OSMDownloadQueue< std::string>> queue =(std::shared_ptr<OSMDownloadQueue< std::string>>)*writerData;
-    //std::cout <<  size<< " "<<nmemb<<" "<<chunk.length()<<std::endl;
+    std::shared_ptr<OSMDownloadQueue< std::string>> queue =(std::shared_ptr<OSMDownloadQueue< std::string>>) writerData;
     queue->push(chunk);
     return size * nmemb;
 }
@@ -47,7 +52,7 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
     CURL *conn = NULL;
     CURLcode code;
     curl_global_init(CURL_GLOBAL_DEFAULT);
-    if(!init_mapping_curl(conn, url_stringstream.str().c_str()) )
+    if(!initMappingCurl(conn, url_stringstream.str().c_str()) )
     {
     std::cout << "init_map_curl failed "  <<std::endl;
     downloader_queue->push("<downloaderError/>");
@@ -67,7 +72,7 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
 
 }
 
-bool OSMDownloader::init_mapping_curl(CURL *&conn, const char *url)
+bool OSMDownloader::initMappingCurl(CURL *&conn, const char *url)
 {
     CURLcode code;
     conn = curl_easy_init();
@@ -90,17 +95,17 @@ bool OSMDownloader::init_mapping_curl(CURL *&conn, const char *url)
         std::cerr <<  "setting redirect option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_HEADERFUNCTION, osm_header_writer);
+    code = curl_easy_setopt(conn, CURLOPT_HEADERFUNCTION, osmHeaderWriter);
     if(code != CURLE_OK){
         std::cerr <<  "setting header callback option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_WRITEFUNCTION, osm_map_writer);
+    code = curl_easy_setopt(conn, CURLOPT_WRITEFUNCTION, osmMapWriter);
     if(code != CURLE_OK){
         std::cerr <<  "setting writer callback option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, (void *)&downloader_queue);
+    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, downloader_queue);
     if(code != CURLE_OK){
         std::cerr <<  "setting write data option failed"  <<std::endl;
         return false;

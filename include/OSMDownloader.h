@@ -26,10 +26,10 @@ public:
     ~OSMDownloader();
 
     std::string downloadOSMap(bounding_box_t box);
-    bool init_mapping_curl(CURL *&conn, const char *url);
+    bool initMappingCurl(CURL *&conn, const char *url);
 
-    static int osm_map_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
-    static int osm_header_writer(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
+    static int osmMapWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> &writerData);
+    static int osmHeaderWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> &writerData);
 
 private:
     std::shared_ptr<OSMDownloadQueue< std::string>> downloader_queue;

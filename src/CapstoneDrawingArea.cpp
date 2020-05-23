@@ -13,16 +13,6 @@ CapstoneDrawingArea::CapstoneDrawingArea()
     capstone_mapping =  std::make_unique<CapstoneMapping>();
 }
 
-CapstoneDrawingArea::CapstoneDrawingArea(const Gtk::DrawingArea &other)
-{
-    std::cout <<  "CDA Copy Constructor"  <<std::endl;
-    this->set_events(other.get_events());
-}
-
-CapstoneDrawingArea CapstoneDrawingArea::operator =(const Gtk::DrawingArea &other)
-{
-    std::cout <<  "CDA Copy Assignment Constructor"  <<std::endl;
-}
 
 CapstoneDrawingArea::~CapstoneDrawingArea()
 {
@@ -81,8 +71,6 @@ bool CapstoneDrawingArea::on_button_release_event(GdkEventButton *release_event)
     bigMapReleased.Y = capstone_mapping->screen_utility->getOffset().Y +release_event->y;
     percentage_point_t percent = capstone_mapping->screen_utility->calculateAnyScreenPercentage(bigMapReleased);
     latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(percent);
-    capstone_mapping->latlon_utility->setLittleMapLatlonCenter(current_latlon_center);
-    std::cout << current_latlon_center.latitude<<" "<<current_latlon_center.longitude   <<std::endl;
 
     return true;
 }

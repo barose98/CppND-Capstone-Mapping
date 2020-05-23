@@ -17,11 +17,9 @@ public:
     latlon_point_t calculateBigMapLatlonOrigin() const;
 
     latlon_point_t getBigMapLatlonCenter() const;
-    latlon_point_t getLittleMapLatlonCenter() const;
     float getBigMapLatlonSize() const;
     float getBigMapLatlonEdge() const;
 
-    void setLittleMapLatlonCenter(latlon_point_t mapLatlonCenter);
     void setBigMapLatlonEdge(float bigMapLatlonEdge = std::sqrt(MAP_LATLON_SIZE));
     void setBigMapLatlonSize(float bigMapLatlonSize = MAP_LATLON_SIZE);
     void setBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter);
