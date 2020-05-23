@@ -2,7 +2,7 @@
  * LatLonUtility.cpp
  *
  *  Created on: May 10, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #include "LatLonUtility.h"

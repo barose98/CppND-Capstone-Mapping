@@ -2,7 +2,7 @@
  * ScreenLatLonUtility.cpp
  *
  *  Created on: May 1, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 #include <MappingStructs.h>
 

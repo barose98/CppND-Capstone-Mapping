@@ -2,7 +2,7 @@
  * OSMDataParser.h
  *
  *  Created on: May 6, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #ifndef SRC_OSMDATAPARSER_H_

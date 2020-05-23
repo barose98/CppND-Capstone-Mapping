@@ -2,8 +2,15 @@
  * ScreenLatLonUtility.h
  *
  *  Created on: May 1, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
+/**
+This class defines structures that are used by the LatLonUtility
+and the ScreenUtility classes that define points on the map or screen.
+
+Both Utility classes use the percentage_point_t struct tha allows for
+translation between a Map point and a Screen point.
+*/
 
 #ifndef SRC_CAPSTONEMAPPINGUTILITY_H_
 #define SRC_CAPSTONEMAPPINGUTILITY_H_

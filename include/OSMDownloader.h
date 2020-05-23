@@ -2,7 +2,7 @@
  * OSMDownloader.h
  *
  *  Created on: Apr 30, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #ifndef OSMDOWNLOADER_H_

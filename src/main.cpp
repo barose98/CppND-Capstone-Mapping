@@ -5,16 +5,10 @@
 #include <cairomm/cairomm.h>
 #include <MappingStructs.h>
 
-#include"CapstoneMapping.h"
-
-//ScreenUtility screen_util;
+#include "CapstoneDrawingArea.h"
 
 Gtk::Window* main_window ;
 Gtk::DrawingArea* map_area ;
-std::unique_ptr<CapstoneMapping> capstone_mapping =  std::make_unique<CapstoneMapping>();
-
-bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr);
-bool on_map_moved(GdkEventMotion* motion_event);
 
 int main (int argc, char **argv)
 {
@@ -29,9 +23,6 @@ int main (int argc, char **argv)
     std::stringstream(enteredLat)>>latlon_center.latitude;
     std::stringstream(enteredLon)>>latlon_center.longitude;
     }
-    capstone_mapping->latlon_utility->setBigMapLatlonCenter(latlon_center);
-    capstone_mapping->createBigMap();
-    std::cout <<  "finished creating"  <<std::endl;
 
     Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "org.gtkmm.capstone_mapping");
     Glib::RefPtr<Gtk::Builder>  refBuilder = Gtk::Builder::create();
@@ -54,81 +45,19 @@ int main (int argc, char **argv)
     refBuilder->get_widget("mapping-window", main_window);
     if(main_window)
     {
-        refBuilder->get_widget("map-area", map_area);
-        if(map_area)
-        {
-            map_area->signal_motion_notify_event().connect( sigc::ptr_fun(on_map_moved) );
-            map_area->signal_draw().connect(sigc::ptr_fun(on_map_draw )  );
-            map_area->signal_button_press_event().connect(
-                    [] (GdkEventButton* button_event)->bool{
-                screen_point_t pressedAt;
-                pressedAt.X = button_event->x;
-                pressedAt.Y = button_event->y;
-                capstone_mapping->screen_utility->setPressedAt(pressedAt);
+//        refBuilder->get_widget("map-area", map_area);
+//        if(map_area)
+//        {
+//TODO: NEW DRAWING AREA
+            CapstoneDrawingArea drawing_area;// = *map_area;
+            drawing_area.initalize(latlon_center);
+            main_window->add(drawing_area);
+//        }//if map area
 
-                return true;
-            }      );
-            map_area->signal_button_release_event().connect(
-                    [] (GdkEventButton* button_event)->bool{
-                screen_point_t bigMapReleased;
-                bigMapReleased.X = capstone_mapping->screen_utility->getOffset().X +button_event->x;
-                bigMapReleased.Y = capstone_mapping->screen_utility->getOffset().Y +button_event->y;
-                percentage_point_t percent = capstone_mapping->screen_utility->calculateAnyScreenPercentage(bigMapReleased);
-                latlon_point_t current_latlon_center = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(percent);
-                capstone_mapping->latlon_utility->setLittleMapLatlonCenter(current_latlon_center);
-                std::cout << current_latlon_center.latitude<<" "<<current_latlon_center.longitude   <<std::endl;
-
-                return true;
-            }  );
-
-        }//if map area
         app->run(*(main_window));
     }
     delete main_window;
-    capstone_mapping->getting_thread.detach();
-    capstone_mapping->parsing_thread.detach();
+//    capstone_mapping->getting_thread.detach();
+//    capstone_mapping->parsing_thread.detach();
     return 0;
-}
-bool on_map_moved(GdkEventMotion* motion_event)
-{
-    if(motion_event->state & GDK_BUTTON1_MASK){
-        capstone_mapping->screen_utility->moveOffset(motion_event->x, motion_event->y);
-        if(map_area){
-            //capstone_mapping->screen_utility->setBigMapPixelCenter(screen_point_t( capstone_mapping->screen_utility->getOffset().X + capstone_mapping->screen_utility->getAllocated().width/2.0,  capstone_mapping->screen_utility->getOffset().Y +capstone_mapping->screen_utility->getAllocated().height/2.0  )  );
-            map_area->queue_draw();
-        }
-    }else{
-        std::stringstream ss;
-        screen_point_t bigMapMoved;
-        bigMapMoved.X = capstone_mapping->screen_utility->getOffset().X +motion_event->x;
-        bigMapMoved.Y = capstone_mapping->screen_utility->getOffset().Y +motion_event->y;
-        percentage_point_t percent = capstone_mapping->screen_utility->calculateAnyScreenPercentage(bigMapMoved);
-        latlon_point_t current = capstone_mapping->latlon_utility->calculateAnyLatLonPoint(percent);
-        ss<<current.latitude<<" "<<current.longitude;
-        map_area->set_tooltip_text(ss.str().c_str());
-    }
-    screen_point_t pressedAt;
-    pressedAt.X = motion_event->x;
-    pressedAt.Y = motion_event->y;
-    capstone_mapping->screen_utility->setPressedAt(pressedAt);
-    return true;
-}
-bool on_map_draw(const ::Cairo::RefPtr< ::Cairo::Context>& cr){
-    screen_size_t allocated;
-    allocated.width = map_area->get_allocated_width();
-    allocated.height= map_area->get_allocated_height();
-    capstone_mapping->screen_utility->setAllocated(allocated);
-    if(capstone_mapping->screen_utility->isRecenter()){
-        screen_point_t offset;
-        screen_size_t  big_map_pixel_size = capstone_mapping->screen_utility->getBigMapPixelSize();
-        offset.X = big_map_pixel_size.width/2.0-capstone_mapping->screen_utility->getAllocated().width/2;
-        offset.Y = big_map_pixel_size.height/2.0-capstone_mapping->screen_utility->getAllocated().height/2;
-        capstone_mapping->screen_utility->setOffset(offset);
-        capstone_mapping->screen_utility->setRecenter(false);
-    }
-    Cairo::RefPtr<Cairo::Surface> little_surface;
-    little_surface = Cairo::Surface::create(capstone_mapping->getMappingSurface(), capstone_mapping->screen_utility->getOffset().X, capstone_mapping->screen_utility->getOffset().Y, double(allocated.width), double(allocated.height));
-    cr->set_source( little_surface, double(0), double(0));
-    cr->paint();
-    return false;
 }

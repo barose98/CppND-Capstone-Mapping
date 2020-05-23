@@ -1,7 +1,7 @@
 /** OSMDownloader.cpp
  *
  *  Created on: Apr 30, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #include "OSMDownloader.h"

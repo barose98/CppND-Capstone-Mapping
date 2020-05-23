@@ -2,7 +2,7 @@
  * CapstoneMappingQueue.h
  *
  *  Created on: May 8, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #ifndef SRC_CAPSTONEMAPPINGQUEUE_H_

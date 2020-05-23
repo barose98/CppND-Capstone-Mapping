@@ -2,7 +2,7 @@
  * MappingCairoDrawer.h
  *
  *  Created on: May 18, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #ifndef SRC_MAPPINGCAIRODRAWER_H_

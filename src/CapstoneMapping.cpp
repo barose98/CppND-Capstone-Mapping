@@ -2,7 +2,7 @@
  * CapstoneMapping.cpp
  *
  *  Created on: Apr 27, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #include "CapstoneMapping.h"
@@ -61,8 +61,3 @@ void CapstoneMapping::createBigMap()
 }
 
 
-void CapstoneMapping::setInitialBigMapLatlonCenter(latlon_point_t bigMapLatlonCenter)
-{
-
-    latlon_utility->setBigMapLatlonCenter(bigMapLatlonCenter);
-}

@@ -2,7 +2,7 @@
  * LatLonUtility.h
  *
  *  Created on: May 10, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #ifndef SRC_LATLONUTILITY_H_

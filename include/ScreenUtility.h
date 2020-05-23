@@ -2,8 +2,16 @@
  * ScreenUtility.h
  *
  *  Created on: May 10, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
+/**
+
+This class has some private variables and public methods to help
+the main GTK application to keep track of the offset, which specifies
+where the Cairo Drawling area's source is compared to the big map In the "background".
+
+The "Calculate-" methods also allow for figuring screen points from a percentage and vice versa.
+*/
 
 #ifndef SRC_SCREENUTILITY_H_
 #define SRC_SCREENUTILITY_H_

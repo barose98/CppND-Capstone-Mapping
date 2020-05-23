@@ -2,7 +2,7 @@
  * MappingCairoDrawer.cpp
  *
  *  Created on: May 18, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #include <CairoDrawer.h>

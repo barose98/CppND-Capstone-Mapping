@@ -2,7 +2,7 @@
  * OSMDataParser.cpp
  *
  *  Created on: May 6, 2020
- *      Author: roseba
+ *      Author: Barrett Rose
  */
 
 #include "OSMDataParser.h"

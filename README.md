@@ -1,10 +1,22 @@
 ﻿# CPPND: Capstone Mapping
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
+This is the repo for my Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+My favorite project in this course was the first one. I wasn't aware of the existence of the Open Street Maps project before I took this course, and was fascinated by the way it represents real world data. I wanted to undertake the downloading,  parsing, and ad hoc drawing of features defined in XML
 
-In this project, you can build your own C++ application starting with this repo, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+I have lots more fatures to add. For example, I would like to implement some heuritics to differentiate ways that are lines and ways that are polygons. I will spend several more months working on more features, but I hope the code at this point is enough to demonstrate the skills I have acquired. 
+
+I want to attribute the sites where I learned to utilize the GTK, Cairo, Expat, and Libcurl API's I did. I read lots of GTK and Cairo documentation. 
+Specifically:
+
+ - [https://developer.gnome.org/gtkmm/stable/classGtk_1_1Widget.html](https://developer.gnome.org/gtkmm/stable/classGtk_1_1Widget.html)
+ - [https://www.cairographics.org/documentation/cairomm/reference/classCairo_1_1Surface.html](https://www.cairographics.org/documentation/cairomm/reference/classCairo_1_1Surface.html)
+ - [https://www.cairographics.org/documentation/cairomm/reference/classCairo_1_1Context.html](https://www.cairographics.org/documentation/cairomm/reference/classCairo_1_1Context.html)
+
+For Libcurl and Expat I relied heavily on example files. 
+
+ - [https://curl.haxx.se/libcurl/c/htmltitle.html](https://curl.haxx.se/libcurl/c/htmltitle.html)
+ - [https://curl.haxx.se/libcurl/c/xmlstream.html](https://curl.haxx.se/libcurl/c/xmlstream.html)
 
 ## Dependencies for Running Locally
   cmake >= 3.7
