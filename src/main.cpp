@@ -15,13 +15,20 @@ int main (int argc, char **argv)
     latlon_point_t latlon_center;
     latlon_center.latitude=91;
     latlon_center.longitude=181;
-    std::string enteredLat, enteredLon;
+    std::string enteredLatLon, enteredLat, enteredLon;
 
     while(latlon_center.latitude>90 || latlon_center.latitude<-90 || latlon_center.longitude>180 || latlon_center.longitude<-180){
-    std::cout << "Enter the center latitude <space> longitude:  ";
-    std::cin>>enteredLat>>enteredLon;
-    std::stringstream(enteredLat)>>latlon_center.latitude;
-    std::stringstream(enteredLon)>>latlon_center.longitude;
+        std::cout << "Enter the center latitude <space> longitude:  ";
+        std::getline(std::cin, enteredLatLon);
+        if(enteredLatLon.empty() )
+        {
+            enteredLat = "35.595";
+            enteredLon = "-82.55";
+        }else{
+            std::stringstream(enteredLatLon)>>enteredLat>>enteredLon;
+        }
+        std::stringstream(enteredLat)>>latlon_center.latitude;
+        std::stringstream(enteredLon)>>latlon_center.longitude;
     }
 
     Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "org.gtkmm.capstone_mapping");

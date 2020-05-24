@@ -46,12 +46,12 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
     curl_global_init(CURL_GLOBAL_DEFAULT);
     if(!initMappingCurl(conn, url_stringstream.str().c_str()) )
     {
-    std::cout << "init_map_curl failed "  <<std::endl;
+    std::cout << "init_map_curl failed:  "<< errorBuffer  <<std::endl;
     downloader_queue->push("<downloaderError/>");
     }
     code = curl_easy_perform(conn);
     if(code != CURLE_OK){
-        std::cerr <<  "Getting OSM map failed: "<<code  <<std::endl;
+        std::cerr <<  "Getting OSM map failed: "<< errorBuffer   <<std::endl;
         downloader_queue->push("<downloaderError/>");
         return "ERROR";
     }
