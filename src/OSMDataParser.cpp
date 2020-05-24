@@ -84,9 +84,8 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::string
     XML_SetElementHandler(parser, startElement, endElement);
     if(state->ok && XML_Parse(parser, xml_data.str().c_str(), xml_data.str().size(), 0) == 0) {
         int error_code = XML_GetErrorCode(parser);
-        std::cerr << "ERROR PARSING error_code: "<< error_code   <<std::endl;
+        std::cerr << "ERROR PARSING error_code: "<< error_code<<"-"<<XML_ErrorString(XML_GetErrorCode(parser))   <<std::endl;
     }
-
 
     XML_ParserFree(parser);
 }
@@ -96,7 +95,6 @@ void OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
     std::cout << "OSM Data Receiving"  <<std::endl;
     std::stringstream xml_data;
     do{
-//        std::string chunk
         xml_data<< parser_queue->pull() ;
         if(xml_data.str().find("<downloaderError/>") != std::string::npos){
             std::cerr <<  xml_data.str()  <<std::endl;

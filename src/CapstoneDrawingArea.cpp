@@ -9,6 +9,7 @@
 
 CapstoneDrawingArea::CapstoneDrawingArea()
 {
+
     this->add_events(Gdk::EventMask( GDK_STRUCTURE_MASK | GDK_POINTER_MOTION_MASK |  GDK_BUTTON_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK ));
     capstone_mapping =  std::make_unique<CapstoneMapping>();
 }
@@ -96,3 +97,10 @@ bool CapstoneDrawingArea::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
     cr->paint();
     return false;
 }
+/*
+
+bool CapstoneDrawingArea::on_window_state_event(GdkEventWindowState *window_state_event)
+{
+    std::cout <<  window_state_event->new_window_state  <<std::endl;
+}
+*/

@@ -10,9 +10,7 @@
 
 OSMDownloader::OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue): downloader_queue(queue)
 {
-
     std::cout <<  "OSMD Constructor "<<this<<std::endl;
-
 }
 
 OSMDownloader::~OSMDownloader()
@@ -21,23 +19,17 @@ OSMDownloader::~OSMDownloader()
     std::cout <<  "OSMD Destructor "<<this  <<std::endl;
 }
 
-int OSMDownloader::osmHeaderWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  &writerData)
+int OSMDownloader::osmHeaderWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData)
 {
-    if(writerData == NULL)
-      return 0;
-    std::string header(data);
-    std::size_t ok = header.find("200 OK");
-    if(ok ==  std::string::npos)
-        writerData->push("<downloaderError/>");
-
-    return size * nmemb;
+     return size * nmemb;
 }
 
-    int OSMDownloader::osmMapWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  &writerData){
+    int OSMDownloader::osmMapWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
     if(writerData == NULL)
       return 0;
+
     std::string chunk = std::string(data);
-    std::shared_ptr<OSMDownloadQueue< std::string>> queue =(std::shared_ptr<OSMDownloadQueue< std::string>>) writerData;
+    std::shared_ptr<OSMDownloadQueue< std::string>> queue =(std::shared_ptr<OSMDownloadQueue< std::string>>) *writerData;
     queue->push(chunk);
     return size * nmemb;
 }
@@ -59,7 +51,7 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
     }
     code = curl_easy_perform(conn);
     if(code != CURLE_OK){
-        std::cerr <<  "getting OSM map failed: "<<code  <<std::endl;
+        std::cerr <<  "Getting OSM map failed: "<<code  <<std::endl;
         downloader_queue->push("<downloaderError/>");
         return "ERROR";
     }
@@ -105,7 +97,7 @@ bool OSMDownloader::initMappingCurl(CURL *&conn, const char *url)
         std::cerr <<  "setting writer callback option failed"  <<std::endl;
         return false;
     }
-    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, downloader_queue);
+    code = curl_easy_setopt(conn, CURLOPT_WRITEDATA, &downloader_queue);
     if(code != CURLE_OK){
         std::cerr <<  "setting write data option failed"  <<std::endl;
         return false;

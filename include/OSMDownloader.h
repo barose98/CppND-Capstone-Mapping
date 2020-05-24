@@ -28,8 +28,8 @@ public:
     std::string downloadOSMap(bounding_box_t box);
     bool initMappingCurl(CURL *&conn, const char *url);
 
-    static int osmMapWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> &writerData);
-    static int osmHeaderWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> &writerData);
+    static int osmMapWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
+    static int osmHeaderWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
 
 private:
     std::shared_ptr<OSMDownloadQueue< std::string>> downloader_queue;
