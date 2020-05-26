@@ -7,15 +7,16 @@
 
 #include "CapstoneMapping.h"
 
-CapstoneMapping::CapstoneMapping()
+CapstoneMapping::CapstoneMapping(std::shared_ptr<OSMDownloadQueue<std::string>> queue, std::shared_ptr<OSMDrawingQueue<bool>> draw_queue)
+:downloading_queue(queue),drawing_queue(draw_queue)
 {
     std::cout << "Constructing CapstoneMapping. empty " <<this  <<std::endl;
 
     latlon_utility =  std::make_shared<LatLonUtility>();
     screen_utility =  std::make_shared<ScreenUtility>();
-    this->mapping_queue = std::make_shared<OSMDownloadQueue<std::string>>();
-    this->downloader =  std::make_unique< OSMDownloader>(mapping_queue);
-    this->parser =  std::make_unique< OSMDataParser>( mapping_queue);
+
+    this->downloader =  std::make_unique< OSMDownloader>(downloading_queue);
+    this->parser =  std::make_unique< OSMDataParser>( downloading_queue, drawing_queue);
     this->drawer =  std::make_shared< CairoDrawer>(mapping_surface, latlon_utility, screen_utility);
     //mapping_surface->write_to_png("grid.png");
 }
@@ -23,8 +24,8 @@ CapstoneMapping::CapstoneMapping()
 
 CapstoneMapping::~CapstoneMapping()
 {
-    //this->mapping_surface = nullptr;
     std::cout <<"capstone mapping destr "<< this   <<std::endl;
+//    std::cout <<  int(getting_future.wait_for(std::chrono_literals::operator ""ms(0)) )  <<  (parsing_status ==std::future_status::timeout) <<std::endl;
 }
 const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 {
@@ -34,8 +35,9 @@ const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 void CapstoneMapping::createBigMap()
 {
     bounding_box_t bbox(latlon_utility->calculateBigMapLatlonOrigin(), latlon_utility->getBigMapLatlonEdge());
-    getting_thread = std::thread([this,  bbox](){this->downloader->downloadOSMap(bbox); } );
-//    std::future<std::string> getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap,  *(downloader.get())  , bbox  );
+
+    getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap, *(this->downloader.get()), bbox  );
+    std::cout << getting_future.get()   <<std::endl;
 
     double pixel_width = this->screen_utility->getBigMapPixelSize().width;
     double pixel_height= this->screen_utility->getBigMapPixelSize().height;
@@ -56,7 +58,7 @@ void CapstoneMapping::createBigMap()
     context->set_dash(dash, 0.0);
     context ->stroke();
 
-    parsing_thread = std::thread([this](){this->parser->receiveOSMXML(this->drawer) ; } );
+    parsing_future = std::async(std::launch::async, &OSMDataParser::receiveOSMXML, *(this->parser.get()), drawer  );
 
 }
 

@@ -10,14 +10,17 @@
 CapstoneDrawingArea::CapstoneDrawingArea()
 {
 
-    this->add_events(Gdk::EventMask( GDK_STRUCTURE_MASK | GDK_POINTER_MOTION_MASK |  GDK_BUTTON_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK ));
-    capstone_mapping =  std::make_unique<CapstoneMapping>();
+    this->add_events(Gdk::EventMask( GDK_STRUCTURE_MASK | GDK_POINTER_MOTION_MASK |  GDK_BUTTON_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_PROPERTY_CHANGE_MASK  ));
+
+    this->downloading_queue = std::make_shared<OSMDownloadQueue<std::string>>();
+    this->drawing_queue = std::make_shared<OSMDrawingQueue<bool>>();
+    capstone_mapping =  std::make_unique<CapstoneMapping>(downloading_queue, drawing_queue);
 }
 
 
 CapstoneDrawingArea::~CapstoneDrawingArea()
 {
-    // TODO Auto-generated destructor stub
+
 }
 
 
@@ -27,15 +30,15 @@ void CapstoneDrawingArea::initalize(latlon_point_t big_map_center)
     this->set_can_focus(true);
 
     capstone_mapping->latlon_utility->setBigMapLatlonCenter(big_map_center);
-
     capstone_mapping->createBigMap();
+    sigc::slot<bool>  this_slot = sigc::mem_fun<bool>(*this, &CapstoneDrawingArea::timedRedraw);
+    sigc::connection conn = Glib::signal_timeout().connect(this_slot , REDRAW_INTERVAL );
 }
 
 bool CapstoneDrawingArea::on_motion_notify_event(GdkEventMotion *motion_event)
 {
     if(motion_event->state & GDK_BUTTON1_MASK){
         capstone_mapping->screen_utility->moveOffset(motion_event->x, motion_event->y);
-            //capstone_mapping->screen_utility->setBigMapPixelCenter(screen_point_t( capstone_mapping->screen_utility->getOffset().X + capstone_mapping->screen_utility->getAllocated().width/2.0,  capstone_mapping->screen_utility->getOffset().Y +capstone_mapping->screen_utility->getAllocated().height/2.0  )  );
             this->queue_draw();
 
     }else{
@@ -97,10 +100,15 @@ bool CapstoneDrawingArea::on_draw(const Cairo::RefPtr<Cairo::Context> &cr)
     cr->paint();
     return false;
 }
-/*
 
-bool CapstoneDrawingArea::on_window_state_event(GdkEventWindowState *window_state_event)
+bool CapstoneDrawingArea::timedRedraw()
 {
-    std::cout <<  window_state_event->new_window_state  <<std::endl;
+//    std::cout <<  "red ";
+    bool res=  drawing_queue->pull();
+    if(!res)
+        std::cout <<  "END DRAWING"  <<std::endl;
+
+    this->queue_draw();
+    return res;
+
 }
-*/

@@ -9,7 +9,7 @@
 
 CairoDrawer::~CairoDrawer()
 {
-    // TODO Auto-generated destructor stub
+    //
 }
 
 CairoDrawer::CairoDrawer(Cairo::RefPtr<Cairo::Surface> mapp_surface,

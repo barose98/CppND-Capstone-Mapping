@@ -39,7 +39,6 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
     std::stringstream url_stringstream;
     url_stringstream<<OSM_URL<<"?data=way("<<box.south<<","<<box.west<<","<<box.north<<","<<box.east<<");(._;>;);out;";
 
-    std::cout << url_stringstream.str() <<std::endl;
     downloadStarted  = std::chrono::system_clock::now();
     CURL *conn = NULL;
     CURLcode code;
@@ -55,8 +54,8 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
         downloader_queue->push("<downloaderError/>");
         return "ERROR";
     }
-    long timeSinceDownloadStarted= std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - downloadStarted).count();
-    std::cout << "Download took "<<timeSinceDownloadStarted<<" seconds"  <<std::endl;
+    long timeSinceDownloadStarted= std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - downloadStarted).count();
+    std::cout << "Download took "<<timeSinceDownloadStarted<<" milliseconds"  <<std::endl;
 
     curl_easy_cleanup(conn);
     return url_stringstream.str();

@@ -20,8 +20,7 @@ translation between a Map point and a Screen point.
 
 #define MAP_PIXEL_SIZE 5000.0
 #define MAP_LATLON_SIZE 0.0025
-// #define DEGREES_PER_PIXEL MAP_LATLON_SIZE / MAP_PIXEL_SIZE
-//#define PIXELS_PER_DEGREE MAP_PIXEL_SIZE / MAP_LATLON_SIZE
+#define REDRAW_INTERVAL 10
 
 
 struct percentage_point_t{

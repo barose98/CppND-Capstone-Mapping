@@ -7,7 +7,8 @@
 
 #include "OSMDataParser.h"
 
-OSMDataParser::OSMDataParser(std::shared_ptr<OSMDownloadQueue<std::string>> queue): parser_queue(queue)
+OSMDataParser::OSMDataParser(std::shared_ptr<OSMDownloadQueue<std::string>> queue,  std::shared_ptr<OSMDrawingQueue<bool>> draw_queue)
+: parser_queue(queue), drawing_queue(draw_queue)
 {
     std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
     state = new ParserStruct();
@@ -19,7 +20,6 @@ OSMDataParser::~OSMDataParser()
 }
 
 void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data){
-    std::cout << "osm data parse "  <<std::endl;
     auto  startElement = [](void *userData, const XML_Char *name, const XML_Char **attrs)
             {
         struct ParserStruct *state = (struct ParserStruct *) userData;
@@ -90,9 +90,10 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::string
     XML_ParserFree(parser);
 }
 
-void OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
+std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 {
     std::cout << "OSM Data Receiving"  <<std::endl;
+    parsingStarted  = std::chrono::system_clock::now();
     std::stringstream xml_data;
     do{
         xml_data<< parser_queue->pull() ;
@@ -112,9 +113,14 @@ void OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 
     for(WayStruct way : drawer->ways){
         drawer->drawWay(way);
+        drawing_queue->push(true);
     }
-    std::cout <<  "Finished Drawing" <<std::endl;
+    drawing_queue->push(false);
+    long timeSinceParsingStarted= std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - parsingStarted).count();
+    std::cout << "Parsing/Drawing took "<<timeSinceParsingStarted<<" milliseconds"  <<std::endl;
     delete state;
+    return "Finished Drawing";
+
 
 }
 

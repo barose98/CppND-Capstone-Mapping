@@ -23,7 +23,7 @@ int main (int argc, char **argv)
         if(enteredLatLon.empty() )
         {
             enteredLat = "35.595";
-            enteredLon = "-82.55";
+            enteredLon = "-82.555";
         }else{
             std::stringstream(enteredLatLon)>>enteredLat>>enteredLon;
         }

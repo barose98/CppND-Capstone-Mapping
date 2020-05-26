@@ -15,6 +15,7 @@
 
 #include <expat.h>
 #include <OSMDownloadQueue.h>
+#include <OSMDrawingQueue.h>
 #include <memory>
 #include "MappingStructs.h"
 
@@ -28,12 +29,14 @@ struct ParserStruct {
 
 class OSMDataParser {
 public:
-    OSMDataParser( std::shared_ptr<OSMDownloadQueue<std::string>> queue);
+    OSMDataParser( std::shared_ptr<OSMDownloadQueue<std::string>> queue,  std::shared_ptr<OSMDrawingQueue<bool>> draw_queue);
     ~OSMDataParser();
-    void receiveOSMXML(std::shared_ptr<CairoDrawer> drawer);
+    std::string receiveOSMXML(std::shared_ptr<CairoDrawer> drawer);
     void parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data);
 private:
+    std::chrono::time_point<std::chrono::system_clock> parsingStarted;
     std::shared_ptr<OSMDownloadQueue< std::string>> parser_queue;
+    std::shared_ptr<OSMDrawingQueue<bool>> drawing_queue;
     ParserStruct *state;
 };
 

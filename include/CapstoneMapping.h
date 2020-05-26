@@ -19,10 +19,13 @@ to the other workers and Utility classes.
 #include <iostream>
 #include <memory>
 #include <thread>
+#include <future>
 #include <string>
+#include <chrono>
 #include <gtkmm.h>
 #include <MappingStructs.h>
 #include <OSMDownloadQueue.h>
+#include <OSMDrawingQueue.h>
 #include "OSMDownloader.h"
 #include "OSMDataParser.h"
  #include "ScreenUtility.h"
@@ -30,7 +33,7 @@ to the other workers and Utility classes.
 
 class CapstoneMapping {
 public:
-    CapstoneMapping();
+    CapstoneMapping(std::shared_ptr<OSMDownloadQueue<std::string>> queue, std::shared_ptr<OSMDrawingQueue<bool>> drawqueue);
     ~CapstoneMapping();
 
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
@@ -40,16 +43,18 @@ public:
     and another thread to do the XML parsing with expat and drawing with Cairo.
     */
     void createBigMap();
-    std::shared_ptr<OSMDownloadQueue<std::string>> mapping_queue;
     std::shared_ptr< LatLonUtility> latlon_utility ;
     std::shared_ptr< ScreenUtility> screen_utility ;
+private:
+    std::shared_ptr<OSMDownloadQueue<std::string>> downloading_queue;
+    std::shared_ptr<OSMDrawingQueue<bool>> drawing_queue;
+
     std::unique_ptr< OSMDownloader> downloader;
     std::unique_ptr<OSMDataParser> parser;
     std::shared_ptr<CairoDrawer> drawer;
-    std::thread getting_thread;
-    std::thread parsing_thread;
+    std::future<std::string> getting_future;
+    std::future<std::string> parsing_future;
 
-private:
     Cairo::RefPtr<Cairo::Surface> mapping_surface;
 
 };
