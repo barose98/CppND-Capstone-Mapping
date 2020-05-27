@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<minder>
+  <theme name="Solarized Dark" index="0"/>
+  <styles>
+    <style level="0" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="rounded" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="1" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="2" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="3" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="4" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="5" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="6" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="7" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="8" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="9" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+    <style level="10" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
+  </styles>
+  <drawarea x="190.49928792317706" y="-10.033370971679688" scale="1.5"/>
+  <images/>
+  <nodes>
+    <node id="1" posx="25.066843668619811" posy="132.94442749023438" maxwidth="200" width="110" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>Main.cpp
+</nodename>
+      <nodenote>This file holds the "main" method which starts the GTK app. This file will also handle simulated drag events. This file owns a Glib::RefPtr smart pointer to the Big Map Data Cairo surface. A little map data Displays that surface, according to an offset, calculated by the dragging logic. Callback functions keep track of the offset and how far the mouse has dragged in global variables. The Mouse Pressed, Mouse Moved, and Draw signals emitted from the GTK app all refer to these global variables. 
+This class also has a unique_ptr to the  Capstone Mapping class, which does a most of the work. </nodenote>
+    </node>
+    <node id="3" posx="461.4425150553385" posy="248.36201985677087" maxwidth="200" width="175" height="81" side="left" fold="false" treesize="81" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>CapstoneMapping
+createBigMap()
+</nodename>
+      <nodenote>This class owns a Cairo::RefPtr smart pointer to the big surface. </nodenote>
+    </node>
+    <node id="5" posx="236.99197387695312" posy="101.90143839518228" maxwidth="200" width="138" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>ScreenUtility
+</nodename>
+      <nodenote>This class holds the map size data, and provides functions that  convert window coordinates to real-world latitudes or longitudes according to the zoom level, and vice versa. This file also defines a lot of data structures to describe map as well as screen points, sizes and the OSM bounding box.</nodenote>
+    </node>
+    <node id="7" posx="779.95771280924487" posy="100.05142211914062" maxwidth="200" width="178" height="81" side="left" fold="false" treesize="81" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>OSMDownloader
+downloadOSMap()
+</nodename>
+      <nodenote>This class has the methods to download the XML that describes the OpenStreet Maps. It uses libecurl. </nodenote>
+    </node>
+    <node id="8" posx="403.37126668294275" posy="98.818756103515597" maxwidth="200" width="121" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>LatLonUtility
+</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="9" posx="786.72889200846362" posy="172.56631469726562" maxwidth="200" width="143" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>OSMDataParser
+</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="10" posx="417.61304728190106" posy="46.3704833984375" maxwidth="200" width="142" height="46" side="left" fold="false" treesize="46" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>MappingStructs</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="11" posx="9.7904357910156534" posy="210.98018391927081" maxwidth="200" width="214" height="135" side="left" fold="false" treesize="135" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>CapstoneDrawingArea
+initialize()
+on_motion_notify_event()
+
+on_draw()
+timedRedraw()</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="12" posx="805.43213907877612" posy="248.4234619140625" maxwidth="200" width="119" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>CairoDrawer
+</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="13" posx="437.06149291992182" posy="391.81976318359375" maxwidth="200" width="182" height="82" side="left" fold="false" treesize="82" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>OSMDownloadQueue
+push()
+pull()</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="14" posx="202.05811564127606" posy="399.16015625" maxwidth="200" width="170" height="82" side="left" fold="false" treesize="82" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>OSMDrawingQueue
+push()
+pull()</nodename>
+      <nodenote></nodenote>
+    </node>
+  </nodes>
+</minder>
