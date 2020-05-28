@@ -106,8 +106,7 @@ bool CapstoneDrawingArea::timedRedraw()
 //    std::cout <<  "red ";
     bool res=  drawing_queue->pull();
     if(!res)
-        std::cout <<  "END DRAWING"  <<std::endl;
-
+        std::cout <<  "END OF DRAWING QUEUE"  <<std::endl;
     this->queue_draw();
     return res;
 

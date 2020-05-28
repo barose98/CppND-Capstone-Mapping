@@ -30,6 +30,10 @@ struct ParserStruct {
 class OSMDataParser {
 public:
     OSMDataParser( std::shared_ptr<OSMDownloadQueue<std::string>> queue,  std::shared_ptr<OSMDrawingQueue<bool>> draw_queue);
+    OSMDataParser(const OSMDataParser &other);
+    OSMDataParser(OSMDataParser &&other);
+    OSMDataParser operator=(const OSMDataParser &other);
+    OSMDataParser operator=(OSMDataParser &&other);
     ~OSMDataParser();
     std::string receiveOSMXML(std::shared_ptr<CairoDrawer> drawer);
     void parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data);

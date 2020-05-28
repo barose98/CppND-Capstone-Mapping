@@ -48,9 +48,8 @@ public:
 private:
     std::shared_ptr<OSMDownloadQueue<std::string>> downloading_queue;
     std::shared_ptr<OSMDrawingQueue<bool>> drawing_queue;
-
-    std::unique_ptr< OSMDownloader> downloader;
-    std::unique_ptr<OSMDataParser> parser;
+//    std::unique_ptr< OSMDownloader> downloader;
+//    std::unique_ptr<OSMDataParser> parser;
     std::shared_ptr<CairoDrawer> drawer;
     std::future<std::string> getting_future;
     std::future<std::string> parsing_future;

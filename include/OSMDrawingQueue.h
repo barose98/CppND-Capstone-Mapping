@@ -14,6 +14,13 @@
 #include <future>
 #include <mutex>
 #include <algorithm>
+/**
+The mapping Queue classes allow for repeated messaging between threads, with the message deques protected by locks, so as to avoid data races.
+
+The drawing queue allows for repeated messaging between the data parsing thread and the main thread. The parsing thread pushes "true" booleans on to the queue while it is still drawing, and a "false" after it is done. This way the drawing area class can continuously redraw itself on its own timer, so that changes to the Cairo surface immediately appear to the user. Otherwise the user would have to move the window, drag the surface,  or maximize the window before the drawing area would redraw itself and drawn lines would be apparent. 
+
+On a side note, both queue header files also contain the implementations of the methods. The linker was throwing up errors as the templated nature of the class seemed to be confusing it. This was my workaround. I'm sure there is a proper way to control the linker. 
+*/
 
 template <class T>
 class OSMDrawingQueue {
@@ -31,13 +38,13 @@ private:
 template<class T>
 inline OSMDrawingQueue<T>::OSMDrawingQueue()
 {
-    std::cout <<  "Drawing Queue Constructor "<<this<<std::endl;
+//    std::cout <<  "Drawing Queue Constructor "<<this<<std::endl;
 }
 
 template<class T>
 inline OSMDrawingQueue<T>::~OSMDrawingQueue()
 {
-    std::cout <<  "Drawing Queue Destructor "<<this<<std::endl;
+//    std::cout <<  "Drawing Queue Destructor "<<this<<std::endl;
 }
 
 template<class T>

@@ -10,13 +10,37 @@
 
 OSMDownloader::OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue): downloader_queue(queue)
 {
-    std::cout <<  "OSMD Constructor "<<this<<std::endl;
+//    std::cout <<  "OSM Downloader Constructor "<<this<<std::endl;
+}
+OSMDownloader::OSMDownloader(const OSMDownloader &other)
+{
+//    std::cout <<  "OSM Downloader Copy Constructor "<<this<<std::endl;
+    this->downloader_queue = other.downloader_queue;
 }
 
+OSMDownloader::OSMDownloader(OSMDownloader &&other)
+{
+//    std::cout <<  "OSM Downloader Move Constructor "<<this<<std::endl;
+        this->downloader_queue = other.downloader_queue;
+}
+
+OSMDownloader OSMDownloader::operator =(const OSMDownloader &other)
+{
+//    std::cout <<  "OSM Downloader Copy Assignment Constructor "<<this<<std::endl;
+        this->downloader_queue = other.downloader_queue;
+        return *this;
+}
+
+OSMDownloader OSMDownloader::operator =(OSMDownloader &&other)
+{
+//    std::cout <<  "OSM Downloader Move Assignment  Constructor "<<this<<std::endl;
+        this->downloader_queue = other.downloader_queue;
+        return *this;
+}
 OSMDownloader::~OSMDownloader()
 {
 
-    std::cout <<  "OSMD Destructor "<<this  <<std::endl;
+//    std::cout <<  "OSM Downloader Destructor "<<this  <<std::endl;
 }
 
 int OSMDownloader::osmHeaderWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData)
@@ -24,12 +48,15 @@ int OSMDownloader::osmHeaderWriter(char *data,  size_t size,  size_t nmemb,  std
      return size * nmemb;
 }
 
-    int OSMDownloader::osmMapWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
+int OSMDownloader::osmMapWriter(char *data,  size_t size,  size_t nmemb,  std::shared_ptr<OSMDownloadQueue< std::string>>  *writerData){
     if(writerData == NULL)
       return 0;
-
-    std::string chunk = std::string(data);
     std::shared_ptr<OSMDownloadQueue< std::string>> queue =(std::shared_ptr<OSMDownloadQueue< std::string>>) *writerData;
+    std::string chunk = std::string(data);
+    if(chunk.find(">Error<") !=  std::string::npos ){
+        queue->push("<downloaderError/>");
+        return size * nmemb;
+    }
     queue->push(chunk);
     return size * nmemb;
 }
@@ -37,9 +64,10 @@ int OSMDownloader::osmHeaderWriter(char *data,  size_t size,  size_t nmemb,  std
 std::string OSMDownloader::downloadOSMap(bounding_box_t box)
 {
     std::stringstream url_stringstream;
-    url_stringstream<<OSM_URL<<"?data=way("<<box.south<<","<<box.west<<","<<box.north<<","<<box.east<<");(._;>;);out;";
+    url_stringstream<<OSM_URL<<"?data=[maxsize:13421772];way("<<box.south<<","<<box.west<<","<<box.north<<","<<box.east<<");(._;>;);out;";
 
     downloadStarted  = std::chrono::system_clock::now();
+    std::cout <<  "Download started "  <<std::endl;
     CURL *conn = NULL;
     CURLcode code;
     curl_global_init(CURL_GLOBAL_DEFAULT);
@@ -48,6 +76,7 @@ std::string OSMDownloader::downloadOSMap(bounding_box_t box)
     std::cout << "init_map_curl failed:  "<< errorBuffer  <<std::endl;
     downloader_queue->push("<downloaderError/>");
     }
+
     code = curl_easy_perform(conn);
     if(code != CURLE_OK){
         std::cerr <<  "Getting OSM map failed: "<< errorBuffer   <<std::endl;

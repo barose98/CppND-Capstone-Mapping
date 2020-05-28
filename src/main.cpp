@@ -18,12 +18,12 @@ int main (int argc, char **argv)
     std::string enteredLatLon, enteredLat, enteredLon;
 
     while(latlon_center.latitude>90 || latlon_center.latitude<-90 || latlon_center.longitude>180 || latlon_center.longitude<-180){
-        std::cout << "Enter the center latitude <space> longitude:  ";
+        std::cout << "Enter the center latitude <space> longitude.  Enter blank for default (Asheville, NC)   ";
         std::getline(std::cin, enteredLatLon);
         if(enteredLatLon.empty() )
         {
             enteredLat = "35.595";
-            enteredLon = "-82.555";
+            enteredLon = "-82.5555";
         }else{
             std::stringstream(enteredLatLon)>>enteredLat>>enteredLon;
         }

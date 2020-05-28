@@ -23,6 +23,11 @@ class OSMDownloader {
 public:
 
     OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue);
+    OSMDownloader(const OSMDownloader &other);
+    OSMDownloader( OSMDownloader &&other);
+
+    OSMDownloader operator=(const OSMDownloader &other);
+    OSMDownloader operator=(OSMDownloader &&other);
     ~OSMDownloader();
 
     std::string downloadOSMap(bounding_box_t box);

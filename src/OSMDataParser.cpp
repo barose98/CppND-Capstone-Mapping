@@ -10,13 +10,46 @@
 OSMDataParser::OSMDataParser(std::shared_ptr<OSMDownloadQueue<std::string>> queue,  std::shared_ptr<OSMDrawingQueue<bool>> draw_queue)
 : parser_queue(queue), drawing_queue(draw_queue)
 {
-    std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
+//    std::cout <<  "OSM Parser Constructor  " <<this<<std::endl;
     state = new ParserStruct();
 }
 
+OSMDataParser::OSMDataParser(const OSMDataParser &other)
+{
+//    std::cout <<  "OSM Parser Copy Constructor  " <<this<<std::endl;
+    this->state =other.state;
+    this->parser_queue=other.parser_queue;
+    this->drawing_queue=other.drawing_queue;
+}
+
+OSMDataParser::OSMDataParser(OSMDataParser &&other)
+{
+//    std::cout <<  "OSM Parser Move Constructor  " <<this<<std::endl;
+    this->state =other.state;
+    this->parser_queue=other.parser_queue;
+    this->drawing_queue=other.drawing_queue;
+}
+
+OSMDataParser OSMDataParser::operator =(const OSMDataParser &other)
+{
+    std::cout <<  "OSM Parser Copy Assignment Constructor  " <<this<<std::endl;
+    this->state =other.state;
+    this->parser_queue=other.parser_queue;
+    this->drawing_queue=other.drawing_queue;
+    return *this;
+}
+
+OSMDataParser OSMDataParser::operator =(OSMDataParser &&other)
+{
+    std::cout <<  "OSM Parser Move Assignment  Constructor  " <<this<<std::endl;
+    this->state =other.state;
+    this->parser_queue=other.parser_queue;
+    this->drawing_queue=other.drawing_queue;
+    return *this;
+}
 OSMDataParser::~OSMDataParser()
 {
-    std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
+//    std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
 }
 
 void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data){
@@ -96,6 +129,7 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
     parsingStarted  = std::chrono::system_clock::now();
     std::stringstream xml_data;
     do{
+
         xml_data<< parser_queue->pull() ;
         if(xml_data.str().find("<downloaderError/>") != std::string::npos){
             std::cerr <<  xml_data.str()  <<std::endl;
@@ -112,9 +146,13 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
     std::cout <<  "Drawing" <<std::endl;
 
     for(WayStruct way : drawer->ways){
-        drawer->drawWay(way);
+        drawer->drawWay( std::move(way));
         drawing_queue->push(true);
     }
+    drawer->drawBorder();
+    drawer->drawCenter();
+    drawing_queue->push(true);
+
     drawing_queue->push(false);
     long timeSinceParsingStarted= std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - parsingStarted).count();
     std::cout << "Parsing/Drawing took "<<timeSinceParsingStarted<<" milliseconds"  <<std::endl;
@@ -123,5 +161,4 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 
 
 }
-
 
