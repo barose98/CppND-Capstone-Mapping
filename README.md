@@ -50,4 +50,13 @@ libcurl version 7.68.0
 
 
 ## Running Instructions
+Enter the desired Latitude and Longitude, separated by a space. If you leave this blank and press enter, the application defaults to Asheville, NC. 
+
+Wait for the map data to download and Cairo to draw the "ways". Urban areas with lots of streets and buildings the drawing takes much longer. Cairo drawing is very slow. If I had it to do over I would look for some faster way to do drawing.
+
+After the drawing is complete, drag the map to pan around. This application is currently in the "proof of concept" phase. 
+
+## Documentation
+See the doc folder for automatically generated documentation. 
+
 
