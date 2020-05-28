@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="d2/dfb/class_lat_lon_utility" kind="class" language="C++" prot="public">
+    <compoundname>LatLonUtility</compoundname>
+    <includes refid="d5/d00/_lat_lon_utility_8h" local="no">LatLonUtility.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d2/dfb/class_lat_lon_utility_1a9bd9f5c3ecbb7b2d1a5a2f0829c2d876" prot="private" static="no" mutable="no">
+        <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+        <definition>latlon_point_t LatLonUtility::big_map_latlon_center</definition>
+        <argsstring></argsstring>
+        <name>big_map_latlon_center</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="32" column="20" bodyfile="include/LatLonUtility.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1ac4cac757bf3966517877c86e269c7d80" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+        <definition>latlon_point_t LatLonUtility::calculateAnyLatLonPoint</definition>
+        <argsstring>(percentage_point_t big_query_point) const</argsstring>
+        <name>calculateAnyLatLonPoint</name>
+        <param>
+          <type><ref refid="db/d40/structpercentage__point__t" kindref="compound">percentage_point_t</ref></type>
+          <declname>big_query_point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="19" column="20" bodyfile="src/LatLonUtility.cpp" bodystart="10" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1aae5c09b4427d84dd08f05db2e9d7a42d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="db/d40/structpercentage__point__t" kindref="compound">percentage_point_t</ref></type>
+        <definition>percentage_point_t LatLonUtility::calculateAnyLatLonPercentage</definition>
+        <argsstring>(latlon_point_t big_query_point) const</argsstring>
+        <name>calculateAnyLatLonPercentage</name>
+        <param>
+          <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+          <declname>big_query_point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="20" column="24" bodyfile="src/LatLonUtility.cpp" bodystart="33" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1a4744362046e399f42e13fcf4611d0b98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+        <definition>latlon_point_t LatLonUtility::calculateBigMapLatlonOrigin</definition>
+        <argsstring>() const</argsstring>
+        <name>calculateBigMapLatlonOrigin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="21" column="20" bodyfile="src/LatLonUtility.cpp" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1a86f4b7339ae304a992662d4611cacfed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+        <definition>latlon_point_t LatLonUtility::getBigMapLatlonCenter</definition>
+        <argsstring>() const</argsstring>
+        <name>getBigMapLatlonCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="23" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1ab86e882d01304d1ed74084e74937ba6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float LatLonUtility::getBigMapLatlonSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getBigMapLatlonSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="24" column="11" bodyfile="src/LatLonUtility.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1a8f85ea9ae4960a62c459cbcf961a94be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float LatLonUtility::getBigMapLatlonEdge</definition>
+        <argsstring>() const</argsstring>
+        <name>getBigMapLatlonEdge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="25" column="11" bodyfile="src/LatLonUtility.cpp" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1a3ec34157e8445606b9b4bdc8dc50c4ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LatLonUtility::setBigMapLatlonEdge</definition>
+        <argsstring>(float bigMapLatlonEdge=std::sqrt(MAP_LATLON_SIZE))</argsstring>
+        <name>setBigMapLatlonEdge</name>
+        <param>
+          <type>float</type>
+          <declname>bigMapLatlonEdge</declname>
+          <defval>std::sqrt(MAP_LATLON_SIZE)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="27" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1a2c011b042faf5b617b0412734bbd1aac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LatLonUtility::setBigMapLatlonSize</definition>
+        <argsstring>(float bigMapLatlonSize=MAP_LATLON_SIZE)</argsstring>
+        <name>setBigMapLatlonSize</name>
+        <param>
+          <type>float</type>
+          <declname>bigMapLatlonSize</declname>
+          <defval>MAP_LATLON_SIZE</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="28" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dfb/class_lat_lon_utility_1a868c2d7fd2ca003999dd9347363c6db8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LatLonUtility::setBigMapLatlonCenter</definition>
+        <argsstring>(latlon_point_t bigMapLatlonCenter)</argsstring>
+        <name>setBigMapLatlonCenter</name>
+        <param>
+          <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+          <declname>bigMapLatlonCenter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/LatLonUtility.h" line="29" column="10" bodyfile="src/LatLonUtility.cpp" bodystart="41" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class has methods used by several classes to figure out things about what the map is looking at it the terms of real world coordinates. </para>
+    </detaileddescription>
+    <location file="include/LatLonUtility.h" line="17" column="20" bodyfile="include/LatLonUtility.h" bodystart="17" bodyend="33"/>
+    <listofallmembers>
+      <member refid="d2/dfb/class_lat_lon_utility_1a9bd9f5c3ecbb7b2d1a5a2f0829c2d876" prot="private" virt="non-virtual"><scope>LatLonUtility</scope><name>big_map_latlon_center</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1aae5c09b4427d84dd08f05db2e9d7a42d" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>calculateAnyLatLonPercentage</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1ac4cac757bf3966517877c86e269c7d80" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>calculateAnyLatLonPoint</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1a4744362046e399f42e13fcf4611d0b98" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>calculateBigMapLatlonOrigin</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1a86f4b7339ae304a992662d4611cacfed" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>getBigMapLatlonCenter</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1a8f85ea9ae4960a62c459cbcf961a94be" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>getBigMapLatlonEdge</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1ab86e882d01304d1ed74084e74937ba6b" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>getBigMapLatlonSize</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1a868c2d7fd2ca003999dd9347363c6db8" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>setBigMapLatlonCenter</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1a3ec34157e8445606b9b4bdc8dc50c4ef" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>setBigMapLatlonEdge</name></member>
+      <member refid="d2/dfb/class_lat_lon_utility_1a2c011b042faf5b617b0412734bbd1aac" prot="public" virt="non-virtual"><scope>LatLonUtility</scope><name>setBigMapLatlonSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

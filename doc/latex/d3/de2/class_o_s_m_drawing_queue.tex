@@ -1,0 +1,30 @@
+\hypertarget{class_o_s_m_drawing_queue}{}\doxysection{O\+S\+M\+Drawing\+Queue$<$ T $>$ Class Template Reference}
+\label{class_o_s_m_drawing_queue}\index{OSMDrawingQueue$<$ T $>$@{OSMDrawingQueue$<$ T $>$}}
+
+
+{\ttfamily \#include $<$O\+S\+M\+Drawing\+Queue.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_o_s_m_drawing_queue_aa61a8f5c232345535cf56d715617c6bc}\label{class_o_s_m_drawing_queue_aa61a8f5c232345535cf56d715617c6bc}} 
+void {\bfseries push} (T msg)
+\item 
+\mbox{\Hypertarget{class_o_s_m_drawing_queue_a6c42dbba7ca017034974266f773d938e}\label{class_o_s_m_drawing_queue_a6c42dbba7ca017034974266f773d938e}} 
+T {\bfseries pull} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class O\+S\+M\+Drawing\+Queue$<$ T $>$}
+
+The mapping Queue classes allow for repeated messaging between threads, with the message deques protected by locks, so as to avoid data races.
+
+The drawing queue allows for repeated messaging between the data parsing thread and the main thread. The parsing thread pushes \char`\"{}true\char`\"{} booleans on to the queue while it is still drawing, and a \char`\"{}false\char`\"{} after it is done. This way the drawing area class can continuously redraw itself on its own timer, so that changes to the Cairo surface immediately appear to the user. Otherwise the user would have to move the window, drag the surface, or maximize the window before the drawing area would redraw itself and drawn lines would be apparent.
+
+On a side note, both queue header files also contain the implementations of the methods. The linker was throwing up errors as the templated nature of the class seemed to be confusing it. This was my workaround. I\textquotesingle{}m sure there is a proper way to control the linker. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/O\+S\+M\+Drawing\+Queue.\+h\end{DoxyCompactItemize}

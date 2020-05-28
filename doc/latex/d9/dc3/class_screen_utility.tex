@@ -1,0 +1,59 @@
+\hypertarget{class_screen_utility}{}\doxysection{Screen\+Utility Class Reference}
+\label{class_screen_utility}\index{ScreenUtility@{ScreenUtility}}
+
+
+{\ttfamily \#include $<$Screen\+Utility.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_screen_utility_ab7de9ba64c8817b9e40a616a8147a3e1}\label{class_screen_utility_ab7de9ba64c8817b9e40a616a8147a3e1}} 
+\mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} {\bfseries calculate\+Any\+Screen\+Point} (\mbox{\hyperlink{structpercentage__point__t}{percentage\+\_\+point\+\_\+t}} big\+\_\+query\+\_\+point) const
+\item 
+\mbox{\Hypertarget{class_screen_utility_a19e70698556deb1e42a16ef99f96a9e0}\label{class_screen_utility_a19e70698556deb1e42a16ef99f96a9e0}} 
+\mbox{\hyperlink{structpercentage__point__t}{percentage\+\_\+point\+\_\+t}} {\bfseries calculate\+Any\+Screen\+Percentage} (\mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} big\+\_\+query\+\_\+point) const
+\item 
+\mbox{\Hypertarget{class_screen_utility_a3ec1902b10390ec33d72c3c076cac8c5}\label{class_screen_utility_a3ec1902b10390ec33d72c3c076cac8c5}} 
+const \mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} {\bfseries get\+Pressed\+At} () const
+\item 
+\mbox{\Hypertarget{class_screen_utility_a8a3ada1e4e5fb8a7b5bb8485c5c0443d}\label{class_screen_utility_a8a3ada1e4e5fb8a7b5bb8485c5c0443d}} 
+void {\bfseries set\+Pressed\+At} (const \mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} pressed\+At)
+\item 
+\mbox{\Hypertarget{class_screen_utility_a3f638858a568d78ec1ade534484ccfd1}\label{class_screen_utility_a3f638858a568d78ec1ade534484ccfd1}} 
+void {\bfseries move\+Offset} (double x\+Delta, double y\+Delta)
+\item 
+\mbox{\Hypertarget{class_screen_utility_a1c27bf5e73fa5f78a752313945ec27f4}\label{class_screen_utility_a1c27bf5e73fa5f78a752313945ec27f4}} 
+const \mbox{\hyperlink{structscreen__size__t}{screen\+\_\+size\+\_\+t}} {\bfseries get\+Allocated} () const
+\item 
+\mbox{\Hypertarget{class_screen_utility_a9b75a9d0d9d1cdc10da463a24df30b7a}\label{class_screen_utility_a9b75a9d0d9d1cdc10da463a24df30b7a}} 
+void {\bfseries set\+Allocated} (const \mbox{\hyperlink{structscreen__size__t}{screen\+\_\+size\+\_\+t}} allocated)
+\item 
+\mbox{\Hypertarget{class_screen_utility_a8750090e1ef07987035409c2cf45cb0c}\label{class_screen_utility_a8750090e1ef07987035409c2cf45cb0c}} 
+const \mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} {\bfseries get\+Offset} () const
+\item 
+\mbox{\Hypertarget{class_screen_utility_a78b5f7b0a0f6b38a6a722d95a85a3dca}\label{class_screen_utility_a78b5f7b0a0f6b38a6a722d95a85a3dca}} 
+void {\bfseries set\+Offset} (const \mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} origin)
+\item 
+\mbox{\Hypertarget{class_screen_utility_a7d7ac97b189293a16beaa4be0689d8f2}\label{class_screen_utility_a7d7ac97b189293a16beaa4be0689d8f2}} 
+bool {\bfseries is\+Recenter} () const
+\item 
+\mbox{\Hypertarget{class_screen_utility_adba6f4e6ee6faf8f9b89885c56778128}\label{class_screen_utility_adba6f4e6ee6faf8f9b89885c56778128}} 
+void {\bfseries set\+Recenter} (bool recenter=true)
+\item 
+\mbox{\Hypertarget{class_screen_utility_a9ad78e2f3be25160ad68804ebe2a6649}\label{class_screen_utility_a9ad78e2f3be25160ad68804ebe2a6649}} 
+const \mbox{\hyperlink{structscreen__size__t}{screen\+\_\+size\+\_\+t}} {\bfseries get\+Big\+Map\+Pixel\+Size} () const
+\item 
+\mbox{\Hypertarget{class_screen_utility_a704917586243080bf7fcd0061d3c3899}\label{class_screen_utility_a704917586243080bf7fcd0061d3c3899}} 
+\mbox{\hyperlink{structscreen__point__t}{screen\+\_\+point\+\_\+t}} {\bfseries get\+Big\+Map\+Pixel\+Center} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class has some private variables and public methods to help the main G\+TK application to keep track of the offset, which specifies where the Cairo Drawling area\textquotesingle{}s source is compared to the big map In the \char`\"{}background\char`\"{}.
+
+The \char`\"{}\+Calculate-\/\char`\"{} methods also allow for figuring screen points from a percentage and vice versa. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Screen\+Utility.\+h\item 
+src/Screen\+Utility.\+cpp\end{DoxyCompactItemize}

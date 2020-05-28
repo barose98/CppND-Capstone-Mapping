@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="de/d5a/_cairo_drawer_8cpp">CairoDrawer.cpp</innerfile>
+    <innerfile refid="d6/db8/_capstone_drawing_area_8cpp">CapstoneDrawingArea.cpp</innerfile>
+    <innerfile refid="db/dce/_capstone_mapping_8cpp">CapstoneMapping.cpp</innerfile>
+    <innerfile refid="d4/d53/_lat_lon_utility_8cpp">LatLonUtility.cpp</innerfile>
+    <innerfile refid="df/d0a/main_8cpp">main.cpp</innerfile>
+    <innerfile refid="de/d43/_mapping_structs_8cpp">MappingStructs.cpp</innerfile>
+    <innerfile refid="d1/dae/_o_s_m_data_parser_8cpp">OSMDataParser.cpp</innerfile>
+    <innerfile refid="df/d5a/_o_s_m_downloader_8cpp">OSMDownloader.cpp</innerfile>
+    <innerfile refid="df/d67/_screen_utility_8cpp">ScreenUtility.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,46 @@
+\hypertarget{struct_parser_struct}{}\doxysection{Parser\+Struct Struct Reference}
+\label{struct_parser_struct}\index{ParserStruct@{ParserStruct}}
+
+
+{\ttfamily \#include $<$O\+S\+M\+Data\+Parser.\+h$>$}
+
+
+
+Collaboration diagram for Parser\+Struct\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{d8/dd9/struct_parser_struct__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_parser_struct_ac2d7c7293409d3a3e354f807b1242623}\label{struct_parser_struct_ac2d7c7293409d3a3e354f807b1242623}} 
+int {\bfseries ok}
+\item 
+\mbox{\Hypertarget{struct_parser_struct_a1616f9680e7a58073b89f3bafe2789af}\label{struct_parser_struct_a1616f9680e7a58073b89f3bafe2789af}} 
+std\+::string {\bfseries node\+\_\+name} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{struct_parser_struct_ad45bc981fe7140aa73a467d492e74e46}\label{struct_parser_struct_ad45bc981fe7140aa73a467d492e74e46}} 
+size\+\_\+t {\bfseries depth}
+\item 
+\mbox{\Hypertarget{struct_parser_struct_ac6539b9e974ca41c1cddb20ef544d6a0}\label{struct_parser_struct_ac6539b9e974ca41c1cddb20ef544d6a0}} 
+\mbox{\hyperlink{struct_way_struct}{Way\+Struct}} {\bfseries current\+Way}
+\item 
+\mbox{\Hypertarget{struct_parser_struct_a1eab5a4ce15444754e4b66c67dd0e7c4}\label{struct_parser_struct_a1eab5a4ce15444754e4b66c67dd0e7c4}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$ {\bfseries drawer}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used by \mbox{\hyperlink{class_capstone_mapping}{Capstone\+Mapping}} class, which spawns a thread to run receive\+O\+S\+M\+X\+M\+L() function, which pulls data chunk by chunk from the \mbox{\hyperlink{class_o_s_m_download_queue}{O\+S\+M\+Download\+Queue}} and appends it to a string, which can then go to the parse\+O\+S\+M\+X\+M\+L() method.
+
+This method starts the expat parser. This function also defines lambda functions which serve as callbacks that handle the star\+Element and end\+Element events for the parser.
+
+After the data is parsed and the relevent data is stored in the \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} class, it repeatedly calls the draw\+Way() of that class. It also pushes booleans to the Drawling\+Queue class, which notifies the Drawling\+Area class that drawing is happening and it should incrementally redraw itself. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/O\+S\+M\+Data\+Parser.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="df/d33/structbounding__box__t" kind="struct"><name>bounding_box_t</name>
+    <member refid="df/d33/structbounding__box__t_1a930a2bf2df1206b49571e8fd4510f514" kind="variable"><name>west</name></member>
+    <member refid="df/d33/structbounding__box__t_1aa73791581bf386deebb4a51321155d3e" kind="variable"><name>north</name></member>
+    <member refid="df/d33/structbounding__box__t_1a1b3028278b0458cb9c2d17c5631f39ec" kind="variable"><name>east</name></member>
+    <member refid="df/d33/structbounding__box__t_1ab60e0b2bc863fc2f4041702c26644146" kind="variable"><name>south</name></member>
+    <member refid="df/d33/structbounding__box__t_1ad60b18955ab9dd37bf6547aff1b563cf" kind="function"><name>bounding_box_t</name></member>
+  </compound>
+  <compound refid="d2/d3a/class_cairo_drawer" kind="class"><name>CairoDrawer</name>
+    <member refid="d2/d3a/class_cairo_drawer_1a7626b7a7b4f2056b299837497927b800" kind="variable"><name>nodes</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a825d6ec9deccebe8cfd26cd96b2f2142" kind="variable"><name>ways</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a471d9ecc7682a04b873368b8a1e2a24a" kind="variable"><name>mapping_surface</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1ae8c9062560f88d82e6402fcea6ddb842" kind="variable"><name>context</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1ae82add5951b26e7ac553aab373fdd581" kind="variable"><name>latlon_utility</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1ad83695b2fd9f3aeb28ed7ad2eaa1f3e5" kind="variable"><name>screen_utility</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1ac0034536dd68dd18d37966532ce80d76" kind="function"><name>CairoDrawer</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a287fe3f9822bf11f3a53b9e2448c3734" kind="function"><name>~CairoDrawer</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a899a252d4cca823794caf4047d458bd8" kind="function"><name>drawCenter</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1aaa4827c7d70e4fec55ae11ca4a1d69b8" kind="function"><name>drawBorder</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a3b04257b846e440912584201ea20544b" kind="function"><name>drawGrid</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1aaf60dc4ab4a78ee59b86d1c883ddf4ae" kind="function"><name>drawNode</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1ae063b33594c359e2683be44e0b40c627" kind="function"><name>drawWay</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1adb5bb95e9a63e07b023a380fcbea6357" kind="function"><name>getMappingSurface</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1aca21999c0f4764341227925ac843ce5c" kind="function"><name>setMappingSurface</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a4b0b1ef0a72e5d733a60fdf857759097" kind="function"><name>setColor</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1a872ad1acb8626bb1d0dcba80e919cff1" kind="function"><name>setLineStyle</name></member>
+  </compound>
+  <compound refid="d3/d4a/class_capstone_drawing_area" kind="class"><name>CapstoneDrawingArea</name>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a9e55a789f224f163b40b086bb7bb701a" kind="variable"><name>capstone_mapping</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1aa8f0c7024b4b815be4291414d278049f" kind="variable"><name>downloading_queue</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a72e156846433aa785f127121bbcbab44" kind="variable"><name>drawing_queue</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a2ffb3e4d16b6e721f85a3b5a0948cb9f" kind="function"><name>CapstoneDrawingArea</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a2245ef118abd1dca649ba87a0ea4e3d8" kind="function"><name>~CapstoneDrawingArea</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a9fdec8a1fc32db0870fab14622e1b9d2" kind="function"><name>initalize</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a947c30a6698ca5d6c9bec1824c47f6e8" kind="function"><name>on_motion_notify_event</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a3e9c6ffc0e1a159684d55c753c9bebe6" kind="function"><name>on_button_press_event</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1ace9749e8e11f83cb288e4f023655e6db" kind="function"><name>on_button_release_event</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1affb48ac1b06ccc2f29eb8c5237c472e8" kind="function"><name>on_draw</name></member>
+    <member refid="d3/d4a/class_capstone_drawing_area_1a93644be637ca4511a46725c6833462bc" kind="function"><name>timedRedraw</name></member>
+  </compound>
+  <compound refid="de/d85/class_capstone_mapping" kind="class"><name>CapstoneMapping</name>
+    <member refid="de/d85/class_capstone_mapping_1a5938ad52033e0a4cbec74028d594d714" kind="variable"><name>latlon_utility</name></member>
+    <member refid="de/d85/class_capstone_mapping_1a3bc99a4970df86d6e4d12f231793c242" kind="variable"><name>screen_utility</name></member>
+    <member refid="de/d85/class_capstone_mapping_1ab29fe61007724da9c2c8cdd6d3ba3ce5" kind="variable"><name>downloading_queue</name></member>
+    <member refid="de/d85/class_capstone_mapping_1a9e782a21ff8b1977743142fc194737f3" kind="variable"><name>drawing_queue</name></member>
+    <member refid="de/d85/class_capstone_mapping_1aaec9a98a67034cb984fc11fd7b136a44" kind="variable"><name>drawer</name></member>
+    <member refid="de/d85/class_capstone_mapping_1ad3b6e9deb69ab2072581a2f4b5ee10ea" kind="variable"><name>getting_future</name></member>
+    <member refid="de/d85/class_capstone_mapping_1a1d1403017e79eab8b2095f5f3ead882e" kind="variable"><name>parsing_future</name></member>
+    <member refid="de/d85/class_capstone_mapping_1ac71b1b6137c0bddba934928cb9b53915" kind="variable"><name>mapping_surface</name></member>
+    <member refid="de/d85/class_capstone_mapping_1ada7a828d80e75556476eeb30e2404f5e" kind="function"><name>CapstoneMapping</name></member>
+    <member refid="de/d85/class_capstone_mapping_1abf27e48b37b76413cd37e8b2fde74fca" kind="function"><name>~CapstoneMapping</name></member>
+    <member refid="de/d85/class_capstone_mapping_1a2d27eb125a6b1463f6261f76879acbc2" kind="function"><name>getMappingSurface</name></member>
+    <member refid="de/d85/class_capstone_mapping_1ab73e7bc19487f09c23c30bee342c7dca" kind="function"><name>createBigMap</name></member>
+  </compound>
+  <compound refid="d5/dda/structlatlon__point__t" kind="struct"><name>latlon_point_t</name>
+    <member refid="d5/dda/structlatlon__point__t_1a44476c16e8dc32df82261a595d170980" kind="variable"><name>latitude</name></member>
+    <member refid="d5/dda/structlatlon__point__t_1af198c9f201a14a72ac04555c0ada2803" kind="variable"><name>longitude</name></member>
+    <member refid="d5/dda/structlatlon__point__t_1ab23bea6e5d95e5d50ededb2e00ee66cf" kind="function"><name>latlon_point_t</name></member>
+    <member refid="d5/dda/structlatlon__point__t_1a7a4524c63cf93eb80155ee0b367e14c5" kind="function"><name>latlon_point_t</name></member>
+  </compound>
+  <compound refid="d2/dfb/class_lat_lon_utility" kind="class"><name>LatLonUtility</name>
+    <member refid="d2/dfb/class_lat_lon_utility_1a9bd9f5c3ecbb7b2d1a5a2f0829c2d876" kind="variable"><name>big_map_latlon_center</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1ac4cac757bf3966517877c86e269c7d80" kind="function"><name>calculateAnyLatLonPoint</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1aae5c09b4427d84dd08f05db2e9d7a42d" kind="function"><name>calculateAnyLatLonPercentage</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1a4744362046e399f42e13fcf4611d0b98" kind="function"><name>calculateBigMapLatlonOrigin</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1a86f4b7339ae304a992662d4611cacfed" kind="function"><name>getBigMapLatlonCenter</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1ab86e882d01304d1ed74084e74937ba6b" kind="function"><name>getBigMapLatlonSize</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1a8f85ea9ae4960a62c459cbcf961a94be" kind="function"><name>getBigMapLatlonEdge</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1a3ec34157e8445606b9b4bdc8dc50c4ef" kind="function"><name>setBigMapLatlonEdge</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1a2c011b042faf5b617b0412734bbd1aac" kind="function"><name>setBigMapLatlonSize</name></member>
+    <member refid="d2/dfb/class_lat_lon_utility_1a868c2d7fd2ca003999dd9347363c6db8" kind="function"><name>setBigMapLatlonCenter</name></member>
+  </compound>
+  <compound refid="d6/da2/struct_node_struct" kind="struct"><name>NodeStruct</name>
+    <member refid="d6/da2/struct_node_struct_1a973029ca70aed430d9e7f9cf17dbdd7f" kind="variable"><name>id</name></member>
+    <member refid="d6/da2/struct_node_struct_1a4fdd8cc0eed02ac9b318488af1132bd7" kind="variable"><name>point</name></member>
+  </compound>
+  <compound refid="d3/d4b/class_o_s_m_data_parser" kind="class"><name>OSMDataParser</name>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1a069a919b8930d2581e6154c45b7f7d1b" kind="variable"><name>parsingStarted</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1ab9efb0af634840196567e1795fecac3b" kind="variable"><name>parser_queue</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1a1f7f8c719acc3de44973cd1bb622b602" kind="variable"><name>drawing_queue</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1ad85124a396401808a8e7fb10ee94b7ed" kind="variable"><name>state</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1af3e42ed1a82cec88fc1998e50be54dcc" kind="function"><name>OSMDataParser</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1aa32de2ab897266cc5421804c0b5489ea" kind="function"><name>OSMDataParser</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1adaf82b6395711209169b596fc2aeca23" kind="function"><name>OSMDataParser</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1aba0d5b7f3115c519e3cae6f7a5d01847" kind="function"><name>operator=</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1ac566a91aa90194b64a53ba30f83eca76" kind="function"><name>operator=</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1a0f08fde313c27fc99764d28bd98375d8" kind="function"><name>~OSMDataParser</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1a158aa7b822fc31dbbdde4372a6cbc28b" kind="function"><name>receiveOSMXML</name></member>
+    <member refid="d3/d4b/class_o_s_m_data_parser_1a7415daf804f35758e15af6859ed4cecf" kind="function"><name>parseOSMXML</name></member>
+  </compound>
+  <compound refid="d4/d5a/class_o_s_m_downloader" kind="class"><name>OSMDownloader</name>
+    <member refid="d4/d5a/class_o_s_m_downloader_1ada1c007654c4c0b2e3af2cbba14da152" kind="variable"><name>downloader_queue</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a282a64874c9d73f3a518c2beae7b4643" kind="variable"><name>downloadStarted</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1af017776e9a7638555b23e98daf07159b" kind="variable"><name>errorBuffer</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a14a368ba9037a7ff4e45216de4547cc2" kind="variable"><name>buffer</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kind="function"><name>OSMDownloader</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1aa2dcdc1a094ed5777e81b21abe9411d2" kind="function"><name>OSMDownloader</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a0cdf5996835e890c2ad7d943a4718ab4" kind="function"><name>OSMDownloader</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a48cd316ec89f33752e90deaa72007b6f" kind="function"><name>operator=</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a162829c05c0b3c6fedae1b4637a57016" kind="function"><name>operator=</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1ae8a0aba53511ed6ef030c42e80e4d249" kind="function"><name>~OSMDownloader</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a9c117edca49bd0e9894c092ccc3221b1" kind="function"><name>downloadOSMap</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a38c2c2cc8512ba0a690fa987601ed841" kind="function"><name>initMappingCurl</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1ac2bceeb5d8a98ce4f2b7aeaa4802fa21" kind="function"><name>osmMapWriter</name></member>
+    <member refid="d4/d5a/class_o_s_m_downloader_1a75a066c060188fb4ba1e44f363354ce7" kind="function"><name>osmHeaderWriter</name></member>
+  </compound>
+  <compound refid="d4/d7c/class_o_s_m_download_queue" kind="class"><name>OSMDownloadQueue</name>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1a1ff41d81182ee708f442ee9dc034f122" kind="variable"><name>_mutex</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1ad3563388b08de6e15bf5654c4b486e64" kind="variable"><name>_cond</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1a7532d7110b75f14604532a558a525fb5" kind="variable"><name>xml_chunks</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1a22ba78365088a75b3f94caf30c48f38b" kind="variable"><name>total_size</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1ad0103a0678bc58a67a03a7b85d86a932" kind="function"><name>OSMDownloadQueue</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1a4c8231adcf9dec46a75b4ce13218b274" kind="function"><name>~OSMDownloadQueue</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1adceb0930d4d3a2d49f459b757d8676dd" kind="function"><name>push</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1a7551c6d988d06e514d8de5ff40e5fdf5" kind="function"><name>pull</name></member>
+    <member refid="d4/d7c/class_o_s_m_download_queue_1a64d9ea4a9e7ca5f799e994864956ece6" kind="function"><name>hasMoreData</name></member>
+  </compound>
+  <compound refid="d3/de2/class_o_s_m_drawing_queue" kind="class"><name>OSMDrawingQueue</name>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1a75cf018cc268e4e03438c55596218a99" kind="variable"><name>_mutex</name></member>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1acfe120c156be9b334593844e91495956" kind="variable"><name>_cond</name></member>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1a4a049099e88f680e09e1eb5c73c63117" kind="variable"><name>still_drawing</name></member>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1ac44e0385cd1aa856deacdcecaefbc684" kind="function"><name>OSMDrawingQueue</name></member>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1a4683db8098322c74ccae31282680907a" kind="function"><name>~OSMDrawingQueue</name></member>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1aa61a8f5c232345535cf56d715617c6bc" kind="function"><name>push</name></member>
+    <member refid="d3/de2/class_o_s_m_drawing_queue_1a6c42dbba7ca017034974266f773d938e" kind="function"><name>pull</name></member>
+  </compound>
+  <compound refid="d3/dfc/struct_parser_struct" kind="struct"><name>ParserStruct</name>
+    <member refid="d3/dfc/struct_parser_struct_1ac2d7c7293409d3a3e354f807b1242623" kind="variable"><name>ok</name></member>
+    <member refid="d3/dfc/struct_parser_struct_1a1616f9680e7a58073b89f3bafe2789af" kind="variable"><name>node_name</name></member>
+    <member refid="d3/dfc/struct_parser_struct_1ad45bc981fe7140aa73a467d492e74e46" kind="variable"><name>depth</name></member>
+    <member refid="d3/dfc/struct_parser_struct_1ac6539b9e974ca41c1cddb20ef544d6a0" kind="variable"><name>currentWay</name></member>
+    <member refid="d3/dfc/struct_parser_struct_1a1eab5a4ce15444754e4b66c67dd0e7c4" kind="variable"><name>drawer</name></member>
+  </compound>
+  <compound refid="db/d40/structpercentage__point__t" kind="struct"><name>percentage_point_t</name>
+    <member refid="db/d40/structpercentage__point__t_1abb8b62d235065a24ded00e73c7cc8212" kind="variable"><name>percentX</name></member>
+    <member refid="db/d40/structpercentage__point__t_1a721c0d73056eaae166244b9324b9631e" kind="variable"><name>percentY</name></member>
+    <member refid="db/d40/structpercentage__point__t_1a928330f073d8e7deb3b2ddf336979291" kind="function"><name>percentage_point_t</name></member>
+    <member refid="db/d40/structpercentage__point__t_1a167159a8be5cc217ecce2bb50e2e82dc" kind="function"><name>percentage_point_t</name></member>
+  </compound>
+  <compound refid="de/d0f/structscreen__point__t" kind="struct"><name>screen_point_t</name>
+    <member refid="de/d0f/structscreen__point__t_1a4bd4d57ab638aed1a47def54a3c6bf96" kind="variable"><name>X</name></member>
+    <member refid="de/d0f/structscreen__point__t_1a6773c141a594310937c32778f9db0cf2" kind="variable"><name>Y</name></member>
+    <member refid="de/d0f/structscreen__point__t_1a49ede479c1a5926bd446adb0526d4593" kind="function"><name>screen_point_t</name></member>
+    <member refid="de/d0f/structscreen__point__t_1ab9445c279da1518fef8cd64d4b4c67bf" kind="function"><name>screen_point_t</name></member>
+  </compound>
+  <compound refid="df/d49/structscreen__size__t" kind="struct"><name>screen_size_t</name>
+    <member refid="df/d49/structscreen__size__t_1a178c9c33a69833dd828f4a0adbe7434e" kind="variable"><name>width</name></member>
+    <member refid="df/d49/structscreen__size__t_1a55089552c9ae66873a787a26ba5dd8ea" kind="variable"><name>height</name></member>
+    <member refid="df/d49/structscreen__size__t_1a7d454a54c3908aa94e1e51b1bacc53cf" kind="function"><name>screen_size_t</name></member>
+    <member refid="df/d49/structscreen__size__t_1aa4b910cce3d97e2dea2267fb36f7ae13" kind="function"><name>screen_size_t</name></member>
+  </compound>
+  <compound refid="d9/dc3/class_screen_utility" kind="class"><name>ScreenUtility</name>
+    <member refid="d9/dc3/class_screen_utility_1aaad68b0048df0500e4823c4db503983e" kind="variable"><name>pressedAt</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a684cb3633ff67c5c7d6aa8250ccd6e27" kind="variable"><name>offset</name></member>
+    <member refid="d9/dc3/class_screen_utility_1ac7753716480d7321d018d7ad2cfe0060" kind="variable"><name>allocated</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a41a45bd3648aa8ae46c3af8fc7cdce69" kind="variable"><name>recenter</name></member>
+    <member refid="d9/dc3/class_screen_utility_1ab7de9ba64c8817b9e40a616a8147a3e1" kind="function"><name>calculateAnyScreenPoint</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a19e70698556deb1e42a16ef99f96a9e0" kind="function"><name>calculateAnyScreenPercentage</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a3ec1902b10390ec33d72c3c076cac8c5" kind="function"><name>getPressedAt</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a8a3ada1e4e5fb8a7b5bb8485c5c0443d" kind="function"><name>setPressedAt</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a3f638858a568d78ec1ade534484ccfd1" kind="function"><name>moveOffset</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a1c27bf5e73fa5f78a752313945ec27f4" kind="function"><name>getAllocated</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a9b75a9d0d9d1cdc10da463a24df30b7a" kind="function"><name>setAllocated</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a8750090e1ef07987035409c2cf45cb0c" kind="function"><name>getOffset</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a78b5f7b0a0f6b38a6a722d95a85a3dca" kind="function"><name>setOffset</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a7d7ac97b189293a16beaa4be0689d8f2" kind="function"><name>isRecenter</name></member>
+    <member refid="d9/dc3/class_screen_utility_1adba6f4e6ee6faf8f9b89885c56778128" kind="function"><name>setRecenter</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a9ad78e2f3be25160ad68804ebe2a6649" kind="function"><name>getBigMapPixelSize</name></member>
+    <member refid="d9/dc3/class_screen_utility_1a704917586243080bf7fcd0061d3c3899" kind="function"><name>getBigMapPixelCenter</name></member>
+  </compound>
+  <compound refid="d8/dc3/struct_way_struct" kind="struct"><name>WayStruct</name>
+    <member refid="d8/dc3/struct_way_struct_1afc33fb426b45607da2143ada8354f6b3" kind="variable"><name>id</name></member>
+    <member refid="d8/dc3/struct_way_struct_1a73658be3bdf9ab42683e94cc23d8d4be" kind="variable"><name>waterway</name></member>
+    <member refid="d8/dc3/struct_way_struct_1abd749c155b2cd284c8320c51c4df9018" kind="variable"><name>isWater</name></member>
+    <member refid="d8/dc3/struct_way_struct_1ad0556f6b7b521eaa6db462753a17d879" kind="variable"><name>highway</name></member>
+    <member refid="d8/dc3/struct_way_struct_1a4814ee8e07fba34319c2968a27915825" kind="variable"><name>isBuilding</name></member>
+    <member refid="d8/dc3/struct_way_struct_1a77c33d742e755dfea3931c2f009012df" kind="variable"><name>name</name></member>
+    <member refid="d8/dc3/struct_way_struct_1acd3dc202f360e1e8696c0deb26cec36f" kind="variable"><name>nds</name></member>
+  </compound>
+  <compound refid="d6/dff/_cairo_drawer_8h" kind="file"><name>CairoDrawer.h</name>
+  </compound>
+  <compound refid="d3/d3e/_capstone_drawing_area_8h" kind="file"><name>CapstoneDrawingArea.h</name>
+  </compound>
+  <compound refid="d0/d6c/_capstone_mapping_8h" kind="file"><name>CapstoneMapping.h</name>
+  </compound>
+  <compound refid="d5/d00/_lat_lon_utility_8h" kind="file"><name>LatLonUtility.h</name>
+  </compound>
+  <compound refid="da/de9/_mapping_structs_8h" kind="file"><name>MappingStructs.h</name>
+    <member refid="da/de9/_mapping_structs_8h_1a1c54853884c5f8abbe87e1eb8c1766be" kind="define"><name>MAP_PIXEL_SIZE</name></member>
+    <member refid="da/de9/_mapping_structs_8h_1aa1be4bff9af9f0ebca3b7914601aea62" kind="define"><name>MAP_LATLON_SIZE</name></member>
+    <member refid="da/de9/_mapping_structs_8h_1ab1612ab2d956671012420edbbfb25bc7" kind="define"><name>REDRAW_INTERVAL</name></member>
+  </compound>
+  <compound refid="df/d9e/_o_s_m_data_parser_8h" kind="file"><name>OSMDataParser.h</name>
+  </compound>
+  <compound refid="dd/dac/_o_s_m_downloader_8h" kind="file"><name>OSMDownloader.h</name>
+    <member refid="dd/dac/_o_s_m_downloader_8h_1ab7906b1de75969224b695e5c86aba17a" kind="define"><name>OSM_URL</name></member>
+  </compound>
+  <compound refid="df/d2b/_o_s_m_download_queue_8h" kind="file"><name>OSMDownloadQueue.h</name>
+  </compound>
+  <compound refid="de/dd0/_o_s_m_drawing_queue_8h" kind="file"><name>OSMDrawingQueue.h</name>
+  </compound>
+  <compound refid="da/d73/_screen_utility_8h" kind="file"><name>ScreenUtility.h</name>
+  </compound>
+  <compound refid="de/d5a/_cairo_drawer_8cpp" kind="file"><name>CairoDrawer.cpp</name>
+  </compound>
+  <compound refid="d6/db8/_capstone_drawing_area_8cpp" kind="file"><name>CapstoneDrawingArea.cpp</name>
+  </compound>
+  <compound refid="db/dce/_capstone_mapping_8cpp" kind="file"><name>CapstoneMapping.cpp</name>
+  </compound>
+  <compound refid="d4/d53/_lat_lon_utility_8cpp" kind="file"><name>LatLonUtility.cpp</name>
+  </compound>
+  <compound refid="df/d0a/main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="df/d0a/main_8cpp_1ae0e80b1be50c435c26e9c781ea96f9d4" kind="variable"><name>main_window</name></member>
+    <member refid="df/d0a/main_8cpp_1a82c5ea7f8ad91fe6b26614ffc92f2f60" kind="variable"><name>map_area</name></member>
+    <member refid="df/d0a/main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="de/d43/_mapping_structs_8cpp" kind="file"><name>MappingStructs.cpp</name>
+  </compound>
+  <compound refid="d1/dae/_o_s_m_data_parser_8cpp" kind="file"><name>OSMDataParser.cpp</name>
+  </compound>
+  <compound refid="df/d5a/_o_s_m_downloader_8cpp" kind="file"><name>OSMDownloader.cpp</name>
+  </compound>
+  <compound refid="df/d67/_screen_utility_8cpp" kind="file"><name>ScreenUtility.cpp</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

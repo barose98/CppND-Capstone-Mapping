@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="d4/d7c/class_o_s_m_download_queue" kind="class" language="C++" prot="public">
+    <compoundname>OSMDownloadQueue</compoundname>
+    <includes refid="df/d2b/_o_s_m_download_queue_8h" local="no">OSMDownloadQueue.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d4/d7c/class_o_s_m_download_queue_1a1ff41d81182ee708f442ee9dc034f122" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex OSMDownloadQueue&lt; T &gt;::_mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="36" column="16" bodyfile="include/OSMDownloadQueue.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d7c/class_o_s_m_download_queue_1ad3563388b08de6e15bf5654c4b486e64" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable OSMDownloadQueue&lt; T &gt;::_cond</definition>
+        <argsstring></argsstring>
+        <name>_cond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="37" column="29" bodyfile="include/OSMDownloadQueue.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d7c/class_o_s_m_download_queue_1a7532d7110b75f14604532a558a525fb5" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; T &gt;</type>
+        <definition>std::deque&lt;T&gt; OSMDownloadQueue&lt; T &gt;::xml_chunks</definition>
+        <argsstring></argsstring>
+        <name>xml_chunks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="38" column="16" bodyfile="include/OSMDownloadQueue.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d7c/class_o_s_m_download_queue_1a22ba78365088a75b3f94caf30c48f38b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int OSMDownloadQueue&lt; T &gt;::total_size</definition>
+        <argsstring></argsstring>
+        <name>total_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="39" column="9" bodyfile="include/OSMDownloadQueue.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d4/d7c/class_o_s_m_download_queue_1ad0103a0678bc58a67a03a7b85d86a932" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OSMDownloadQueue&lt; T &gt;::OSMDownloadQueue</definition>
+        <argsstring>()</argsstring>
+        <name>OSMDownloadQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="30" column="5" bodyfile="include/OSMDownloadQueue.h" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d7c/class_o_s_m_download_queue_1a4c8231adcf9dec46a75b4ce13218b274" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OSMDownloadQueue&lt; T &gt;::~OSMDownloadQueue</definition>
+        <argsstring>()</argsstring>
+        <name>~OSMDownloadQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="31" column="5" bodyfile="include/OSMDownloadQueue.h" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d7c/class_o_s_m_download_queue_1adceb0930d4d3a2d49f459b757d8676dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OSMDownloadQueue&lt; T &gt;::push</definition>
+        <argsstring>(T msg)</argsstring>
+        <name>push</name>
+        <param>
+          <type>T</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="32" column="10" bodyfile="include/OSMDownloadQueue.h" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d7c/class_o_s_m_download_queue_1a7551c6d988d06e514d8de5ff40e5fdf5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T OSMDownloadQueue&lt; T &gt;::pull</definition>
+        <argsstring>()</argsstring>
+        <name>pull</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="33" column="7" bodyfile="include/OSMDownloadQueue.h" bodystart="64" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d7c/class_o_s_m_download_queue_1a64d9ea4a9e7ca5f799e994864956ece6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool OSMDownloadQueue&lt; T &gt;::hasMoreData</definition>
+        <argsstring>()</argsstring>
+        <name>hasMoreData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/OSMDownloadQueue.h" line="34" column="10" bodyfile="include/OSMDownloadQueue.h" bodystart="78" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The mapping Queue classes allow for repeated messaging between threads, with the message deques protected by locks, so as to avoid data races.</para>
+<para>This file allows for safe messaging between the downloading thread and the data parsing thread. Here in the downloader thread, the data parsing class must access the XML data chunks in the exact order the are downloaded over http. The downloader class pushes the chunks onto the back of the queue, and the parser class pulls them off the front. This way the XML chunks are reassembled exactly as they were downloaded, preserving the well-formedness.</para>
+<para>On a side note, both queue header files also contain the implementations of the methods. The linker was throwing up errors as the templated nature of the class seemed to be confusing it. This was my workaround. I&apos;m sure there is a proper way to control the linker. </para>
+    </detaileddescription>
+    <location file="include/OSMDownloadQueue.h" line="28" column="23" bodyfile="include/OSMDownloadQueue.h" bodystart="28" bodyend="40"/>
+    <listofallmembers>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1ad3563388b08de6e15bf5654c4b486e64" prot="private" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>_cond</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1a1ff41d81182ee708f442ee9dc034f122" prot="private" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>_mutex</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1a64d9ea4a9e7ca5f799e994864956ece6" prot="public" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>hasMoreData</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1ad0103a0678bc58a67a03a7b85d86a932" prot="public" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>OSMDownloadQueue</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1a7551c6d988d06e514d8de5ff40e5fdf5" prot="public" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>pull</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1adceb0930d4d3a2d49f459b757d8676dd" prot="public" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>push</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1a22ba78365088a75b3f94caf30c48f38b" prot="private" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>total_size</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1a7532d7110b75f14604532a558a525fb5" prot="private" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>xml_chunks</name></member>
+      <member refid="d4/d7c/class_o_s_m_download_queue_1a4c8231adcf9dec46a75b4ce13218b274" prot="public" virt="non-virtual"><scope>OSMDownloadQueue</scope><name>~OSMDownloadQueue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

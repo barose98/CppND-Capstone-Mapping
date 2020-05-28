@@ -1,0 +1,59 @@
+\hypertarget{class_capstone_drawing_area}{}\doxysection{Capstone\+Drawing\+Area Class Reference}
+\label{class_capstone_drawing_area}\index{CapstoneDrawingArea@{CapstoneDrawingArea}}
+
+
+{\ttfamily \#include $<$Capstone\+Drawing\+Area.\+h$>$}
+
+
+
+Inheritance diagram for Capstone\+Drawing\+Area\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{df/d81/class_capstone_drawing_area__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Capstone\+Drawing\+Area\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{df/d83/class_capstone_drawing_area__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_capstone_drawing_area_a9fdec8a1fc32db0870fab14622e1b9d2}\label{class_capstone_drawing_area_a9fdec8a1fc32db0870fab14622e1b9d2}} 
+void {\bfseries initalize} (\mbox{\hyperlink{structlatlon__point__t}{latlon\+\_\+point\+\_\+t}} big\+\_\+latlon\+\_\+center)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_capstone_drawing_area_a947c30a6698ca5d6c9bec1824c47f6e8}\label{class_capstone_drawing_area_a947c30a6698ca5d6c9bec1824c47f6e8}} 
+virtual bool {\bfseries on\+\_\+motion\+\_\+notify\+\_\+event} (Gdk\+Event\+Motion $\ast$motion\+\_\+event) override
+\item 
+\mbox{\Hypertarget{class_capstone_drawing_area_a3e9c6ffc0e1a159684d55c753c9bebe6}\label{class_capstone_drawing_area_a3e9c6ffc0e1a159684d55c753c9bebe6}} 
+virtual bool {\bfseries on\+\_\+button\+\_\+press\+\_\+event} (Gdk\+Event\+Button $\ast$button\+\_\+event) override
+\item 
+\mbox{\Hypertarget{class_capstone_drawing_area_ace9749e8e11f83cb288e4f023655e6db}\label{class_capstone_drawing_area_ace9749e8e11f83cb288e4f023655e6db}} 
+virtual bool {\bfseries on\+\_\+button\+\_\+release\+\_\+event} (Gdk\+Event\+Button $\ast$release\+\_\+event) override
+\item 
+\mbox{\Hypertarget{class_capstone_drawing_area_affb48ac1b06ccc2f29eb8c5237c472e8}\label{class_capstone_drawing_area_affb48ac1b06ccc2f29eb8c5237c472e8}} 
+virtual bool {\bfseries on\+\_\+draw} (const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Context $>$ \&cr) override
+\item 
+\mbox{\Hypertarget{class_capstone_drawing_area_a93644be637ca4511a46725c6833462bc}\label{class_capstone_drawing_area_a93644be637ca4511a46725c6833462bc}} 
+bool {\bfseries timed\+Redraw} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class subclasses Gtk\+Drawling\+Area and overrides three event handlers. Additionally, it has an initialize method that starts the whole downloading and drawing process. It also calls the timed\+Redraw method while the \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} is drawing, as this turns out to be a resource intensive process and the user needs to be shown that the program is chewing on the drawing process and is not stuck. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Capstone\+Drawing\+Area.\+h\item 
+src/Capstone\+Drawing\+Area.\+cpp\end{DoxyCompactItemize}

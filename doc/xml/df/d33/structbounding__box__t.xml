@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="df/d33/structbounding__box__t" kind="struct" language="C++" prot="public">
+    <compoundname>bounding_box_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="df/d33/structbounding__box__t_1a930a2bf2df1206b49571e8fd4510f514" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float bounding_box_t::west</definition>
+        <argsstring></argsstring>
+        <name>west</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="40" column="11" bodyfile="include/MappingStructs.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d33/structbounding__box__t_1aa73791581bf386deebb4a51321155d3e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float bounding_box_t::north</definition>
+        <argsstring></argsstring>
+        <name>north</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="41" column="11" bodyfile="include/MappingStructs.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d33/structbounding__box__t_1a1b3028278b0458cb9c2d17c5631f39ec" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float bounding_box_t::east</definition>
+        <argsstring></argsstring>
+        <name>east</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="42" column="11" bodyfile="include/MappingStructs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d33/structbounding__box__t_1ab60e0b2bc863fc2f4041702c26644146" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float bounding_box_t::south</definition>
+        <argsstring></argsstring>
+        <name>south</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="43" column="11" bodyfile="include/MappingStructs.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d33/structbounding__box__t_1ad60b18955ab9dd37bf6547aff1b563cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>bounding_box_t::bounding_box_t</definition>
+        <argsstring>(latlon_point_t origin, float edge)</argsstring>
+        <name>bounding_box_t</name>
+        <param>
+          <type><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref></type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="39" column="5" bodyfile="src/MappingStructs.cpp" bodystart="33" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/MappingStructs.h" line="38" column="21" bodyfile="include/MappingStructs.h" bodystart="38" bodyend="44"/>
+    <listofallmembers>
+      <member refid="df/d33/structbounding__box__t_1ad60b18955ab9dd37bf6547aff1b563cf" prot="public" virt="non-virtual"><scope>bounding_box_t</scope><name>bounding_box_t</name></member>
+      <member refid="df/d33/structbounding__box__t_1a1b3028278b0458cb9c2d17c5631f39ec" prot="public" virt="non-virtual"><scope>bounding_box_t</scope><name>east</name></member>
+      <member refid="df/d33/structbounding__box__t_1aa73791581bf386deebb4a51321155d3e" prot="public" virt="non-virtual"><scope>bounding_box_t</scope><name>north</name></member>
+      <member refid="df/d33/structbounding__box__t_1ab60e0b2bc863fc2f4041702c26644146" prot="public" virt="non-virtual"><scope>bounding_box_t</scope><name>south</name></member>
+      <member refid="df/d33/structbounding__box__t_1a930a2bf2df1206b49571e8fd4510f514" prot="public" virt="non-virtual"><scope>bounding_box_t</scope><name>west</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,33 @@
+\hypertarget{class_o_s_m_download_queue}{}\doxysection{O\+S\+M\+Download\+Queue$<$ T $>$ Class Template Reference}
+\label{class_o_s_m_download_queue}\index{OSMDownloadQueue$<$ T $>$@{OSMDownloadQueue$<$ T $>$}}
+
+
+{\ttfamily \#include $<$O\+S\+M\+Download\+Queue.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_o_s_m_download_queue_adceb0930d4d3a2d49f459b757d8676dd}\label{class_o_s_m_download_queue_adceb0930d4d3a2d49f459b757d8676dd}} 
+void {\bfseries push} (T msg)
+\item 
+\mbox{\Hypertarget{class_o_s_m_download_queue_a7551c6d988d06e514d8de5ff40e5fdf5}\label{class_o_s_m_download_queue_a7551c6d988d06e514d8de5ff40e5fdf5}} 
+T {\bfseries pull} ()
+\item 
+\mbox{\Hypertarget{class_o_s_m_download_queue_a64d9ea4a9e7ca5f799e994864956ece6}\label{class_o_s_m_download_queue_a64d9ea4a9e7ca5f799e994864956ece6}} 
+bool {\bfseries has\+More\+Data} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class O\+S\+M\+Download\+Queue$<$ T $>$}
+
+The mapping Queue classes allow for repeated messaging between threads, with the message deques protected by locks, so as to avoid data races.
+
+This file allows for safe messaging between the downloading thread and the data parsing thread. Here in the downloader thread, the data parsing class must access the X\+ML data chunks in the exact order the are downloaded over http. The downloader class pushes the chunks onto the back of the queue, and the parser class pulls them off the front. This way the X\+ML chunks are reassembled exactly as they were downloaded, preserving the well-\/formedness.
+
+On a side note, both queue header files also contain the implementations of the methods. The linker was throwing up errors as the templated nature of the class seemed to be confusing it. This was my workaround. I\textquotesingle{}m sure there is a proper way to control the linker. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/O\+S\+M\+Download\+Queue.\+h\end{DoxyCompactItemize}

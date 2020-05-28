@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="de/d85/class_capstone_mapping" kind="class" language="C++" prot="public">
+    <compoundname>CapstoneMapping</compoundname>
+    <includes refid="d0/d6c/_capstone_mapping_8h" local="no">CapstoneMapping.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1a5938ad52033e0a4cbec74028d594d714" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="d2/dfb/class_lat_lon_utility" kindref="compound">LatLonUtility</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; LatLonUtility&gt; CapstoneMapping::latlon_utility</definition>
+        <argsstring></argsstring>
+        <name>latlon_utility</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="46" column="21" bodyfile="include/CapstoneMapping.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1a3bc99a4970df86d6e4d12f231793c242" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="d9/dc3/class_screen_utility" kindref="compound">ScreenUtility</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; ScreenUtility&gt; CapstoneMapping::screen_utility</definition>
+        <argsstring></argsstring>
+        <name>screen_utility</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="47" column="21" bodyfile="include/CapstoneMapping.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1ab29fe61007724da9c2c8cdd6d3ba3ce5" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref>&lt; std::string &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;OSMDownloadQueue&lt;std::string&gt; &gt; CapstoneMapping::downloading_queue</definition>
+        <argsstring></argsstring>
+        <name>downloading_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="49" column="21" bodyfile="include/CapstoneMapping.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1a9e782a21ff8b1977743142fc194737f3" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="d3/de2/class_o_s_m_drawing_queue" kindref="compound">OSMDrawingQueue</ref>&lt; bool &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;OSMDrawingQueue&lt;bool&gt; &gt; CapstoneMapping::drawing_queue</definition>
+        <argsstring></argsstring>
+        <name>drawing_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="50" column="21" bodyfile="include/CapstoneMapping.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1aaec9a98a67034cb984fc11fd7b136a44" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="d2/d3a/class_cairo_drawer" kindref="compound">CairoDrawer</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CairoDrawer&gt; CapstoneMapping::drawer</definition>
+        <argsstring></argsstring>
+        <name>drawer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="53" column="21" bodyfile="include/CapstoneMapping.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1ad3b6e9deb69ab2072581a2f4b5ee10ea" prot="private" static="no" mutable="no">
+        <type>std::future&lt; std::string &gt;</type>
+        <definition>std::future&lt;std::string&gt; CapstoneMapping::getting_future</definition>
+        <argsstring></argsstring>
+        <name>getting_future</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="54" column="17" bodyfile="include/CapstoneMapping.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1a1d1403017e79eab8b2095f5f3ead882e" prot="private" static="no" mutable="no">
+        <type>std::future&lt; std::string &gt;</type>
+        <definition>std::future&lt;std::string&gt; CapstoneMapping::parsing_future</definition>
+        <argsstring></argsstring>
+        <name>parsing_future</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="55" column="17" bodyfile="include/CapstoneMapping.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d85/class_capstone_mapping_1ac71b1b6137c0bddba934928cb9b53915" prot="private" static="no" mutable="no">
+        <type>Cairo::RefPtr&lt; Cairo::Surface &gt;</type>
+        <definition>Cairo::RefPtr&lt;Cairo::Surface&gt; CapstoneMapping::mapping_surface</definition>
+        <argsstring></argsstring>
+        <name>mapping_surface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="57" column="19" bodyfile="include/CapstoneMapping.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/d85/class_capstone_mapping_1ada7a828d80e75556476eeb30e2404f5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CapstoneMapping::CapstoneMapping</definition>
+        <argsstring>(std::shared_ptr&lt; OSMDownloadQueue&lt; std::string &gt;&gt; queue, std::shared_ptr&lt; OSMDrawingQueue&lt; bool &gt;&gt; drawqueue)</argsstring>
+        <name>CapstoneMapping</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref>&lt; std::string &gt;&gt;</type>
+          <declname>queue</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="d3/de2/class_o_s_m_drawing_queue" kindref="compound">OSMDrawingQueue</ref>&lt; bool &gt;&gt;</type>
+          <declname>drawqueue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="36" column="5" bodyfile="src/CapstoneMapping.cpp" bodystart="10" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d85/class_capstone_mapping_1abf27e48b37b76413cd37e8b2fde74fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CapstoneMapping::~CapstoneMapping</definition>
+        <argsstring>()</argsstring>
+        <name>~CapstoneMapping</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="37" column="5" bodyfile="src/CapstoneMapping.cpp" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d85/class_capstone_mapping_1a2d27eb125a6b1463f6261f76879acbc2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const Cairo::RefPtr&lt; Cairo::Surface &gt; &amp;</type>
+        <definition>const Cairo::RefPtr&lt; Cairo::Surface &gt; &amp; CapstoneMapping::getMappingSurface</definition>
+        <argsstring>() const</argsstring>
+        <name>getMappingSurface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="39" column="25" bodyfile="src/CapstoneMapping.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d85/class_capstone_mapping_1ab73e7bc19487f09c23c30bee342c7dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CapstoneMapping::createBigMap</definition>
+        <argsstring>()</argsstring>
+        <name>createBigMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function creates the big Cairo Surface. It spawns new thread objects to perform libcurl downloading, and another thread to do the XML parsing with expat and drawing with Cairo. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/CapstoneMapping.h" line="45" column="10" bodyfile="src/CapstoneMapping.cpp" bodystart="30" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="de/d85/class_capstone_mapping" kindref="compound">CapstoneMapping</ref> class is used by the <ref refid="d3/d4a/class_capstone_drawing_area" kindref="compound">CapstoneDrawingArea</ref> class to do work. The createBigMap method spawns new thread to initiate downloading from the Open Street Maps mirror as well as the OSM expat XML parser.</para>
+<para>This class also holds smart pointers, mostly shared pointers, to the other workers and Utility classes. </para>
+    </detaileddescription>
+    <location file="include/CapstoneMapping.h" line="34" column="22" bodyfile="include/CapstoneMapping.h" bodystart="34" bodyend="59"/>
+    <listofallmembers>
+      <member refid="de/d85/class_capstone_mapping_1ada7a828d80e75556476eeb30e2404f5e" prot="public" virt="non-virtual"><scope>CapstoneMapping</scope><name>CapstoneMapping</name></member>
+      <member refid="de/d85/class_capstone_mapping_1ab73e7bc19487f09c23c30bee342c7dca" prot="public" virt="non-virtual"><scope>CapstoneMapping</scope><name>createBigMap</name></member>
+      <member refid="de/d85/class_capstone_mapping_1ab29fe61007724da9c2c8cdd6d3ba3ce5" prot="private" virt="non-virtual"><scope>CapstoneMapping</scope><name>downloading_queue</name></member>
+      <member refid="de/d85/class_capstone_mapping_1aaec9a98a67034cb984fc11fd7b136a44" prot="private" virt="non-virtual"><scope>CapstoneMapping</scope><name>drawer</name></member>
+      <member refid="de/d85/class_capstone_mapping_1a9e782a21ff8b1977743142fc194737f3" prot="private" virt="non-virtual"><scope>CapstoneMapping</scope><name>drawing_queue</name></member>
+      <member refid="de/d85/class_capstone_mapping_1a2d27eb125a6b1463f6261f76879acbc2" prot="public" virt="non-virtual"><scope>CapstoneMapping</scope><name>getMappingSurface</name></member>
+      <member refid="de/d85/class_capstone_mapping_1ad3b6e9deb69ab2072581a2f4b5ee10ea" prot="private" virt="non-virtual"><scope>CapstoneMapping</scope><name>getting_future</name></member>
+      <member refid="de/d85/class_capstone_mapping_1a5938ad52033e0a4cbec74028d594d714" prot="public" virt="non-virtual"><scope>CapstoneMapping</scope><name>latlon_utility</name></member>
+      <member refid="de/d85/class_capstone_mapping_1ac71b1b6137c0bddba934928cb9b53915" prot="private" virt="non-virtual"><scope>CapstoneMapping</scope><name>mapping_surface</name></member>
+      <member refid="de/d85/class_capstone_mapping_1a1d1403017e79eab8b2095f5f3ead882e" prot="private" virt="non-virtual"><scope>CapstoneMapping</scope><name>parsing_future</name></member>
+      <member refid="de/d85/class_capstone_mapping_1a3bc99a4970df86d6e4d12f231793c242" prot="public" virt="non-virtual"><scope>CapstoneMapping</scope><name>screen_utility</name></member>
+      <member refid="de/d85/class_capstone_mapping_1abf27e48b37b76413cd37e8b2fde74fca" prot="public" virt="non-virtual"><scope>CapstoneMapping</scope><name>~CapstoneMapping</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

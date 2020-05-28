@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="db/d40/structpercentage__point__t" kind="struct" language="C++" prot="public">
+    <compoundname>percentage_point_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="db/d40/structpercentage__point__t_1abb8b62d235065a24ded00e73c7cc8212" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float percentage_point_t::percentX</definition>
+        <argsstring></argsstring>
+        <name>percentX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="29" column="11" bodyfile="include/MappingStructs.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d40/structpercentage__point__t_1a721c0d73056eaae166244b9324b9631e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float percentage_point_t::percentY</definition>
+        <argsstring></argsstring>
+        <name>percentY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="30" column="11" bodyfile="include/MappingStructs.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/d40/structpercentage__point__t_1a928330f073d8e7deb3b2ddf336979291" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>percentage_point_t::percentage_point_t</definition>
+        <argsstring>()</argsstring>
+        <name>percentage_point_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="27" column="5" bodyfile="src/MappingStructs.cpp" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d40/structpercentage__point__t_1a167159a8be5cc217ecce2bb50e2e82dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>percentage_point_t::percentage_point_t</definition>
+        <argsstring>(float X, float Y)</argsstring>
+        <name>percentage_point_t</name>
+        <param>
+          <type>float</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/MappingStructs.h" line="28" column="5" bodyfile="src/MappingStructs.cpp" bodystart="46" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/MappingStructs.h" line="26" column="25" bodyfile="include/MappingStructs.h" bodystart="26" bodyend="31"/>
+    <listofallmembers>
+      <member refid="db/d40/structpercentage__point__t_1a928330f073d8e7deb3b2ddf336979291" prot="public" virt="non-virtual"><scope>percentage_point_t</scope><name>percentage_point_t</name></member>
+      <member refid="db/d40/structpercentage__point__t_1a167159a8be5cc217ecce2bb50e2e82dc" prot="public" virt="non-virtual"><scope>percentage_point_t</scope><name>percentage_point_t</name></member>
+      <member refid="db/d40/structpercentage__point__t_1abb8b62d235065a24ded00e73c7cc8212" prot="public" virt="non-virtual"><scope>percentage_point_t</scope><name>percentX</name></member>
+      <member refid="db/d40/structpercentage__point__t_1a721c0d73056eaae166244b9324b9631e" prot="public" virt="non-virtual"><scope>percentage_point_t</scope><name>percentY</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

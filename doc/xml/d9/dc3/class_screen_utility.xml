@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="d9/dc3/class_screen_utility" kind="class" language="C++" prot="public">
+    <compoundname>ScreenUtility</compoundname>
+    <includes refid="da/d73/_screen_utility_8h" local="no">ScreenUtility.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d9/dc3/class_screen_utility_1aaad68b0048df0500e4823c4db503983e" prot="private" static="no" mutable="no">
+        <type><ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+        <definition>screen_point_t ScreenUtility::pressedAt</definition>
+        <argsstring></argsstring>
+        <name>pressedAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="41" column="20" bodyfile="include/ScreenUtility.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dc3/class_screen_utility_1a684cb3633ff67c5c7d6aa8250ccd6e27" prot="private" static="no" mutable="no">
+        <type><ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+        <definition>screen_point_t ScreenUtility::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="42" column="20" bodyfile="include/ScreenUtility.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dc3/class_screen_utility_1ac7753716480d7321d018d7ad2cfe0060" prot="private" static="no" mutable="no">
+        <type><ref refid="df/d49/structscreen__size__t" kindref="compound">screen_size_t</ref></type>
+        <definition>screen_size_t ScreenUtility::allocated</definition>
+        <argsstring></argsstring>
+        <name>allocated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="43" column="19" bodyfile="include/ScreenUtility.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d9/dc3/class_screen_utility_1a41a45bd3648aa8ae46c3af8fc7cdce69" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ScreenUtility::recenter</definition>
+        <argsstring></argsstring>
+        <name>recenter</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="44" column="10" bodyfile="include/ScreenUtility.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1ab7de9ba64c8817b9e40a616a8147a3e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+        <definition>screen_point_t ScreenUtility::calculateAnyScreenPoint</definition>
+        <argsstring>(percentage_point_t big_query_point) const</argsstring>
+        <name>calculateAnyScreenPoint</name>
+        <param>
+          <type><ref refid="db/d40/structpercentage__point__t" kindref="compound">percentage_point_t</ref></type>
+          <declname>big_query_point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="24" column="20" bodyfile="src/ScreenUtility.cpp" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a19e70698556deb1e42a16ef99f96a9e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="db/d40/structpercentage__point__t" kindref="compound">percentage_point_t</ref></type>
+        <definition>percentage_point_t ScreenUtility::calculateAnyScreenPercentage</definition>
+        <argsstring>(screen_point_t big_query_point) const</argsstring>
+        <name>calculateAnyScreenPercentage</name>
+        <param>
+          <type><ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+          <declname>big_query_point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="25" column="24" bodyfile="src/ScreenUtility.cpp" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a3ec1902b10390ec33d72c3c076cac8c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+        <definition>const screen_point_t ScreenUtility::getPressedAt</definition>
+        <argsstring>() const</argsstring>
+        <name>getPressedAt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="27" column="26" bodyfile="src/ScreenUtility.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a8a3ada1e4e5fb8a7b5bb8485c5c0443d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenUtility::setPressedAt</definition>
+        <argsstring>(const screen_point_t pressedAt)</argsstring>
+        <name>setPressedAt</name>
+        <param>
+          <type>const <ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+          <declname>pressedAt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="28" column="10" bodyfile="src/ScreenUtility.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a3f638858a568d78ec1ade534484ccfd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenUtility::moveOffset</definition>
+        <argsstring>(double xDelta, double yDelta)</argsstring>
+        <name>moveOffset</name>
+        <param>
+          <type>double</type>
+          <declname>xDelta</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>yDelta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="29" column="10" bodyfile="src/ScreenUtility.cpp" bodystart="20" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a1c27bf5e73fa5f78a752313945ec27f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="df/d49/structscreen__size__t" kindref="compound">screen_size_t</ref></type>
+        <definition>const screen_size_t ScreenUtility::getAllocated</definition>
+        <argsstring>() const</argsstring>
+        <name>getAllocated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="30" column="25" bodyfile="src/ScreenUtility.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a9b75a9d0d9d1cdc10da463a24df30b7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenUtility::setAllocated</definition>
+        <argsstring>(const screen_size_t allocated)</argsstring>
+        <name>setAllocated</name>
+        <param>
+          <type>const <ref refid="df/d49/structscreen__size__t" kindref="compound">screen_size_t</ref></type>
+          <declname>allocated</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="31" column="10" bodyfile="src/ScreenUtility.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a8750090e1ef07987035409c2cf45cb0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+        <definition>const screen_point_t ScreenUtility::getOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>getOffset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="32" column="26" bodyfile="src/ScreenUtility.cpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a78b5f7b0a0f6b38a6a722d95a85a3dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenUtility::setOffset</definition>
+        <argsstring>(const screen_point_t origin)</argsstring>
+        <name>setOffset</name>
+        <param>
+          <type>const <ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="33" column="10" bodyfile="src/ScreenUtility.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a7d7ac97b189293a16beaa4be0689d8f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ScreenUtility::isRecenter</definition>
+        <argsstring>() const</argsstring>
+        <name>isRecenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="34" column="10" bodyfile="src/ScreenUtility.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1adba6f4e6ee6faf8f9b89885c56778128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ScreenUtility::setRecenter</definition>
+        <argsstring>(bool recenter=true)</argsstring>
+        <name>setRecenter</name>
+        <param>
+          <type>bool</type>
+          <declname>recenter</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="35" column="10" bodyfile="src/ScreenUtility.cpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a9ad78e2f3be25160ad68804ebe2a6649" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="df/d49/structscreen__size__t" kindref="compound">screen_size_t</ref></type>
+        <definition>const screen_size_t ScreenUtility::getBigMapPixelSize</definition>
+        <argsstring>() const</argsstring>
+        <name>getBigMapPixelSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="36" column="25" bodyfile="src/ScreenUtility.cpp" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="d9/dc3/class_screen_utility_1a704917586243080bf7fcd0061d3c3899" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="de/d0f/structscreen__point__t" kindref="compound">screen_point_t</ref></type>
+        <definition>screen_point_t ScreenUtility::getBigMapPixelCenter</definition>
+        <argsstring>() const</argsstring>
+        <name>getBigMapPixelCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/ScreenUtility.h" line="37" column="20" bodyfile="src/ScreenUtility.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class has some private variables and public methods to help the main GTK application to keep track of the offset, which specifies where the Cairo Drawling area&apos;s source is compared to the big map In the &quot;background&quot;.</para>
+<para>The &quot;Calculate-&quot; methods also allow for figuring screen points from a percentage and vice versa. </para>
+    </detaileddescription>
+    <location file="include/ScreenUtility.h" line="22" column="20" bodyfile="include/ScreenUtility.h" bodystart="22" bodyend="46"/>
+    <listofallmembers>
+      <member refid="d9/dc3/class_screen_utility_1ac7753716480d7321d018d7ad2cfe0060" prot="private" virt="non-virtual"><scope>ScreenUtility</scope><name>allocated</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a19e70698556deb1e42a16ef99f96a9e0" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>calculateAnyScreenPercentage</name></member>
+      <member refid="d9/dc3/class_screen_utility_1ab7de9ba64c8817b9e40a616a8147a3e1" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>calculateAnyScreenPoint</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a1c27bf5e73fa5f78a752313945ec27f4" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>getAllocated</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a704917586243080bf7fcd0061d3c3899" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>getBigMapPixelCenter</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a9ad78e2f3be25160ad68804ebe2a6649" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>getBigMapPixelSize</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a8750090e1ef07987035409c2cf45cb0c" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>getOffset</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a3ec1902b10390ec33d72c3c076cac8c5" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>getPressedAt</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a7d7ac97b189293a16beaa4be0689d8f2" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>isRecenter</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a3f638858a568d78ec1ade534484ccfd1" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>moveOffset</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a684cb3633ff67c5c7d6aa8250ccd6e27" prot="private" virt="non-virtual"><scope>ScreenUtility</scope><name>offset</name></member>
+      <member refid="d9/dc3/class_screen_utility_1aaad68b0048df0500e4823c4db503983e" prot="private" virt="non-virtual"><scope>ScreenUtility</scope><name>pressedAt</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a41a45bd3648aa8ae46c3af8fc7cdce69" prot="private" virt="non-virtual"><scope>ScreenUtility</scope><name>recenter</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a9b75a9d0d9d1cdc10da463a24df30b7a" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>setAllocated</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a78b5f7b0a0f6b38a6a722d95a85a3dca" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>setOffset</name></member>
+      <member refid="d9/dc3/class_screen_utility_1a8a3ada1e4e5fb8a7b5bb8485c5c0443d" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>setPressedAt</name></member>
+      <member refid="d9/dc3/class_screen_utility_1adba6f4e6ee6faf8f9b89885c56778128" prot="public" virt="non-virtual"><scope>ScreenUtility</scope><name>setRecenter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

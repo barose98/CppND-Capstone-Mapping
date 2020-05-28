@@ -1,0 +1,46 @@
+\hypertarget{class_capstone_mapping}{}\doxysection{Capstone\+Mapping Class Reference}
+\label{class_capstone_mapping}\index{CapstoneMapping@{CapstoneMapping}}
+
+
+{\ttfamily \#include $<$Capstone\+Mapping.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_capstone_mapping_ada7a828d80e75556476eeb30e2404f5e}\label{class_capstone_mapping_ada7a828d80e75556476eeb30e2404f5e}} 
+{\bfseries Capstone\+Mapping} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_o_s_m_download_queue}{O\+S\+M\+Download\+Queue}}$<$ std\+::string $>$$>$ queue, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_o_s_m_drawing_queue}{O\+S\+M\+Drawing\+Queue}}$<$ bool $>$$>$ drawqueue)
+\item 
+\mbox{\Hypertarget{class_capstone_mapping_a2d27eb125a6b1463f6261f76879acbc2}\label{class_capstone_mapping_a2d27eb125a6b1463f6261f76879acbc2}} 
+const Cairo\+::\+Ref\+Ptr$<$ Cairo\+::\+Surface $>$ \& {\bfseries get\+Mapping\+Surface} () const
+\item 
+void \mbox{\hyperlink{class_capstone_mapping_ab73e7bc19487f09c23c30bee342c7dca}{create\+Big\+Map}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_capstone_mapping_a5938ad52033e0a4cbec74028d594d714}\label{class_capstone_mapping_a5938ad52033e0a4cbec74028d594d714}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_lat_lon_utility}{Lat\+Lon\+Utility}} $>$ {\bfseries latlon\+\_\+utility}
+\item 
+\mbox{\Hypertarget{class_capstone_mapping_a3bc99a4970df86d6e4d12f231793c242}\label{class_capstone_mapping_a3bc99a4970df86d6e4d12f231793c242}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_screen_utility}{Screen\+Utility}} $>$ {\bfseries screen\+\_\+utility}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_capstone_mapping}{Capstone\+Mapping}} class is used by the \mbox{\hyperlink{class_capstone_drawing_area}{Capstone\+Drawing\+Area}} class to do work. The create\+Big\+Map method spawns new thread to initiate downloading from the Open Street Maps mirror as well as the O\+SM expat X\+ML parser.
+
+This class also holds smart pointers, mostly shared pointers, to the other workers and Utility classes. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_capstone_mapping_ab73e7bc19487f09c23c30bee342c7dca}\label{class_capstone_mapping_ab73e7bc19487f09c23c30bee342c7dca}} 
+\index{CapstoneMapping@{CapstoneMapping}!createBigMap@{createBigMap}}
+\index{createBigMap@{createBigMap}!CapstoneMapping@{CapstoneMapping}}
+\doxysubsubsection{\texorpdfstring{createBigMap()}{createBigMap()}}
+{\footnotesize\ttfamily void Capstone\+Mapping\+::create\+Big\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function creates the big Cairo Surface. It spawns new thread objects to perform libcurl downloading, and another thread to do the X\+ML parsing with expat and drawing with Cairo. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Capstone\+Mapping.\+h\item 
+src/Capstone\+Mapping.\+cpp\end{DoxyCompactItemize}

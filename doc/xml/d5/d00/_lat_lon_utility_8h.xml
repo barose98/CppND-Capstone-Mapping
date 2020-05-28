@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="d5/d00/_lat_lon_utility_8h" kind="file" language="C++">
+    <compoundname>LatLonUtility.h</compoundname>
+    <includes refid="da/de9/_mapping_structs_8h" local="no">MappingStructs.h</includes>
+    <includes local="no">cmath</includes>
+    <includedby refid="d6/dff/_cairo_drawer_8h" local="yes">include/CairoDrawer.h</includedby>
+    <includedby refid="d0/d6c/_capstone_mapping_8h" local="yes">include/CapstoneMapping.h</includedby>
+    <includedby refid="d4/d53/_lat_lon_utility_8cpp" local="yes">src/LatLonUtility.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>cmath</label>
+      </node>
+      <node id="1">
+        <label>include/LatLonUtility.h</label>
+        <link refid="d5/d00/_lat_lon_utility_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MappingStructs.h</label>
+        <link refid="da/de9/_mapping_structs_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>include/CairoDrawer.h</label>
+        <link refid="d6/dff/_cairo_drawer_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>include/LatLonUtility.h</label>
+        <link refid="d5/d00/_lat_lon_utility_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>include/CapstoneDrawingArea.h</label>
+        <link refid="d3/d3e/_capstone_drawing_area_8h_source"/>
+      </node>
+      <node id="3">
+        <label>include/CapstoneMapping.h</label>
+        <link refid="d0/d6c/_capstone_mapping_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>include/OSMDataParser.h</label>
+        <link refid="df/d9e/_o_s_m_data_parser_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="d2/dfb/class_lat_lon_utility" prot="public">LatLonUtility</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>LatLonUtility.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/>Created<sp/>on:<sp/>May<sp/>10,<sp/>2020</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>Author:<sp/>Barrett<sp/>Rose</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SRC_LATLONUTILITY_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SRC_LATLONUTILITY_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;MappingStructs.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight></codeline>
+<codeline lineno="17" refid="d2/dfb/class_lat_lon_utility" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d2/dfb/class_lat_lon_utility" kindref="compound">LatLonUtility</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref><sp/>calculateAnyLatLonPoint(<ref refid="db/d40/structpercentage__point__t" kindref="compound">percentage_point_t</ref><sp/>big_query_point)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/d40/structpercentage__point__t" kindref="compound">percentage_point_t</ref><sp/>calculateAnyLatLonPercentage(<ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref><sp/>big_query_point)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref><sp/>calculateBigMapLatlonOrigin()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref><sp/>getBigMapLatlonCenter()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getBigMapLatlonSize()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>getBigMapLatlonEdge()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBigMapLatlonEdge(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>bigMapLatlonEdge<sp/>=<sp/>std::sqrt(MAP_LATLON_SIZE));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBigMapLatlonSize(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>bigMapLatlonSize<sp/>=<sp/>MAP_LATLON_SIZE);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setBigMapLatlonCenter(<ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref><sp/>bigMapLatlonCenter);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/dda/structlatlon__point__t" kindref="compound">latlon_point_t</ref><sp/>big_map_latlon_center;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>SRC_LATLONUTILITY_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="include/LatLonUtility.h"/>
+  </compounddef>
+</doxygen>
