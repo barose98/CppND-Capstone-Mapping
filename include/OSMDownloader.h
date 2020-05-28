@@ -7,9 +7,12 @@
 
 #ifndef OSMDOWNLOADER_H_
 #define OSMDOWNLOADER_H_
+/**
+This class uses libcurl to download data in XML format from the OSM mirror.
+It specifies a callback to write the data as it comes in to the OSMDownloadQueue class.
+*/
 
  #define OSM_URL "https://overpass-api.de/api/interpreter"
-
 #include <memory>
 #include <iostream>
 #include <sstream>

@@ -5,7 +5,7 @@
  *      Author: Barrett Rose
  */
 /**
- * The CapstoneMapping class is used by the main class to do work.
+ * The CapstoneMapping class is used by the  CapstoneDrawingArea class to do work.
 The createBigMap method spawns new thread to initiate downloading
 from the Open Street Maps mirror as well as the OSM expat XML parser.
 

@@ -14,81 +14,93 @@
     <style level="9" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
     <style level="10" isset="false" linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true" connectiondash="dotted" connectionwidth="2" connectionarrow="fromto" connectionpadding="3" connectionfont="Sans 10"/>
   </styles>
-  <drawarea x="190.49928792317706" y="-10.033370971679688" scale="1.5"/>
+  <drawarea x="215.38818704700014" y="-31.538294848732619" scale="1.5525276529919709"/>
   <images/>
   <nodes>
-    <node id="1" posx="25.066843668619811" posy="132.94442749023438" maxwidth="200" width="110" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+    <node id="1" posx="0.1779445447967305" posy="154.44935136728736" maxwidth="200" width="110" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>Main.cpp
 </nodename>
-      <nodenote>This file holds the "main" method which starts the GTK app. This file will also handle simulated drag events. This file owns a Glib::RefPtr smart pointer to the Big Map Data Cairo surface. A little map data Displays that surface, according to an offset, calculated by the dragging logic. Callback functions keep track of the offset and how far the mouse has dragged in global variables. The Mouse Pressed, Mouse Moved, and Draw signals emitted from the GTK app all refer to these global variables. 
-This class also has a unique_ptr to the  Capstone Mapping class, which does a most of the work. </nodenote>
+      <nodenote>This file holds the "main" method which starts the GTK app.  </nodenote>
     </node>
-    <node id="3" posx="461.4425150553385" posy="248.36201985677087" maxwidth="200" width="175" height="81" side="left" fold="false" treesize="81" layout="Horizontal">
+    <node id="3" posx="306.19424093151548" posy="218.59586625986549" maxwidth="200" width="175" height="81" side="left" fold="false" treesize="81" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>CapstoneMapping
 createBigMap()
 </nodename>
       <nodenote>This class owns a Cairo::RefPtr smart pointer to the big surface. </nodenote>
     </node>
-    <node id="5" posx="236.99197387695312" posy="101.90143839518228" maxwidth="200" width="138" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+    <node id="5" posx="212.10307475313004" posy="123.40636227223524" maxwidth="200" width="138" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>ScreenUtility
 </nodename>
       <nodenote>This class holds the map size data, and provides functions that  convert window coordinates to real-world latitudes or longitudes according to the zoom level, and vice versa. This file also defines a lot of data structures to describe map as well as screen points, sizes and the OSM bounding box.</nodenote>
     </node>
-    <node id="7" posx="779.95771280924487" posy="100.05142211914062" maxwidth="200" width="178" height="81" side="left" fold="false" treesize="81" layout="Horizontal">
+    <node id="7" posx="566.55994324271364" posy="154.00263505869361" maxwidth="200" width="178" height="81" side="left" fold="false" treesize="81" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>OSMDownloader
 downloadOSMap()
 </nodename>
       <nodenote>This class has the methods to download the XML that describes the OpenStreet Maps. It uses libecurl. </nodenote>
     </node>
-    <node id="8" posx="403.37126668294275" posy="98.818756103515597" maxwidth="200" width="121" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+    <node id="9" posx="378.48236755911972" posy="120.32367998056856" maxwidth="200" width="121" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>LatLonUtility
 </nodename>
       <nodenote></nodenote>
     </node>
-    <node id="9" posx="786.72889200846362" posy="172.56631469726562" maxwidth="200" width="143" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+    <node id="11" posx="672.77081970755739" posy="247.58385250661024" maxwidth="200" width="159" height="99" side="left" fold="false" treesize="99" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>OSMDataParser
+receiveOSMXML()
+parseOSMXML()
 </nodename>
       <nodenote></nodenote>
     </node>
-    <node id="10" posx="417.61304728190106" posy="46.3704833984375" maxwidth="200" width="142" height="46" side="left" fold="false" treesize="46" layout="Horizontal">
+    <node id="13" posx="293.75108500703635" posy="58.081868864032117" maxwidth="200" width="142" height="46" side="left" fold="false" treesize="46" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>MappingStructs</nodename>
       <nodenote></nodenote>
     </node>
-    <node id="11" posx="9.7904357910156534" posy="210.98018391927081" maxwidth="200" width="214" height="135" side="left" fold="false" treesize="135" layout="Horizontal">
+    <node id="15" posx="-3.6243422390573983" posy="232.4851077963238" maxwidth="205.18325689252293" width="248" height="154" side="left" fold="false" treesize="154" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>CapstoneDrawingArea
 initialize()
 on_motion_notify_event()
-
+on_button_press_event()
+on_button_released_event()
 on_draw()
 timedRedraw()</nodename>
-      <nodenote></nodenote>
+      <nodenote>This file will handle simulated drag events. This file owns a Glib::RefPtr smart pointer to the Big Map Data Cairo surface. A little map data Displays that surface, according to an offset, calculated by the dragging logic. Callback functions keep track of the offset and how far the mouse has dragged in the ScreenUtility class. The Mouse Pressed, Mouse Moved, and Draw signals emitted from the GTK app all use the ScreenUtility to keep track of what portion of the Big Map the little map sees. . 
+This class also has a unique_ptr to the  Capstone Mapping class, which does  the work of creating the big map.</nodenote>
     </node>
-    <node id="12" posx="805.43213907877612" posy="248.4234619140625" maxwidth="200" width="119" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
+    <node id="17" posx="737.08612732474489" posy="344.35990434580299" maxwidth="200" width="119" height="63" side="left" fold="false" treesize="63" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>CairoDrawer
 </nodename>
       <nodenote></nodenote>
     </node>
-    <node id="13" posx="437.06149291992182" posy="391.81976318359375" maxwidth="200" width="182" height="82" side="left" fold="false" treesize="82" layout="Horizontal">
+    <node id="19" posx="763.08865011120292" posy="140.5076908041363" maxwidth="200" width="182" height="82" side="left" fold="false" treesize="82" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>OSMDownloadQueue
 push()
 pull()</nodename>
       <nodenote></nodenote>
     </node>
-    <node id="14" posx="202.05811564127606" posy="399.16015625" maxwidth="200" width="170" height="82" side="left" fold="false" treesize="82" layout="Horizontal">
+    <node id="21" posx="487.36629903698434" posy="373.43314653330293" maxwidth="200" width="170" height="82" side="left" fold="false" treesize="82" layout="Horizontal">
       <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
       <nodename>OSMDrawingQueue
 push()
 pull()</nodename>
+      <nodenote></nodenote>
+    </node>
+    <node id="22" posx="1.7899135389372987" posy="461.72326697601153" maxwidth="200" width="183" height="115" side="right" fold="false" treesize="115" layout="Horizontal">
+      <style linktype="straight" linkwidth="4" linkarrow="false" linkdash="solid" nodeborder="underlined" nodewidth="200" nodeborderwidth="4" nodefill="false" nodemargin="8" nodepadding="6" nodefont="Sans 11" nodemarkup="true"/>
+      <nodename>
+	direct call
+
+	thread spawned
+</nodename>
       <nodenote></nodenote>
     </node>
   </nodes>

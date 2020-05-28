@@ -9,6 +9,10 @@
 #define SRC_LATLONUTILITY_H_
 #include <MappingStructs.h>
 #include <cmath>
+/**
+This class has methods used by several classes to figure out things
+about what the map is looking at it the terms of real world coordinates.
+*/
 
 class LatLonUtility {
 public:

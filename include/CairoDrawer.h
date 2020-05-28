@@ -7,6 +7,14 @@
 
 #ifndef SRC_MAPPINGCAIRODRAWER_H_
 #define SRC_MAPPINGCAIRODRAWER_H_
+/**
+This class is used by the OSMDataParser class to draw the ways.
+It holds references not only to the ways but also the nodes referred to by the ways.
+
+It uses the LatLonUtility class to take the latitude and longitude in the OSM map
+and the ScreenUtility class to figure out where on the Cairo surface the the particular
+point on the particular way goes.
+*/
 
 #include <memory>
 #include <algorithm>

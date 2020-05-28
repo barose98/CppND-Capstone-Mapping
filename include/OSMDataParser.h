@@ -7,6 +7,22 @@
 
 #ifndef SRC_OSMDATAPARSER_H_
 #define SRC_OSMDATAPARSER_H_
+/**
+ * This class is used by CapstoneMapping class, which spawns a
+ * thread to run receiveOSMXML() function, which pulls data chunk by
+ * chunk from the OSMDownloadQueue and appends it to a string,
+ * which can then go to the parseOSMXML() method.
+ *
+ * This method starts the expat parser.
+ * This function also defines lambda functions which serve as
+ * callbacks that handle  the starElement and endElement events for the parser.
+ *
+ * After the data is parsed and the relevent data is stored in the CairoDrawer class,
+ * it repeatedly calls the drawWay() of that class. It also pushes booleans
+ * to the DrawlingQueue class, which notifies the DrawlingArea
+ *  class that drawing is happening and it should incrementally redraw itself.
+ * */
+
 #include <CairoDrawer.h>
 #include <iostream>
 #include <sstream>

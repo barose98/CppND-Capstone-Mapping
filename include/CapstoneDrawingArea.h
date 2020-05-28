@@ -7,7 +7,12 @@
 
 #ifndef SRC_CAPSTONEDRAWINGAREA_H_
 #define SRC_CAPSTONEDRAWINGAREA_H_
-
+/**
+ * This class subclasses GtkDrawlingArea and overrides three event handlers.
+Additionally, it has an initialize method that starts the whole downloading and drawing process.
+It also calls the timedRedraw method while the CairoDrawer is drawing, as this turns out to be a resource
+intensive process and the user needs to be shown that the program is chewing on the drawing process and is not stuck.
+*/
 
 #include <gtkmm/drawingarea.h>
 #include"CapstoneMapping.h"
