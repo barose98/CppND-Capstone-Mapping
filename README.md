@@ -85,11 +85,11 @@ One function is declared with a template that allows it to accept a generic para
 
 ### Memory Management
 
-At least two variables are defined as references, or two functions use pass-by-reference in the project code.
- [OSMDataParser.h](include/OSMDataParser.h#L55) line55
+At least two variables are defined as references, or two functions use pass-by-reference in the project code.  
+ [OSMDataParser.h](include/OSMDataParser.h#L55) line55  
+  [CairoDrawer.cpp](src/CairoDrawer.cpp#L39) line39
 
 At least one class that uses unmanaged dynamically allocated memory, along with any class that otherwise needs to modify state upon the termination of an object, uses a destructor.
-
 The application doesn't allocate any memory on the heap that needs to be freed on class destruction. 
 
 The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction.
