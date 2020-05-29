@@ -63,60 +63,60 @@ See the doc folder for automatically generated documentation.
 ### Object Oriented Programming
 
 All class members that are set to argument values are initialized through member initialization lists.
+ [OSMDataParser.cpp](src/OSMDataParser.cpp)line11
 
 All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
 
 Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
 
-Classes follow an appropriate inheritance hierarchy.
 
 Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
+ [OSMQueue.h](include/OSMQueue.h)line27
 
-Overloaded functions allow the same function to operate on different parameters.
 
 One function is overloaded with different signatures for the same function name.
 
 One member function in an inherited class overrides a virtual base class member function.
- [CapstoneDrawingArea.cpp](src/CapstoneDrawingArea.cpp)
-
-Templates generalize functions in the project.
+ [OSMDrawingQueue.h](include/OSMDrawingQueue.h)line52
 
 One function is declared with a template that allows it to accept a generic parameter.
- [OSMDownloadQueue.h](include/OSMDownloadQueue.h)
-  [OSMDrawingQueue.h](include/OSMDrawingQueue.h)
+ [OSMDownloadQueue.h](include/OSMDownloadQueue.h)line50
+  [OSMDrawingQueue.h](include/OSMDrawingQueue.h)line54
 
 ### Memory Management
 
-The project makes use of references in function declarations.
-
 At least two variables are defined as references, or two functions use pass-by-reference in the project code.
+ [OSMDataParser.h](include/OSMDataParser.h)line55
 
 At least one class that uses unmanaged dynamically allocated memory, along with any class that otherwise needs to modify state upon the termination of an object, uses a destructor.
 
+The application doesn't alloate any memory on the heap that needs to be freed on class destruction. 
+
 The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction.
 
+
 For all classes, if any one of the copy constructor, copy assignment operator, move constructor, move assignment operator, and destructor are defined, then all of these functions are defined.
- [OSMDataParser.cpp](src/OSMDataParser.cpp)
-  [OSMDownloader.cpp](src/OSMDownloader.cpp)
+ [OSMDataParser.cpp](src/OSMDataParser.cpp)line17-49
+  [OSMDownloader.cpp](src/OSMDownloader.cpp)line15-39
 
 For classes with move constructors, the project returns objects of that class by value, and relies on the move constructor, instead of copying the object.
  [CapstoneMapping.cpp](src/CapstoneMapping.cpp#L34) line 34
 
 The project uses at least one smart pointer: unique_ptr, shared_ptr, or weak_ptr. The project does not use raw pointers.
- [CapstoneMapping.cpp](src/CapstoneMapping.cpp)
+ [CapstoneMapping.cpp](src/CapstoneMapping.cpp)line14
 
 ### Concurrency
 The project uses multiple threads in the execution.
- [CapstoneMapping.cpp](src/CapstoneMapping.cpp)
+ [CapstoneMapping.cpp](src/CapstoneMapping.cpp) line34
  
 A promise and future is used to pass data from a worker thread to a parent thread in the project code.
- [CapstoneMapping.cpp](src/CapstoneMapping.cpp)
+ [CapstoneMapping.cpp](src/CapstoneMapping.cpp)line34
  
 A mutex or lock (e.g. std::lock_guard or `std::unique_lock) is used to protect data that is shared across multiple threads in the project code.
- [OSMDownloadQueue.h](include/OSMDownloadQueue.h)
-  [OSMDrawingQueue.h](include/OSMDrawingQueue.h)
+ [OSMDownloadQueue.h](include/OSMDownloadQueue.h)line58
+  [OSMDrawingQueue.h](include/OSMDrawingQueue.h)line54
   
 A std::condition_variable is used in the project code to synchronize thread execution.
- [OSMDrawingQueue.h](include/OSMDrawingQueue.h)
-  [OSMDownloadQueue.h](include/OSMDownloadQueue.h)
+ [OSMDrawingQueue.h](include/OSMDrawingQueue.h)line56
+  [OSMDownloadQueue.h](include/OSMDownloadQueue.h)line60
 
