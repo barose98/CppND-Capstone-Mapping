@@ -14,7 +14,7 @@
 #include <future>
 #include <mutex>
 #include <algorithm>
-//#include "CapstoneMappingQueue_Impl.h"
+#include "OSMQueue.h"
 /**
 The mapping Queue classes allow for repeated messaging between threads, with the message deques protected by locks, so as to avoid data races.
 
@@ -25,7 +25,7 @@ On a side note, both queue header files also contain the implementations of the 
 
 */
 template <class T>
-class OSMDownloadQueue {
+class OSMDownloadQueue : OSMQueue<T>{
 public:
     OSMDownloadQueue();
     ~OSMDownloadQueue();

@@ -8,7 +8,8 @@
 
 //std::shared_ptr<CapstoneMappingQueue<char*>> OSMDownloader::mapping_queue = std::make_shared<CapstoneMappingQueue< char*>>();
 
-OSMDownloader::OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue): downloader_queue(queue)
+OSMDownloader::OSMDownloader(std::shared_ptr<OSMDownloadQueue<std::string>> queue)
+: downloader_queue(queue)
 {
 //    std::cout <<  "OSM Downloader Constructor "<<this<<std::endl;
 }
