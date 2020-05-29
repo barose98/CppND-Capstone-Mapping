@@ -71,13 +71,13 @@ Appropriate data and functions are grouped into classes. Member data that is sub
 
 
 Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
- [OSMQueue.h](include/OSMQueue.h) line27
+ [OSMQueue.h](include/OSMQueue.h#L27) line27
 
 
 One function is overloaded with different signatures for the same function name.
 
 One member function in an inherited class overrides a virtual base class member function.
- [OSMDrawingQueue.h](include/OSMDrawingQueue.h) line52
+ [OSMDrawingQueue.h](include/OSMDrawingQueue.h#L52) line52
 
 One function is declared with a template that allows it to accept a generic parameter.
  [OSMDownloadQueue.h](include/OSMDownloadQueue.h#L50) line50
