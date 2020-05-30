@@ -67,7 +67,7 @@ const Cairo::RefPtr<Cairo::Surface>& CairoDrawer::getMappingSurface() const
     return mapping_surface;
 }
 
-void CairoDrawer::drawWay(WayStruct &&way)
+void CairoDrawer::drawWay( std::promise<bool> &&success_promise, WayStruct &&way)
 {
     std::string front = way.nds.front();
     NodeStruct found = *(std::find_if(nodes.begin(), nodes.end(), [front](NodeStruct other){return front == other.id;  }  )  );
@@ -90,7 +90,7 @@ void CairoDrawer::drawWay(WayStruct &&way)
         context->close_path();
         context->fill();
     }
-
+success_promise.set_value(true);
 }
 
 void CairoDrawer::setColor(WayStruct &way)

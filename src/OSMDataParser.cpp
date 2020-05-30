@@ -50,6 +50,8 @@ OSMDataParser OSMDataParser::operator =(OSMDataParser &&other)
 OSMDataParser::~OSMDataParser()
 {
 //    std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
+//    if(state !=nullptr)
+//        delete state;
 }
 
 void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data){
@@ -144,11 +146,18 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
         std::cout <<  "Finished Parsing" <<std::endl;
     }
     std::cout <<  "Drawing" <<std::endl;
+    std::vector<std::future<bool>>  futures={};
+    std::vector<std::thread> threads ={};
 
     for(WayStruct way : drawer->ways){
-        drawer->drawWay( std::move(way));
-        drawing_queue->push(true);
+        std::promise<bool> promise;
+        std::future<bool> result =promise.get_future();
+        std::thread t(&CairoDrawer::drawWay, *(drawer.get()), std::move(promise), std::move(way));
+        drawing_queue->push(result.get());
+        threads.emplace_back(std::move(t));
     }
+    std::cout <<  "spawned"  <<std::endl;
+
     drawer->drawBorder();
     drawer->drawCenter();
     drawing_queue->push(true);
@@ -157,8 +166,10 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
     long timeSinceParsingStarted= std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - parsingStarted).count();
     std::cout << "Parsing/Drawing took "<<timeSinceParsingStarted<<" milliseconds"  <<std::endl;
     delete state;
+
+    for(int i=0; i<threads.size(); ++i){
+        ( std::move( threads.at(i) )).join();
+    }
     return "Finished Drawing";
-
-
 }
 

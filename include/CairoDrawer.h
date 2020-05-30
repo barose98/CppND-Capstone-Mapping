@@ -17,6 +17,7 @@ point on the particular way goes.
 */
 
 #include <memory>
+#include <future>
 #include <algorithm>
 #include <gtkmm.h>
 
@@ -37,7 +38,7 @@ public:
     void drawBorder();
     void drawGrid();
     void drawNode(NodeStruct node);
-    void drawWay(WayStruct &&way);
+    void drawWay( std::promise<bool> &&promise, WayStruct &&way);
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;
     void setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mappingSurface);
     std::vector<NodeStruct> nodes;

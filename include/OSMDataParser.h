@@ -27,7 +27,8 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <memory>
+#include <vector>
+#include <future>
 
 #include <expat.h>
 #include <OSMDownloadQueue.h>
