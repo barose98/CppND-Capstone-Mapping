@@ -66,6 +66,7 @@ All class members that are set to argument values are initialized through member
  [OSMDataParser.cpp](src/OSMDataParser.cpp#L11) line11
 
 All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
+TODO
 
 Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
 
@@ -75,6 +76,7 @@ Inheritance hierarchies are logical. Composition is used instead of inheritance 
 
 
 One function is overloaded with different signatures for the same function name.
+TODO
 
 One member function in an inherited class overrides a virtual base class member function.
  [OSMDrawingQueue.h](include/OSMDrawingQueue.h#L52) line52
@@ -90,10 +92,10 @@ At least two variables are defined as references, or two functions use pass-by-r
   [CairoDrawer.cpp](src/CairoDrawer.cpp#L39) line39
 
 At least one class that uses unmanaged dynamically allocated memory, along with any class that otherwise needs to modify state upon the termination of an object, uses a destructor.
-The application doesn't allocate any memory on the heap that needs to be freed on class destruction. 
+TODO
 
 The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction.
-
+TODO
 
 For all classes, if any one of the copy constructor, copy assignment operator, move constructor, move assignment operator, and destructor are defined, then all of these functions are defined.
  [OSMDataParser.cpp](src/OSMDataParser.cpp#L17-49) line17-49
@@ -110,7 +112,7 @@ The project uses multiple threads in the execution.
  [CapstoneMapping.cpp](src/CapstoneMapping.cpp) line34
  
 A promise and future is used to pass data from a worker thread to a parent thread in the project code.
- [CapstoneMapping.cpp](src/CapstoneMapping.cpp#L34) line34
+ [OSMDataParser.cpp](src/OSMDataParser.cpp#L154) line154
  
 A mutex or lock (e.g. std::lock_guard or `std::unique_lock) is used to protect data that is shared across multiple threads in the project code.
  [OSMDownloadQueue.h](include/OSMDownloadQueue.h#L58) line58
