@@ -4,6 +4,22 @@
     <compoundname>OSMDownloader.cpp</compoundname>
     <includes refid="dd/dac/_o_s_m_downloader_8h" local="yes">OSMDownloader.h</includes>
     <incdepgraph>
+      <node id="15">
+        <label>OSMQueue.h</label>
+        <link refid="d9/da9/_o_s_m_queue_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
       <node id="12">
         <label>queue</label>
       </node>
@@ -21,6 +37,8 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -93,132 +111,133 @@
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//std::shared_ptr&lt;CapstoneMappingQueue&lt;char*&gt;&gt;<sp/>OSMDownloader::mapping_queue<sp/>=<sp/>std::make_shared&lt;CapstoneMappingQueue&lt;<sp/>char*&gt;&gt;();</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kindref="member">OSMDownloader::OSMDownloader</ref>(std::shared_ptr&lt;<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue&lt;std::string&gt;</ref>&gt;<sp/>queue):<sp/>downloader_queue(queue)</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kindref="member">OSMDownloader::OSMDownloader</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;other)</highlight></codeline>
-<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Copy<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kindref="member">OSMDownloader::OSMDownloader</ref>(<ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;&amp;other)</highlight></codeline>
-<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Move<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>OSMDownloader::operator<sp/>=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;other)</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Copy<sp/>Assignment<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>OSMDownloader::operator<sp/>=(<ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;&amp;other)</highlight></codeline>
-<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Move<sp/>Assignment<sp/><sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">OSMDownloader::~OSMDownloader()</highlight></codeline>
-<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Destructor<sp/>&quot;&lt;&lt;this<sp/><sp/>&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OSMDownloader::osmHeaderWriter(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>nmemb,<sp/><sp/>std::shared_ptr&lt;<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue&lt; std::string&gt;</ref>&gt;<sp/><sp/>*writerData)</highlight></codeline>
-<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size<sp/>*<sp/>nmemb;</highlight></codeline>
-<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OSMDownloader::osmMapWriter(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>nmemb,<sp/><sp/>std::shared_ptr&lt;<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue&lt; std::string&gt;</ref>&gt;<sp/><sp/>*writerData){</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(writerData<sp/>==<sp/>NULL)</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;OSMDownloadQueue&lt;<sp/>std::string&gt;&gt;<sp/>queue<sp/>=(std::shared_ptr&lt;OSMDownloadQueue&lt;<sp/>std::string&gt;&gt;)<sp/>*writerData;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>chunk<sp/>=<sp/>std::string(data);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(chunk.find(</highlight><highlight class="stringliteral">&quot;&gt;Error&lt;&quot;</highlight><highlight class="normal">)<sp/>!=<sp/><sp/>std::string::npos<sp/>){</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>queue-&gt;push(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size<sp/>*<sp/>nmemb;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>queue-&gt;push(chunk);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size<sp/>*<sp/>nmemb;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal">std::string<sp/>OSMDownloader::downloadOSMap(<ref refid="df/d33/structbounding__box__t" kindref="compound">bounding_box_t</ref><sp/>box)</highlight></codeline>
-<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>url_stringstream;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>url_stringstream&lt;&lt;OSM_URL&lt;&lt;</highlight><highlight class="stringliteral">&quot;?data=[maxsize:13421772];way(&quot;</highlight><highlight class="normal">&lt;&lt;box.south&lt;&lt;</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">&lt;&lt;box.west&lt;&lt;</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">&lt;&lt;box.north&lt;&lt;</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">&lt;&lt;box.east&lt;&lt;</highlight><highlight class="stringliteral">&quot;);(._;&gt;;);out;&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>downloadStarted<sp/><sp/>=<sp/>std::chrono::system_clock::now();</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Download<sp/>started<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>CURL<sp/>*conn<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>CURLcode<sp/>code;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>curl_global_init(CURL_GLOBAL_DEFAULT);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!initMappingCurl(conn,<sp/>url_stringstream.str().c_str())<sp/>)</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;init_map_curl<sp/>failed:<sp/><sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>errorBuffer<sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>downloader_queue-&gt;push(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_perform(conn);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Getting<sp/>OSM<sp/>map<sp/>failed:<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>errorBuffer<sp/><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>downloader_queue-&gt;push(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;ERROR&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeSinceDownloadStarted=<sp/>std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(std::chrono::system_clock::now()<sp/>-<sp/>downloadStarted).count();</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Download<sp/>took<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;timeSinceDownloadStarted&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>milliseconds&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>curl_easy_cleanup(conn);</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>url_stringstream.str();</highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kindref="member">OSMDownloader::OSMDownloader</ref>(std::shared_ptr&lt;<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue&lt;std::string&gt;</ref>&gt;<sp/>queue)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">:<sp/>downloader_queue(queue)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kindref="member">OSMDownloader::OSMDownloader</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;other)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Copy<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader_1a77a909c9cedfc72f2e2266bc94c96f5b" kindref="member">OSMDownloader::OSMDownloader</ref>(<ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;&amp;other)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Move<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>OSMDownloader::operator<sp/>=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;other)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Copy<sp/>Assignment<sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>OSMDownloader::operator<sp/>=(<ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>&amp;&amp;other)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Move<sp/>Assignment<sp/><sp/>Constructor<sp/>&quot;&lt;&lt;this&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;downloader_queue<sp/>=<sp/>other.downloader_queue;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">OSMDownloader::~OSMDownloader()</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/>&quot;OSM<sp/>Downloader<sp/>Destructor<sp/>&quot;&lt;&lt;this<sp/><sp/>&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OSMDownloader::osmHeaderWriter(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>nmemb,<sp/><sp/>std::shared_ptr&lt;<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue&lt; std::string&gt;</ref>&gt;<sp/><sp/>*writerData)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size<sp/>*<sp/>nmemb;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OSMDownloader::osmMapWriter(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>nmemb,<sp/><sp/>std::shared_ptr&lt;<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue&lt; std::string&gt;</ref>&gt;<sp/><sp/>*writerData){</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(writerData<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;OSMDownloadQueue&lt;<sp/>std::string&gt;&gt;<sp/>queue<sp/>=(std::shared_ptr&lt;OSMDownloadQueue&lt;<sp/>std::string&gt;&gt;)<sp/>*writerData;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>chunk<sp/>=<sp/>std::string(data);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(chunk.find(</highlight><highlight class="stringliteral">&quot;&gt;Error&lt;&quot;</highlight><highlight class="normal">)<sp/>!=<sp/><sp/>std::string::npos<sp/>){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>queue-&gt;push(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size<sp/>*<sp/>nmemb;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>queue-&gt;push(chunk);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>size<sp/>*<sp/>nmemb;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">std::string<sp/><ref refid="d4/d5a/class_o_s_m_downloader_1a9c117edca49bd0e9894c092ccc3221b1" kindref="member">OSMDownloader::downloadOSMap</ref>(<ref refid="df/d33/structbounding__box__t" kindref="compound">bounding_box_t</ref><sp/>box)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>url_stringstream;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>url_stringstream&lt;&lt;OSM_URL&lt;&lt;</highlight><highlight class="stringliteral">&quot;?data=[maxsize:13421772];way(&quot;</highlight><highlight class="normal">&lt;&lt;box.south&lt;&lt;</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">&lt;&lt;box.west&lt;&lt;</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">&lt;&lt;box.north&lt;&lt;</highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal">&lt;&lt;box.east&lt;&lt;</highlight><highlight class="stringliteral">&quot;);(._;&gt;;);out;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>downloadStarted<sp/><sp/>=<sp/>std::chrono::system_clock::now();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Download<sp/>started<sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>CURL<sp/>*conn<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>CURLcode<sp/>code;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>curl_global_init(CURL_GLOBAL_DEFAULT);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!initMappingCurl(conn,<sp/>url_stringstream.str().c_str())<sp/>)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;init_map_curl<sp/>failed:<sp/><sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>errorBuffer<sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>downloader_queue-&gt;push(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_perform(conn);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Getting<sp/>OSM<sp/>map<sp/>failed:<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>errorBuffer<sp/><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>downloader_queue-&gt;push(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;ERROR&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeSinceDownloadStarted=<sp/>std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(std::chrono::system_clock::now()<sp/>-<sp/>downloadStarted).count();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Download<sp/>took<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;timeSinceDownloadStarted&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>milliseconds&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>curl_easy_cleanup(conn);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>url_stringstream.str();</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>OSMDownloader::initMappingCurl(CURL<sp/>*&amp;conn,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*url)</highlight></codeline>
-<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>CURLcode<sp/>code;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>conn<sp/>=<sp/>curl_easy_init();</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(conn<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>initialize<sp/>connection.<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_ERRORBUFFER,<sp/>errorBuffer);</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>ERRORBUFFER<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_URL,<sp/>url);</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>URL<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_FOLLOWLOCATION,<sp/>1L);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>redirect<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_HEADERFUNCTION,<sp/>osmHeaderWriter);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>header<sp/>callback<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_WRITEFUNCTION,<sp/>osmMapWriter);</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>writer<sp/>callback<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_WRITEDATA,<sp/>&amp;downloader_queue);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>write<sp/>data<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>OSMDownloader::initMappingCurl(CURL<sp/>*&amp;conn,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*url)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>CURLcode<sp/>code;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>conn<sp/>=<sp/>curl_easy_init();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(conn<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>initialize<sp/>connection.<sp/><sp/>&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_ERRORBUFFER,<sp/>errorBuffer);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>ERRORBUFFER<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_URL,<sp/>url);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>URL<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_FOLLOWLOCATION,<sp/>1L);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>redirect<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_HEADERFUNCTION,<sp/>osmHeaderWriter);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>header<sp/>callback<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_WRITEFUNCTION,<sp/>osmMapWriter);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>writer<sp/>callback<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>code<sp/>=<sp/>curl_easy_setopt(conn,<sp/>CURLOPT_WRITEDATA,<sp/>&amp;downloader_queue);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(code<sp/>!=<sp/>CURLE_OK){</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;setting<sp/>write<sp/>data<sp/>option<sp/>failed&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/OSMDownloader.cpp"/>
   </compounddef>

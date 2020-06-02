@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/CapstoneMapping.h" line="37" column="5" bodyfile="src/CapstoneMapping.cpp" bodystart="20" bodyend="24"/>
+        <location file="include/CapstoneMapping.h" line="37" column="5" bodyfile="src/CapstoneMapping.cpp" bodystart="20" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="de/d85/class_capstone_mapping_1a2d27eb125a6b1463f6261f76879acbc2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const Cairo::RefPtr&lt; Cairo::Surface &gt; &amp;</type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/CapstoneMapping.h" line="39" column="25" bodyfile="src/CapstoneMapping.cpp" bodystart="25" bodyend="28"/>
+        <location file="include/CapstoneMapping.h" line="39" column="25" bodyfile="src/CapstoneMapping.cpp" bodystart="24" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="de/d85/class_capstone_mapping_1ab73e7bc19487f09c23c30bee342c7dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/CapstoneMapping.h" line="45" column="10" bodyfile="src/CapstoneMapping.cpp" bodystart="30" bodyend="47"/>
+        <location file="include/CapstoneMapping.h" line="45" column="10" bodyfile="src/CapstoneMapping.cpp" bodystart="29" bodyend="46"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

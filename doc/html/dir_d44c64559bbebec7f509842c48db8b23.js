@@ -9,5 +9,6 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "OSMDownloader.h", "dd/dac/_o_s_m_downloader_8h_source.html", null ],
     [ "OSMDownloadQueue.h", "df/d2b/_o_s_m_download_queue_8h_source.html", null ],
     [ "OSMDrawingQueue.h", "de/dd0/_o_s_m_drawing_queue_8h_source.html", null ],
+    [ "OSMQueue.h", "d9/da9/_o_s_m_queue_8h_source.html", null ],
     [ "ScreenUtility.h", "da/d73/_screen_utility_8h_source.html", null ]
 ];

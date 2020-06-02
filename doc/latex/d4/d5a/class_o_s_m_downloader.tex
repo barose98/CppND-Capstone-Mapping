@@ -17,8 +17,7 @@
 \mbox{\Hypertarget{class_o_s_m_downloader_a162829c05c0b3c6fedae1b4637a57016}\label{class_o_s_m_downloader_a162829c05c0b3c6fedae1b4637a57016}} 
 \mbox{\hyperlink{class_o_s_m_downloader}{O\+S\+M\+Downloader}} {\bfseries operator=} (\mbox{\hyperlink{class_o_s_m_downloader}{O\+S\+M\+Downloader}} \&\&other)
 \item 
-\mbox{\Hypertarget{class_o_s_m_downloader_a9c117edca49bd0e9894c092ccc3221b1}\label{class_o_s_m_downloader_a9c117edca49bd0e9894c092ccc3221b1}} 
-std\+::string {\bfseries download\+O\+S\+Map} (\mbox{\hyperlink{structbounding__box__t}{bounding\+\_\+box\+\_\+t}} box)
+std\+::string \mbox{\hyperlink{class_o_s_m_downloader_a9c117edca49bd0e9894c092ccc3221b1}{download\+O\+S\+Map}} (\mbox{\hyperlink{structbounding__box__t}{bounding\+\_\+box\+\_\+t}} box)
 \item 
 \mbox{\Hypertarget{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}\label{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}} 
 bool {\bfseries init\+Mapping\+Curl} (C\+U\+RL $\ast$\&conn, const char $\ast$url)
@@ -44,6 +43,15 @@ static int {\bfseries osm\+Header\+Writer} (char $\ast$data, size\+\_\+t size, s
 O\+S\+M\+Downloader.\+cpp
 
 Created on\+: Apr 30, 2020 Author\+: Barrett Rose 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_o_s_m_downloader_a9c117edca49bd0e9894c092ccc3221b1}\label{class_o_s_m_downloader_a9c117edca49bd0e9894c092ccc3221b1}} 
+\index{OSMDownloader@{OSMDownloader}!downloadOSMap@{downloadOSMap}}
+\index{downloadOSMap@{downloadOSMap}!OSMDownloader@{OSMDownloader}}
+\doxysubsubsection{\texorpdfstring{downloadOSMap()}{downloadOSMap()}}
+{\footnotesize\ttfamily std\+::string O\+S\+M\+Downloader\+::download\+O\+S\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbounding__box__t}{bounding\+\_\+box\+\_\+t}}}]{box }\end{DoxyParamCaption})}
+
+This is the main function to initiate downloading with libcurl. It initializes the curl connection and performs the download. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

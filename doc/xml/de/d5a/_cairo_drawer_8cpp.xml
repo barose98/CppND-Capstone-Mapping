@@ -10,7 +10,7 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>cmath</label>
       </node>
       <node id="2">
@@ -24,45 +24,50 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>LatLonUtility.h</label>
-        <link refid="d5/d00/_lat_lon_utility_8h_source"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="11">
+        <label>LatLonUtility.h</label>
+        <link refid="d5/d00/_lat_lon_utility_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
         <label>MappingStructs.h</label>
         <link refid="da/de9/_mapping_structs_8h_source"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>gtkmm.h</label>
-      </node>
-      <node id="7">
-        <label>vector</label>
-      </node>
-      <node id="9">
-        <label>iostream</label>
-      </node>
-      <node id="8">
-        <label>ScreenUtility.h</label>
-        <link refid="da/d73/_screen_utility_8h_source"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="4">
+        <label>future</label>
+      </node>
+      <node id="6">
+        <label>gtkmm.h</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="10">
+        <label>iostream</label>
+      </node>
+      <node id="9">
+        <label>ScreenUtility.h</label>
+        <link refid="da/d73/_screen_utility_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
         <label>algorithm</label>
       </node>
       <node id="3">
@@ -96,13 +101,13 @@
 <codeline lineno="20"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="21"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::drawGrid()</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::drawGrid(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>map_div)</highlight></codeline>
 <codeline lineno="24"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pixel_width<sp/>=<sp/>screen_utility-&gt;getBigMapPixelSize().width;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pixel_height<sp/>=<sp/>screen_utility-&gt;getBigMapPixelSize().height;</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>grid_incr<sp/>=<sp/>pixel_width/3;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>grid_incr<sp/>=<sp/>pixel_width/map_div;</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>Cairo::RefPtr&lt;Cairo::Context&gt;<sp/>context<sp/>=<sp/>Cairo::Context::create(mapping_surface);</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>context-&gt;set_source_rgba(<sp/>0.0,<sp/>0.0,<sp/>0.0,<sp/>0.1);</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>context-&gt;paint();</highlight></codeline>
@@ -143,7 +148,7 @@
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mapping_surface;</highlight></codeline>
 <codeline lineno="68"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::drawWay(<ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>&amp;&amp;way)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::drawWay(<sp/>std::promise&lt;bool&gt;<sp/>&amp;&amp;success_promise,<sp/><ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>&amp;&amp;way)</highlight></codeline>
 <codeline lineno="71"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>front<sp/>=<sp/>way.nds.front();</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/da2/struct_node_struct" kindref="compound">NodeStruct</ref><sp/>found<sp/>=<sp/>*(std::find_if(nodes.begin(),<sp/>nodes.end(),<sp/>[front](<ref refid="d6/da2/struct_node_struct" kindref="compound">NodeStruct</ref><sp/>other){return<sp/>front<sp/>==<sp/>other.id;<sp/><sp/>}<sp/><sp/>)<sp/><sp/>);</highlight></codeline>
@@ -166,7 +171,7 @@
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>context-&gt;close_path();</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>context-&gt;fill();</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">success_promise.set_value(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="94"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"></highlight></codeline>
 <codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::setColor(<ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>&amp;way)</highlight></codeline>
@@ -211,15 +216,20 @@
 <codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>context<sp/>=<sp/>Cairo::Context::create(mapping_surface);</highlight></codeline>
 <codeline lineno="136"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::setLineStyle(<ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>&amp;way)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::drawGrid()</highlight></codeline>
 <codeline lineno="139"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(way.highway<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;footway&quot;</highlight><highlight class="normal"><sp/>||<sp/>way.highway<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;path&quot;</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>dash={10.0};</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>context-&gt;set_dash(dash,<sp/>0.0);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>context-&gt;unset_dash();</highlight></codeline>
-<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>drawGrid(3);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CairoDrawer::setLineStyle(<ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>&amp;way)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(way.highway<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;footway&quot;</highlight><highlight class="normal"><sp/>||<sp/>way.highway<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;path&quot;</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>dash={10.0};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>context-&gt;set_dash(dash,<sp/>0.0);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>context-&gt;unset_dash();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/CairoDrawer.cpp"/>
   </compounddef>

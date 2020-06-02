@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="d3/de2/class_o_s_m_drawing_queue" kind="class" language="C++" prot="public">
     <compoundname>OSMDrawingQueue</compoundname>
+    <basecompoundref refid="dc/d6a/class_o_s_m_queue" prot="private" virt="non-virtual">OSMQueue&lt; T &gt;</basecompoundref>
     <includes refid="de/dd0/_o_s_m_drawing_queue_8h" local="no">OSMDrawingQueue.h</includes>
     <templateparamlist>
       <param>
@@ -20,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="33" column="16" bodyfile="include/OSMDrawingQueue.h" bodystart="33" bodyend="-1"/>
+        <location file="include/OSMDrawingQueue.h" line="34" column="16" bodyfile="include/OSMDrawingQueue.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/de2/class_o_s_m_drawing_queue_1acfe120c156be9b334593844e91495956" prot="private" static="no" mutable="no">
         <type>std::condition_variable</type>
@@ -33,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="34" column="29" bodyfile="include/OSMDrawingQueue.h" bodystart="34" bodyend="-1"/>
+        <location file="include/OSMDrawingQueue.h" line="35" column="29" bodyfile="include/OSMDrawingQueue.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/de2/class_o_s_m_drawing_queue_1a4a049099e88f680e09e1eb5c73c63117" prot="private" static="no" mutable="no">
         <type>std::deque&lt; T &gt;</type>
@@ -46,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="35" column="16" bodyfile="include/OSMDrawingQueue.h" bodystart="35" bodyend="-1"/>
+        <location file="include/OSMDrawingQueue.h" line="36" column="16" bodyfile="include/OSMDrawingQueue.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -61,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="28" column="5" bodyfile="include/OSMDrawingQueue.h" bodystart="39" bodyend="42"/>
+        <location file="include/OSMDrawingQueue.h" line="29" column="5" bodyfile="include/OSMDrawingQueue.h" bodystart="40" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="d3/de2/class_o_s_m_drawing_queue_1a4683db8098322c74ccae31282680907a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -74,13 +75,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="29" column="5" bodyfile="include/OSMDrawingQueue.h" bodystart="45" bodyend="48"/>
+        <location file="include/OSMDrawingQueue.h" line="30" column="5" bodyfile="include/OSMDrawingQueue.h" bodystart="46" bodyend="49"/>
       </memberdef>
-      <memberdef kind="function" id="d3/de2/class_o_s_m_drawing_queue_1aa61a8f5c232345535cf56d715617c6bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="d3/de2/class_o_s_m_drawing_queue_1aa61a8f5c232345535cf56d715617c6bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void OSMDrawingQueue&lt; T &gt;::push</definition>
         <argsstring>(T msg)</argsstring>
         <name>push</name>
+        <reimplements refid="dc/d6a/class_o_s_m_queue_1a380ee8bdd0e9ae6ec70c960699c1a8f4">push</reimplements>
         <param>
           <type>T</type>
           <declname>msg</declname>
@@ -91,20 +93,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="30" column="10" bodyfile="include/OSMDrawingQueue.h" bodystart="51" bodyend="57"/>
+        <location file="include/OSMDrawingQueue.h" line="31" column="10" bodyfile="include/OSMDrawingQueue.h" bodystart="52" bodyend="58"/>
       </memberdef>
-      <memberdef kind="function" id="d3/de2/class_o_s_m_drawing_queue_1a6c42dbba7ca017034974266f773d938e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d3/de2/class_o_s_m_drawing_queue_1a6c42dbba7ca017034974266f773d938e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>T</type>
         <definition>T OSMDrawingQueue&lt; T &gt;::pull</definition>
         <argsstring>()</argsstring>
         <name>pull</name>
+        <reimplements refid="dc/d6a/class_o_s_m_queue_1aaa7566a19207f5c814e4d9b118d2c6ca">pull</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDrawingQueue.h" line="31" column="7" bodyfile="include/OSMDrawingQueue.h" bodystart="60" bodyend="71"/>
+        <location file="include/OSMDrawingQueue.h" line="32" column="7" bodyfile="include/OSMDrawingQueue.h" bodystart="61" bodyend="72"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -114,13 +117,37 @@
 <para>The drawing queue allows for repeated messaging between the data parsing thread and the main thread. The parsing thread pushes &quot;true&quot; booleans on to the queue while it is still drawing, and a &quot;false&quot; after it is done. This way the drawing area class can continuously redraw itself on its own timer, so that changes to the Cairo surface immediately appear to the user. Otherwise the user would have to move the window, drag the surface, or maximize the window before the drawing area would redraw itself and drawn lines would be apparent.</para>
 <para>On a side note, both queue header files also contain the implementations of the methods. The linker was throwing up errors as the templated nature of the class seemed to be confusing it. This was my workaround. I&apos;m sure there is a proper way to control the linker. </para>
     </detaileddescription>
-    <location file="include/OSMDrawingQueue.h" line="26" column="22" bodyfile="include/OSMDrawingQueue.h" bodystart="26" bodyend="36"/>
+    <inheritancegraph>
+      <node id="2">
+        <label>OSMQueue&lt; T &gt;</label>
+        <link refid="dc/d6a/class_o_s_m_queue"/>
+      </node>
+      <node id="1">
+        <label>OSMDrawingQueue&lt; T &gt;</label>
+        <link refid="d3/de2/class_o_s_m_drawing_queue"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>OSMQueue&lt; T &gt;</label>
+        <link refid="dc/d6a/class_o_s_m_queue"/>
+      </node>
+      <node id="1">
+        <label>OSMDrawingQueue&lt; T &gt;</label>
+        <link refid="d3/de2/class_o_s_m_drawing_queue"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/OSMDrawingQueue.h" line="27" column="32" bodyfile="include/OSMDrawingQueue.h" bodystart="27" bodyend="37"/>
     <listofallmembers>
       <member refid="d3/de2/class_o_s_m_drawing_queue_1acfe120c156be9b334593844e91495956" prot="private" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>_cond</name></member>
       <member refid="d3/de2/class_o_s_m_drawing_queue_1a75cf018cc268e4e03438c55596218a99" prot="private" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>_mutex</name></member>
       <member refid="d3/de2/class_o_s_m_drawing_queue_1ac44e0385cd1aa856deacdcecaefbc684" prot="public" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>OSMDrawingQueue</name></member>
-      <member refid="d3/de2/class_o_s_m_drawing_queue_1a6c42dbba7ca017034974266f773d938e" prot="public" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>pull</name></member>
-      <member refid="d3/de2/class_o_s_m_drawing_queue_1aa61a8f5c232345535cf56d715617c6bc" prot="public" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>push</name></member>
+      <member refid="d3/de2/class_o_s_m_drawing_queue_1a6c42dbba7ca017034974266f773d938e" prot="public" virt="virtual"><scope>OSMDrawingQueue</scope><name>pull</name></member>
+      <member refid="d3/de2/class_o_s_m_drawing_queue_1aa61a8f5c232345535cf56d715617c6bc" prot="public" virt="virtual"><scope>OSMDrawingQueue</scope><name>push</name></member>
       <member refid="d3/de2/class_o_s_m_drawing_queue_1a4a049099e88f680e09e1eb5c73c63117" prot="private" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>still_drawing</name></member>
       <member refid="d3/de2/class_o_s_m_drawing_queue_1a4683db8098322c74ccae31282680907a" prot="public" virt="non-virtual"><scope>OSMDrawingQueue</scope><name>~OSMDrawingQueue</name></member>
     </listofallmembers>

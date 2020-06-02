@@ -11,8 +11,10 @@ var hierarchy =
     [ "NodeStruct", "d6/da2/struct_node_struct.html", null ],
     [ "OSMDataParser", "d3/d4b/class_o_s_m_data_parser.html", null ],
     [ "OSMDownloader", "d4/d5a/class_o_s_m_downloader.html", null ],
-    [ "OSMDownloadQueue< T >", "d4/d7c/class_o_s_m_download_queue.html", null ],
-    [ "OSMDrawingQueue< T >", "d3/de2/class_o_s_m_drawing_queue.html", null ],
+    [ "OSMQueue< T >", "dc/d6a/class_o_s_m_queue.html", [
+      [ "OSMDownloadQueue< T >", "d4/d7c/class_o_s_m_download_queue.html", null ],
+      [ "OSMDrawingQueue< T >", "d3/de2/class_o_s_m_drawing_queue.html", null ]
+    ] ],
     [ "ParserStruct", "d3/dfc/struct_parser_struct.html", null ],
     [ "percentage_point_t", "db/d40/structpercentage__point__t.html", null ],
     [ "screen_point_t", "de/d0f/structscreen__point__t.html", null ],

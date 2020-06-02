@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['osmdownloader_36',['OSMDownloader',['../d4/d5a/class_o_s_m_downloader.html#a77a909c9cedfc72f2e2266bc94c96f5b',1,'OSMDownloader']]]
+  ['downloadosmap_41',['downloadOSMap',['../d4/d5a/class_o_s_m_downloader.html#a9c117edca49bd0e9894c092ccc3221b1',1,'OSMDownloader']]]
 ];

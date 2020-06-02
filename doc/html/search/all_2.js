@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['latlon_5fpoint_5ft_5',['latlon_point_t',['../d5/dda/structlatlon__point__t.html',1,'']]],
-  ['latlonutility_6',['LatLonUtility',['../d2/dfb/class_lat_lon_utility.html',1,'']]]
+  ['downloadosmap_5',['downloadOSMap',['../d4/d5a/class_o_s_m_downloader.html#a9c117edca49bd0e9894c092ccc3221b1',1,'OSMDownloader']]]
 ];

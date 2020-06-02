@@ -11,6 +11,7 @@
     <innerfile refid="dd/dac/_o_s_m_downloader_8h">OSMDownloader.h</innerfile>
     <innerfile refid="df/d2b/_o_s_m_download_queue_8h">OSMDownloadQueue.h</innerfile>
     <innerfile refid="de/dd0/_o_s_m_drawing_queue_8h">OSMDrawingQueue.h</innerfile>
+    <innerfile refid="d9/da9/_o_s_m_queue_8h">OSMQueue.h</innerfile>
     <innerfile refid="da/d73/_screen_utility_8h">ScreenUtility.h</innerfile>
     <briefdescription>
     </briefdescription>

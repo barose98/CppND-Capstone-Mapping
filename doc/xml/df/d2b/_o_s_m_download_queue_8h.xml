@@ -8,11 +8,28 @@
     <includes local="no">future</includes>
     <includes local="no">mutex</includes>
     <includes local="no">algorithm</includes>
+    <includes refid="d9/da9/_o_s_m_queue_8h" local="yes">OSMQueue.h</includes>
     <includedby refid="d0/d6c/_capstone_mapping_8h" local="no">include/CapstoneMapping.h</includedby>
     <includedby refid="dd/dac/_o_s_m_downloader_8h" local="no">include/OSMDownloader.h</includedby>
     <includedby refid="df/d9e/_o_s_m_data_parser_8h" local="no">include/OSMDataParser.h</includedby>
     <includedby refid="d3/d3e/_capstone_drawing_area_8h" local="yes">include/CapstoneDrawingArea.h</includedby>
     <incdepgraph>
+      <node id="8">
+        <label>OSMQueue.h</label>
+        <link refid="d9/da9/_o_s_m_queue_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>queue</label>
       </node>
@@ -30,6 +47,8 @@
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -106,9 +125,9 @@
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;future&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&quot;CapstoneMappingQueue_Impl.h&quot;</highlight></codeline>
-<codeline lineno="27"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
-<codeline lineno="28" refid="d4/d7c/class_o_s_m_download_queue" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;OSMQueue.h&quot;</highlight></codeline>
+<codeline lineno="27"><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="28" refid="d4/d7c/class_o_s_m_download_queue" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref><sp/>:<sp/><ref refid="dc/d6a/class_o_s_m_queue" kindref="compound">OSMQueue</ref>&lt;T&gt;{</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref>();</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>~<ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref>();</highlight></codeline>

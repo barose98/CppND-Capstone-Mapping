@@ -19,8 +19,9 @@
     <member refid="d2/d3a/class_cairo_drawer_1a899a252d4cca823794caf4047d458bd8" kind="function"><name>drawCenter</name></member>
     <member refid="d2/d3a/class_cairo_drawer_1aaa4827c7d70e4fec55ae11ca4a1d69b8" kind="function"><name>drawBorder</name></member>
     <member refid="d2/d3a/class_cairo_drawer_1a3b04257b846e440912584201ea20544b" kind="function"><name>drawGrid</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1aadc23f36f4b1fd9f2183a5137f589c9c" kind="function"><name>drawGrid</name></member>
     <member refid="d2/d3a/class_cairo_drawer_1aaf60dc4ab4a78ee59b86d1c883ddf4ae" kind="function"><name>drawNode</name></member>
-    <member refid="d2/d3a/class_cairo_drawer_1ae063b33594c359e2683be44e0b40c627" kind="function"><name>drawWay</name></member>
+    <member refid="d2/d3a/class_cairo_drawer_1aaa3c5e488974576eb7ea362238e0acfd" kind="function"><name>drawWay</name></member>
     <member refid="d2/d3a/class_cairo_drawer_1adb5bb95e9a63e07b023a380fcbea6357" kind="function"><name>getMappingSurface</name></member>
     <member refid="d2/d3a/class_cairo_drawer_1aca21999c0f4764341227925ac843ce5c" kind="function"><name>setMappingSurface</name></member>
     <member refid="d2/d3a/class_cairo_drawer_1a4b0b1ef0a72e5d733a60fdf857759097" kind="function"><name>setColor</name></member>
@@ -125,6 +126,10 @@
     <member refid="d3/de2/class_o_s_m_drawing_queue_1aa61a8f5c232345535cf56d715617c6bc" kind="function"><name>push</name></member>
     <member refid="d3/de2/class_o_s_m_drawing_queue_1a6c42dbba7ca017034974266f773d938e" kind="function"><name>pull</name></member>
   </compound>
+  <compound refid="dc/d6a/class_o_s_m_queue" kind="class"><name>OSMQueue</name>
+    <member refid="dc/d6a/class_o_s_m_queue_1a380ee8bdd0e9ae6ec70c960699c1a8f4" kind="function"><name>push</name></member>
+    <member refid="dc/d6a/class_o_s_m_queue_1aaa7566a19207f5c814e4d9b118d2c6ca" kind="function"><name>pull</name></member>
+  </compound>
   <compound refid="d3/dfc/struct_parser_struct" kind="struct"><name>ParserStruct</name>
     <member refid="d3/dfc/struct_parser_struct_1ac2d7c7293409d3a3e354f807b1242623" kind="variable"><name>ok</name></member>
     <member refid="d3/dfc/struct_parser_struct_1a1616f9680e7a58073b89f3bafe2789af" kind="variable"><name>node_name</name></member>
@@ -199,6 +204,8 @@
   <compound refid="df/d2b/_o_s_m_download_queue_8h" kind="file"><name>OSMDownloadQueue.h</name>
   </compound>
   <compound refid="de/dd0/_o_s_m_drawing_queue_8h" kind="file"><name>OSMDrawingQueue.h</name>
+  </compound>
+  <compound refid="d9/da9/_o_s_m_queue_8h" kind="file"><name>OSMQueue.h</name>
   </compound>
   <compound refid="da/d73/_screen_utility_8h" kind="file"><name>ScreenUtility.h</name>
   </compound>

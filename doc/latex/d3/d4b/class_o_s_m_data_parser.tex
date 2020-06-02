@@ -18,13 +18,26 @@
 \mbox{\Hypertarget{class_o_s_m_data_parser_ac566a91aa90194b64a53ba30f83eca76}\label{class_o_s_m_data_parser_ac566a91aa90194b64a53ba30f83eca76}} 
 \mbox{\hyperlink{class_o_s_m_data_parser}{O\+S\+M\+Data\+Parser}} {\bfseries operator=} (\mbox{\hyperlink{class_o_s_m_data_parser}{O\+S\+M\+Data\+Parser}} \&\&other)
 \item 
-\mbox{\Hypertarget{class_o_s_m_data_parser_a158aa7b822fc31dbbdde4372a6cbc28b}\label{class_o_s_m_data_parser_a158aa7b822fc31dbbdde4372a6cbc28b}} 
-std\+::string {\bfseries receive\+O\+S\+M\+X\+ML} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$ drawer)
+std\+::string \mbox{\hyperlink{class_o_s_m_data_parser_a158aa7b822fc31dbbdde4372a6cbc28b}{receive\+O\+S\+M\+X\+ML}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$ drawer)
 \item 
-\mbox{\Hypertarget{class_o_s_m_data_parser_a7415daf804f35758e15af6859ed4cecf}\label{class_o_s_m_data_parser_a7415daf804f35758e15af6859ed4cecf}} 
-void {\bfseries parse\+O\+S\+M\+X\+ML} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$ drawer, std\+::stringstream \&xml\+\_\+data)
+void \mbox{\hyperlink{class_o_s_m_data_parser_a7415daf804f35758e15af6859ed4cecf}{parse\+O\+S\+M\+X\+ML}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$ drawer, std\+::stringstream \&xml\+\_\+data)
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_o_s_m_data_parser_a7415daf804f35758e15af6859ed4cecf}\label{class_o_s_m_data_parser_a7415daf804f35758e15af6859ed4cecf}} 
+\index{OSMDataParser@{OSMDataParser}!parseOSMXML@{parseOSMXML}}
+\index{parseOSMXML@{parseOSMXML}!OSMDataParser@{OSMDataParser}}
+\doxysubsubsection{\texorpdfstring{parseOSMXML()}{parseOSMXML()}}
+{\footnotesize\ttfamily void O\+S\+M\+Data\+Parser\+::parse\+O\+S\+M\+X\+ML (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$}]{drawer,  }\item[{std\+::stringstream \&}]{xml\+\_\+data }\end{DoxyParamCaption})}
+
+This function does the expat X\+ML data parsing and puts relevant data into the \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} class for drawing later. The function defines lambda functions for the parser\textquotesingle{}s startelement and endelement callbacks. \mbox{\Hypertarget{class_o_s_m_data_parser_a158aa7b822fc31dbbdde4372a6cbc28b}\label{class_o_s_m_data_parser_a158aa7b822fc31dbbdde4372a6cbc28b}} 
+\index{OSMDataParser@{OSMDataParser}!receiveOSMXML@{receiveOSMXML}}
+\index{receiveOSMXML@{receiveOSMXML}!OSMDataParser@{OSMDataParser}}
+\doxysubsubsection{\texorpdfstring{receiveOSMXML()}{receiveOSMXML()}}
+{\footnotesize\ttfamily std\+::string O\+S\+M\+Data\+Parser\+::receive\+O\+S\+M\+X\+ML (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_cairo_drawer}{Cairo\+Drawer}} $>$}]{drawer }\end{DoxyParamCaption})}
+
+This is the main function call that pulls X\+ML data chunks from the Download\+Queue, calls the dataparse function and calls the Cairo\+Drawler drawing functions. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

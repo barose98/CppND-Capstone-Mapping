@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="57" column="29" bodyfile="include/OSMDataParser.h" bodystart="57" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="68" column="29" bodyfile="include/OSMDataParser.h" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/d4b/class_o_s_m_data_parser_1ab9efb0af634840196567e1795fecac3b" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="d4/d7c/class_o_s_m_download_queue" kindref="compound">OSMDownloadQueue</ref>&lt; std::string &gt; &gt;</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="58" column="21" bodyfile="include/OSMDataParser.h" bodystart="58" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="69" column="21" bodyfile="include/OSMDataParser.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/d4b/class_o_s_m_data_parser_1a1f7f8c719acc3de44973cd1bb622b602" prot="private" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="d3/de2/class_o_s_m_drawing_queue" kindref="compound">OSMDrawingQueue</ref>&lt; bool &gt; &gt;</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="59" column="21" bodyfile="include/OSMDataParser.h" bodystart="59" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="70" column="21" bodyfile="include/OSMDataParser.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/d4b/class_o_s_m_data_parser_1ad85124a396401808a8e7fb10ee94b7ed" prot="private" static="no" mutable="no">
         <type><ref refid="d3/dfc/struct_parser_struct" kindref="compound">ParserStruct</ref> *</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="60" column="18" bodyfile="include/OSMDataParser.h" bodystart="60" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="71" column="18" bodyfile="include/OSMDataParser.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="48" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="10" bodyend="15"/>
+        <location file="include/OSMDataParser.h" line="49" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="10" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1aa32de2ab897266cc5421804c0b5489ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="49" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="17" bodyend="23"/>
+        <location file="include/OSMDataParser.h" line="50" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="17" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1adaf82b6395711209169b596fc2aeca23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="50" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="25" bodyend="31"/>
+        <location file="include/OSMDataParser.h" line="51" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="25" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1aba0d5b7f3115c519e3cae6f7a5d01847" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d3/d4b/class_o_s_m_data_parser" kindref="compound">OSMDataParser</ref></type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="51" column="19" bodyfile="src/OSMDataParser.cpp" bodystart="33" bodyend="40"/>
+        <location file="include/OSMDataParser.h" line="52" column="19" bodyfile="src/OSMDataParser.cpp" bodystart="33" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1ac566a91aa90194b64a53ba30f83eca76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d3/d4b/class_o_s_m_data_parser" kindref="compound">OSMDataParser</ref></type>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="52" column="19" bodyfile="src/OSMDataParser.cpp" bodystart="42" bodyend="49"/>
+        <location file="include/OSMDataParser.h" line="53" column="19" bodyfile="src/OSMDataParser.cpp" bodystart="42" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1a0f08fde313c27fc99764d28bd98375d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="53" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="50" bodyend="53"/>
+        <location file="include/OSMDataParser.h" line="54" column="5" bodyfile="src/OSMDataParser.cpp" bodystart="50" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1a158aa7b822fc31dbbdde4372a6cbc28b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -171,10 +171,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>This is the main function call that pulls XML data chunks from the DownloadQueue, calls the dataparse function and calls the CairoDrawler drawing functions. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="54" column="17" bodyfile="src/OSMDataParser.cpp" bodystart="126" bodyend="163"/>
+        <location file="include/OSMDataParser.h" line="61" column="17" bodyfile="src/OSMDataParser.cpp" bodystart="129" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1a7415daf804f35758e15af6859ed4cecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -192,17 +193,18 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>This function does the expat XML data parsing and puts relevant data into the <ref refid="d2/d3a/class_cairo_drawer" kindref="compound">CairoDrawer</ref> class for drawing later. The function defines lambda functions for the parser&apos;s startelement and endelement callbacks. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="55" column="10" bodyfile="src/OSMDataParser.cpp" bodystart="55" bodyend="124"/>
+        <location file="include/OSMDataParser.h" line="66" column="10" bodyfile="src/OSMDataParser.cpp" bodystart="58" bodyend="127"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/OSMDataParser.h" line="46" column="20" bodyfile="include/OSMDataParser.h" bodystart="46" bodyend="61"/>
+    <location file="include/OSMDataParser.h" line="47" column="20" bodyfile="include/OSMDataParser.h" bodystart="47" bodyend="72"/>
     <listofallmembers>
       <member refid="d3/d4b/class_o_s_m_data_parser_1a1f7f8c719acc3de44973cd1bb622b602" prot="private" virt="non-virtual"><scope>OSMDataParser</scope><name>drawing_queue</name></member>
       <member refid="d3/d4b/class_o_s_m_data_parser_1aba0d5b7f3115c519e3cae6f7a5d01847" prot="public" virt="non-virtual"><scope>OSMDataParser</scope><name>operator=</name></member>

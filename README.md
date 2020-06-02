@@ -66,7 +66,7 @@ All class members that are set to argument values are initialized through member
  [OSMDataParser.cpp](src/OSMDataParser.cpp#L11) line11
 
 All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
-TODO
+[doxygen documentaion](doc/html/functions.html)
 
 Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
 
@@ -76,7 +76,7 @@ Inheritance hierarchies are logical. Composition is used instead of inheritance 
 
 
 One function is overloaded with different signatures for the same function name.
-TODO
+ [CairoDrawer.h](include/CairoDrawer.h#L39-40) line39-40
 
 One member function in an inherited class overrides a virtual base class member function.
  [OSMDrawingQueue.h](include/OSMDrawingQueue.h#L52) line52

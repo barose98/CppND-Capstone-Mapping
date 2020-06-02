@@ -11,6 +11,7 @@ var annotated_dup =
     [ "OSMDownloader", "d4/d5a/class_o_s_m_downloader.html", "d4/d5a/class_o_s_m_downloader" ],
     [ "OSMDownloadQueue", "d4/d7c/class_o_s_m_download_queue.html", "d4/d7c/class_o_s_m_download_queue" ],
     [ "OSMDrawingQueue", "d3/de2/class_o_s_m_drawing_queue.html", "d3/de2/class_o_s_m_drawing_queue" ],
+    [ "OSMQueue", "dc/d6a/class_o_s_m_queue.html", "dc/d6a/class_o_s_m_queue" ],
     [ "ParserStruct", "d3/dfc/struct_parser_struct.html", "d3/dfc/struct_parser_struct" ],
     [ "percentage_point_t", "db/d40/structpercentage__point__t.html", "db/d40/structpercentage__point__t" ],
     [ "screen_point_t", "de/d0f/structscreen__point__t.html", "de/d0f/structscreen__point__t" ],

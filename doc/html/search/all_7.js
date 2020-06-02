@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['waystruct_17',['WayStruct',['../d8/dc3/struct_way_struct.html',1,'']]]
+  ['receiveosmxml_17',['receiveOSMXML',['../d3/d4b/class_o_s_m_data_parser.html#a158aa7b822fc31dbbdde4372a6cbc28b',1,'OSMDataParser']]]
 ];

@@ -10,6 +10,22 @@
     <includes refid="da/de9/_mapping_structs_8h" local="no">MappingStructs.h</includes>
     <includes refid="d3/d3e/_capstone_drawing_area_8h" local="yes">CapstoneDrawingArea.h</includes>
     <incdepgraph>
+      <node id="24">
+        <label>OSMQueue.h</label>
+        <link refid="d9/da9/_o_s_m_queue_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
       <node id="10">
         <label>gtkmm/drawingarea.h</label>
       </node>
@@ -21,27 +37,29 @@
         <link refid="df/d2b/_o_s_m_download_queue_8h_source"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="28">
+      <node id="29">
         <label>expat.h</label>
       </node>
       <node id="6">
         <label>cairomm/cairomm.h</label>
       </node>
-      <node id="16">
+      <node id="17">
         <label>cmath</label>
       </node>
-      <node id="25">
+      <node id="26">
         <label>OSMDownloader.h</label>
         <link refid="dd/dac/_o_s_m_downloader_8h_source"/>
         <childnode refid="4" relation="include">
@@ -50,9 +68,9 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -69,21 +87,23 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
       </node>
-      <node id="15">
+      <node id="16">
         <label>LatLonUtility.h</label>
         <link refid="d5/d00/_lat_lon_utility_8h_source"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -94,26 +114,28 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="27">
         <label>curl/curl.h</label>
       </node>
-      <node id="18">
+      <node id="13">
         <label>future</label>
       </node>
-      <node id="24">
+      <node id="25">
         <label>OSMDrawingQueue.h</label>
         <link refid="de/dd0/_o_s_m_drawing_queue_8h_source"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -139,7 +161,7 @@
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
       <node id="23">
@@ -148,7 +170,7 @@
       <node id="20">
         <label>chrono</label>
       </node>
-      <node id="17">
+      <node id="18">
         <label>thread</label>
       </node>
       <node id="11">
@@ -160,9 +182,9 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
         <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
@@ -174,15 +196,15 @@
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -203,7 +225,7 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="15">
         <label>ScreenUtility.h</label>
         <link refid="da/d73/_screen_utility_8h_source"/>
         <childnode refid="7" relation="include">
@@ -211,10 +233,10 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="14">
         <label>algorithm</label>
       </node>
-      <node id="27">
+      <node id="28">
         <label>OSMDataParser.h</label>
         <link refid="df/d9e/_o_s_m_data_parser_8h_source"/>
         <childnode refid="12" relation="include">
@@ -225,13 +247,17 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>

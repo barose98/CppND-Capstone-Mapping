@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="43" column="21" bodyfile="include/OSMDownloader.h" bodystart="43" bodyend="-1"/>
+        <location file="include/OSMDownloader.h" line="46" column="21" bodyfile="include/OSMDownloader.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d4/d5a/class_o_s_m_downloader_1a282a64874c9d73f3a518c2beae7b4643" prot="private" static="no" mutable="no">
         <type>std::chrono::time_point&lt; std::chrono::system_clock &gt;</type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="44" column="29" bodyfile="include/OSMDownloader.h" bodystart="44" bodyend="-1"/>
+        <location file="include/OSMDownloader.h" line="47" column="29" bodyfile="include/OSMDownloader.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d4/d5a/class_o_s_m_downloader_1af017776e9a7638555b23e98daf07159b" prot="private" static="no" mutable="no">
         <type>char</type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="45" column="10" bodyfile="include/OSMDownloader.h" bodystart="45" bodyend="-1"/>
+        <location file="include/OSMDownloader.h" line="48" column="10" bodyfile="include/OSMDownloader.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d4/d5a/class_o_s_m_downloader_1a14a368ba9037a7ff4e45216de4547cc2" prot="private" static="no" mutable="no">
         <type>std::string</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="46" column="17" bodyfile="include/OSMDownloader.h" bodystart="46" bodyend="-1"/>
+        <location file="include/OSMDownloader.h" line="49" column="17" bodyfile="include/OSMDownloader.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="28" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="11" bodyend="14"/>
+        <location file="include/OSMDownloader.h" line="28" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="11" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1aa2dcdc1a094ed5777e81b21abe9411d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="29" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="15" bodyend="19"/>
+        <location file="include/OSMDownloader.h" line="29" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="16" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1a0cdf5996835e890c2ad7d943a4718ab4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="30" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="21" bodyend="25"/>
+        <location file="include/OSMDownloader.h" line="30" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="22" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1a48cd316ec89f33752e90deaa72007b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref></type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="32" column="19" bodyfile="src/OSMDownloader.cpp" bodystart="27" bodyend="32"/>
+        <location file="include/OSMDownloader.h" line="32" column="19" bodyfile="src/OSMDownloader.cpp" bodystart="28" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1a162829c05c0b3c6fedae1b4637a57016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref></type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="33" column="19" bodyfile="src/OSMDownloader.cpp" bodystart="34" bodyend="39"/>
+        <location file="include/OSMDownloader.h" line="33" column="19" bodyfile="src/OSMDownloader.cpp" bodystart="35" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1ae8a0aba53511ed6ef030c42e80e4d249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="34" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="40" bodyend="44"/>
+        <location file="include/OSMDownloader.h" line="34" column="5" bodyfile="src/OSMDownloader.cpp" bodystart="41" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1a9c117edca49bd0e9894c092ccc3221b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -169,10 +169,11 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para>This is the main function to initiate downloading with libcurl. It initializes the curl connection and performs the download. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="36" column="17" bodyfile="src/OSMDownloader.cpp" bodystart="64" bodyend="93"/>
+        <location file="include/OSMDownloader.h" line="39" column="17" bodyfile="src/OSMDownloader.cpp" bodystart="65" bodyend="94"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1a38c2c2cc8512ba0a690fa987601ed841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -193,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="37" column="10" bodyfile="src/OSMDownloader.cpp" bodystart="95" bodyend="134"/>
+        <location file="include/OSMDownloader.h" line="40" column="10" bodyfile="src/OSMDownloader.cpp" bodystart="96" bodyend="135"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -224,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="39" column="16" bodyfile="src/OSMDownloader.cpp" bodystart="51" bodyend="62"/>
+        <location file="include/OSMDownloader.h" line="42" column="16" bodyfile="src/OSMDownloader.cpp" bodystart="52" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="d4/d5a/class_o_s_m_downloader_1a75a066c060188fb4ba1e44f363354ce7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -253,14 +254,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDownloader.h" line="40" column="16" bodyfile="src/OSMDownloader.cpp" bodystart="46" bodyend="49"/>
+        <location file="include/OSMDownloader.h" line="43" column="16" bodyfile="src/OSMDownloader.cpp" bodystart="47" bodyend="50"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="include/OSMDownloader.h" line="25" column="20" bodyfile="include/OSMDownloader.h" bodystart="25" bodyend="48"/>
+    <location file="include/OSMDownloader.h" line="25" column="20" bodyfile="include/OSMDownloader.h" bodystart="25" bodyend="51"/>
     <listofallmembers>
       <member refid="d4/d5a/class_o_s_m_downloader_1a14a368ba9037a7ff4e45216de4547cc2" prot="private" virt="non-virtual"><scope>OSMDownloader</scope><name>buffer</name></member>
       <member refid="d4/d5a/class_o_s_m_downloader_1ada1c007654c4c0b2e3af2cbba14da152" prot="private" virt="non-virtual"><scope>OSMDownloader</scope><name>downloader_queue</name></member>

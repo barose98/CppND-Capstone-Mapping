@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="39" column="7" bodyfile="include/OSMDataParser.h" bodystart="39" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="40" column="7" bodyfile="include/OSMDataParser.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/dfc/struct_parser_struct_1a1616f9680e7a58073b89f3bafe2789af" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="40" column="15" bodyfile="include/OSMDataParser.h" bodystart="40" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="41" column="15" bodyfile="include/OSMDataParser.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/dfc/struct_parser_struct_1ad45bc981fe7140aa73a467d492e74e46" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="41" column="10" bodyfile="include/OSMDataParser.h" bodystart="41" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="42" column="10" bodyfile="include/OSMDataParser.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/dfc/struct_parser_struct_1ac6539b9e974ca41c1cddb20ef544d6a0" prot="public" static="no" mutable="no">
         <type><ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="42" column="13" bodyfile="include/OSMDataParser.h" bodystart="42" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="43" column="13" bodyfile="include/OSMDataParser.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d3/dfc/struct_parser_struct_1a1eab5a4ce15444754e4b66c67dd0e7c4" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="d2/d3a/class_cairo_drawer" kindref="compound">CairoDrawer</ref> &gt;</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="43" column="19" bodyfile="include/OSMDataParser.h" bodystart="43" bodyend="-1"/>
+        <location file="include/OSMDataParser.h" line="44" column="19" bodyfile="include/OSMDataParser.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -91,7 +91,7 @@
         <link refid="d8/dc3/struct_way_struct"/>
       </node>
     </collaborationgraph>
-    <location file="include/OSMDataParser.h" line="38" column="19" bodyfile="include/OSMDataParser.h" bodystart="38" bodyend="44"/>
+    <location file="include/OSMDataParser.h" line="39" column="19" bodyfile="include/OSMDataParser.h" bodystart="39" bodyend="45"/>
     <listofallmembers>
       <member refid="d3/dfc/struct_parser_struct_1ac6539b9e974ca41c1cddb20ef544d6a0" prot="public" virt="non-virtual"><scope>ParserStruct</scope><name>currentWay</name></member>
       <member refid="d3/dfc/struct_parser_struct_1ad45bc981fe7140aa73a467d492e74e46" prot="public" virt="non-virtual"><scope>ParserStruct</scope><name>depth</name></member>

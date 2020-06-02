@@ -106,8 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a162829c05c0b3c6fedae1b4637a57016"><td class="memItemLeft" align="right" valign="top"><a id="a162829c05c0b3c6fedae1b4637a57016"></a>
 <a class="el" href="../../d4/d5a/class_o_s_m_downloader.html">OSMDownloader</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="../../d4/d5a/class_o_s_m_downloader.html">OSMDownloader</a> &amp;&amp;other)</td></tr>
 <tr class="separator:a162829c05c0b3c6fedae1b4637a57016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c117edca49bd0e9894c092ccc3221b1"><td class="memItemLeft" align="right" valign="top"><a id="a9c117edca49bd0e9894c092ccc3221b1"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>downloadOSMap</b> (<a class="el" href="../../df/d33/structbounding__box__t.html">bounding_box_t</a> box)</td></tr>
+<tr class="memitem:a9c117edca49bd0e9894c092ccc3221b1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d5a/class_o_s_m_downloader.html#a9c117edca49bd0e9894c092ccc3221b1">downloadOSMap</a> (<a class="el" href="../../df/d33/structbounding__box__t.html">bounding_box_t</a> box)</td></tr>
 <tr class="separator:a9c117edca49bd0e9894c092ccc3221b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c2c2cc8512ba0a690fa987601ed841"><td class="memItemLeft" align="right" valign="top"><a id="a38c2c2cc8512ba0a690fa987601ed841"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>initMappingCurl</b> (CURL *&amp;conn, const char *url)</td></tr>
@@ -140,6 +139,26 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>osmHeaderWriter
 </div><div class="memdoc">
 <p>OSMDownloader.cpp</p>
 <p>Created on: Apr 30, 2020 Author: Barrett Rose </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9c117edca49bd0e9894c092ccc3221b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c117edca49bd0e9894c092ccc3221b1">&#9670;&nbsp;</a></span>downloadOSMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string OSMDownloader::downloadOSMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d33/structbounding__box__t.html">bounding_box_t</a>&#160;</td>
+          <td class="paramname"><em>box</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the main function to initiate downloading with libcurl. It initializes the curl connection and performs the download. </p>
 
 </div>
 </div>
