@@ -66,7 +66,7 @@ All class members that are set to argument values are initialized through member
  [OSMDataParser.cpp](src/OSMDataParser.cpp#L11) line11
 
 All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
-[doxygen documentaion](doc/html/functions.html)
+[doc/html/functions.html](doc/html/functions.html)
 
 Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
 
@@ -105,11 +105,12 @@ For classes with move constructors, the project returns objects of that class by
  [CapstoneMapping.cpp](src/CapstoneMapping.cpp#L34) line 34
 
 The project uses at least one smart pointer: unique_ptr, shared_ptr, or weak_ptr. The project does not use raw pointers.
- [CapstoneMapping.cpp](src/CapstoneMapping.cpp) line14
+ [CapstoneMapping.h](include/CapstoneMapping.h#L46-50) line46-50
+ [CapstoneMapping.cpp](src/CapstoneMapping.cpp#L14) line14
 
 ### Concurrency
 The project uses multiple threads in the execution.
- [CapstoneMapping.cpp](src/CapstoneMapping.cpp) line34
+ [CapstoneMapping.cpp](src/CapstoneMapping.cpp#L34) line34
  
 A promise and future is used to pass data from a worker thread to a parent thread in the project code.
  [OSMDataParser.cpp](src/OSMDataParser.cpp#L154) line154
