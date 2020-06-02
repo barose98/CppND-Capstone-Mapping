@@ -32,7 +32,10 @@ public:
     OSMDownloader operator=(const OSMDownloader &other);
     OSMDownloader operator=(OSMDownloader &&other);
     ~OSMDownloader();
-
+    /**
+    This is the main function to initiate downloading with libcurl.
+    It initializes the curl connection and performs the download.
+    */
     std::string downloadOSMap(bounding_box_t box);
     bool initMappingCurl(CURL *&conn, const char *url);
 

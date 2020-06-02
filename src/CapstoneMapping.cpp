@@ -19,8 +19,7 @@ CapstoneMapping::CapstoneMapping(std::shared_ptr<OSMDownloadQueue<std::string>> 
 
 CapstoneMapping::~CapstoneMapping()
 {
-//    std::cout <<"capstone mapping destr "<< this   <<std::endl;
-//    std::cout <<  int(getting_future.wait_for(std::chrono_literals::operator ""ms(0)) )  <<  (parsing_status ==std::future_status::timeout) <<std::endl;
+
 }
 const Cairo::RefPtr<Cairo::Surface>& CapstoneMapping::getMappingSurface() const
 {

@@ -37,6 +37,7 @@ public:
     void drawCenter();
     void drawBorder();
     void drawGrid();
+    void drawGrid(int map_div);
     void drawNode(NodeStruct node);
     void drawWay( std::promise<bool> &&promise, WayStruct &&way);
     const Cairo::RefPtr<Cairo::Surface>& getMappingSurface() const;

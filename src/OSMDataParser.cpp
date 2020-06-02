@@ -50,8 +50,9 @@ OSMDataParser OSMDataParser::operator =(OSMDataParser &&other)
 OSMDataParser::~OSMDataParser()
 {
 //    std::cout <<  "OSM Parser Destructor "<<this<<std::endl;
-//    if(state !=nullptr)
+//    if(state !=nullptr){
 //        delete state;
+//    }
 }
 
 void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data){
@@ -148,7 +149,7 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
     std::cout <<  "Drawing" <<std::endl;
     std::vector<std::future<bool>>  futures={};
     std::vector<std::thread> threads ={};
-
+//TODO: SLOW
     for(WayStruct way : drawer->ways){
         std::promise<bool> promise;
         std::future<bool> result =promise.get_future();
@@ -160,6 +161,7 @@ std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 
     drawer->drawBorder();
     drawer->drawCenter();
+    drawer->drawGrid(5);
     drawing_queue->push(true);
 
     drawing_queue->push(false);

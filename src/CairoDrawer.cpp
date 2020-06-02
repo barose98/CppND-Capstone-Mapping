@@ -20,13 +20,13 @@ CairoDrawer::CairoDrawer(Cairo::RefPtr<Cairo::Surface> mapp_surface,
 {
 }
 
-void CairoDrawer::drawGrid()
+void CairoDrawer::drawGrid(int map_div)
 {
 
     int pixel_width = screen_utility->getBigMapPixelSize().width;
     int pixel_height = screen_utility->getBigMapPixelSize().height;
     int i;
-    int grid_incr = pixel_width/3;
+    int grid_incr = pixel_width/map_div;
     Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
     context->set_source_rgba( 0.0, 0.0, 0.0, 0.1);
     context->paint();
@@ -133,6 +133,11 @@ void CairoDrawer::setMappingSurface(const Cairo::RefPtr<Cairo::Surface> &mapping
 {
     mapping_surface = mappingSurface;
     context = Cairo::Context::create(mapping_surface);
+}
+
+void CairoDrawer::drawGrid()
+{
+    drawGrid(3);
 }
 
 void CairoDrawer::setLineStyle(WayStruct &way)

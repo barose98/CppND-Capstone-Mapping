@@ -52,7 +52,17 @@ public:
     OSMDataParser operator=(const OSMDataParser &other);
     OSMDataParser operator=(OSMDataParser &&other);
     ~OSMDataParser();
+    /**
+     *
+     This is the main function call that pulls XML data chunks from the DownloadQueue,
+      calls the dataparse function and calls the CairoDrawler drawing functions.
+
+*/
     std::string receiveOSMXML(std::shared_ptr<CairoDrawer> drawer);
+    /**
+     * This function does the expat XML data parsing and puts relevant data into the CairoDrawer class for drawing later.
+    The function defines lambda functions for the parser's startelement and endelement callbacks.
+*/
     void parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::stringstream &xml_data);
 private:
     std::chrono::time_point<std::chrono::system_clock> parsingStarted;
