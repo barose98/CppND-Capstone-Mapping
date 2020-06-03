@@ -31,18 +31,15 @@ void CapstoneMapping::createBigMap()
     bounding_box_t bbox(latlon_utility->calculateBigMapLatlonOrigin(), latlon_utility->getBigMapLatlonEdge());
     OSMDownloader downloader(downloading_queue);
     getting_future = std::async(std::launch::async, &OSMDownloader::downloadOSMap, std::move(downloader), bbox  );
-//    std::cout << getting_future.get()   <<std::endl;
 
     double pixel_width = this->screen_utility->getBigMapPixelSize().width;
     double pixel_height= this->screen_utility->getBigMapPixelSize().height;
 
     mapping_surface = Cairo::RefPtr<Cairo::Surface>(new Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32, pixel_width, pixel_height) )  );
-    Cairo::RefPtr<Cairo::Context> context = Cairo::Context::create(mapping_surface);
     this->drawer->setMappingSurface(mapping_surface);
 
     OSMDataParser parser( downloading_queue, drawing_queue);
     parsing_future = std::async(std::launch::async, &OSMDataParser::receiveOSMXML, std::move(parser), drawer  );
-
 }
 
 

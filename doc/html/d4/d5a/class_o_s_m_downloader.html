@@ -108,14 +108,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a162829c05c0b3c6fedae1b4637a57016"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c117edca49bd0e9894c092ccc3221b1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d5a/class_o_s_m_downloader.html#a9c117edca49bd0e9894c092ccc3221b1">downloadOSMap</a> (<a class="el" href="../../df/d33/structbounding__box__t.html">bounding_box_t</a> box)</td></tr>
 <tr class="separator:a9c117edca49bd0e9894c092ccc3221b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38c2c2cc8512ba0a690fa987601ed841"><td class="memItemLeft" align="right" valign="top"><a id="a38c2c2cc8512ba0a690fa987601ed841"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>initMappingCurl</b> (CURL *&amp;conn, const char *url)</td></tr>
+<tr class="memitem:a38c2c2cc8512ba0a690fa987601ed841"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d5a/class_o_s_m_downloader.html#a38c2c2cc8512ba0a690fa987601ed841">initMappingCurl</a> (CURL *&amp;conn, const char *url)</td></tr>
 <tr class="separator:a38c2c2cc8512ba0a690fa987601ed841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac2bceeb5d8a98ce4f2b7aeaa4802fa21"><td class="memItemLeft" align="right" valign="top"><a id="ac2bceeb5d8a98ce4f2b7aeaa4802fa21"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>osmMapWriter</b> (char *data, size_t size, size_t nmemb, std::shared_ptr&lt; <a class="el" href="../../d4/d7c/class_o_s_m_download_queue.html">OSMDownloadQueue</a>&lt; std::string &gt;&gt; *writerData)</td></tr>
+<tr class="memitem:ac2bceeb5d8a98ce4f2b7aeaa4802fa21"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d5a/class_o_s_m_downloader.html#ac2bceeb5d8a98ce4f2b7aeaa4802fa21">osmMapWriter</a> (char *data, size_t size, size_t nmemb, std::shared_ptr&lt; <a class="el" href="../../d4/d7c/class_o_s_m_download_queue.html">OSMDownloadQueue</a>&lt; std::string &gt;&gt; *writerData)</td></tr>
 <tr class="separator:ac2bceeb5d8a98ce4f2b7aeaa4802fa21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75a066c060188fb4ba1e44f363354ce7"><td class="memItemLeft" align="right" valign="top"><a id="a75a066c060188fb4ba1e44f363354ce7"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>osmHeaderWriter</b> (char *data, size_t size, size_t nmemb, std::shared_ptr&lt; <a class="el" href="../../d4/d7c/class_o_s_m_download_queue.html">OSMDownloadQueue</a>&lt; std::string &gt;&gt; *writerData)</td></tr>
@@ -159,6 +157,84 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>osmHeaderWriter
       </table>
 </div><div class="memdoc">
 <p>This is the main function to initiate downloading with libcurl. It initializes the curl connection and performs the download. </p>
+
+</div>
+</div>
+<a id="a38c2c2cc8512ba0a690fa987601ed841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c2c2cc8512ba0a690fa987601ed841">&#9670;&nbsp;</a></span>initMappingCurl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool OSMDownloader::initMappingCurl </td>
+          <td>(</td>
+          <td class="paramtype">CURL *&amp;&#160;</td>
+          <td class="paramname"><em>conn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>url</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This is the function where libcurl options are set. The callback functions are set, as well as the data structures, to which pointers are passed to the callbacks are specified. </p>
+
+</div>
+</div>
+<a id="ac2bceeb5d8a98ce4f2b7aeaa4802fa21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2bceeb5d8a98ce4f2b7aeaa4802fa21">&#9670;&nbsp;</a></span>osmMapWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int OSMDownloader::osmMapWriter </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>nmemb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d4/d7c/class_o_s_m_download_queue.html">OSMDownloadQueue</a>&lt; std::string &gt;&gt; *&#160;</td>
+          <td class="paramname"><em>writerData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This is the method libcurl uses as a callback to write data. The function also pushes data to the DownloaderQueue. The function name is set in the initMappingcurl function. </p>
 
 </div>
 </div>

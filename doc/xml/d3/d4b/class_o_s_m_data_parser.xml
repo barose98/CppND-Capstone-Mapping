@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/OSMDataParser.h" line="61" column="17" bodyfile="src/OSMDataParser.cpp" bodystart="129" bodyend="176"/>
+        <location file="include/OSMDataParser.h" line="61" column="17" bodyfile="src/OSMDataParser.cpp" bodystart="129" bodyend="177"/>
       </memberdef>
       <memberdef kind="function" id="d3/d4b/class_o_s_m_data_parser_1a7415daf804f35758e15af6859ed4cecf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

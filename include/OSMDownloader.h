@@ -37,8 +37,17 @@ public:
     It initializes the curl connection and performs the download.
     */
     std::string downloadOSMap(bounding_box_t box);
+    /**
+     * This is the function where libcurl options are set.
+     * The callback functions are set, as well as the data structures,
+     *  to which pointers are passed to the callbacks are specified.
+     */
     bool initMappingCurl(CURL *&conn, const char *url);
-
+    /**
+     * This is the method libcurl uses as a callback to write data.
+     * The function also pushes data to the DownloaderQueue.
+     * The function name is set in the initMappingcurl function.
+     */
     static int osmMapWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
     static int osmHeaderWriter(char *data,  size_t size,  size_t nmemb, std::shared_ptr<OSMDownloadQueue< std::string>> *writerData);
 

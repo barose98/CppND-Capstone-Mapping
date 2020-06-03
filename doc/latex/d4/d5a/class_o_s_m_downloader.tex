@@ -19,14 +19,12 @@
 \item 
 std\+::string \mbox{\hyperlink{class_o_s_m_downloader_a9c117edca49bd0e9894c092ccc3221b1}{download\+O\+S\+Map}} (\mbox{\hyperlink{structbounding__box__t}{bounding\+\_\+box\+\_\+t}} box)
 \item 
-\mbox{\Hypertarget{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}\label{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}} 
-bool {\bfseries init\+Mapping\+Curl} (C\+U\+RL $\ast$\&conn, const char $\ast$url)
+bool \mbox{\hyperlink{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}{init\+Mapping\+Curl}} (C\+U\+RL $\ast$\&conn, const char $\ast$url)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_o_s_m_downloader_ac2bceeb5d8a98ce4f2b7aeaa4802fa21}\label{class_o_s_m_downloader_ac2bceeb5d8a98ce4f2b7aeaa4802fa21}} 
-static int {\bfseries osm\+Map\+Writer} (char $\ast$data, size\+\_\+t size, size\+\_\+t nmemb, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_o_s_m_download_queue}{O\+S\+M\+Download\+Queue}}$<$ std\+::string $>$$>$ $\ast$writer\+Data)
+static int \mbox{\hyperlink{class_o_s_m_downloader_ac2bceeb5d8a98ce4f2b7aeaa4802fa21}{osm\+Map\+Writer}} (char $\ast$data, size\+\_\+t size, size\+\_\+t nmemb, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_o_s_m_download_queue}{O\+S\+M\+Download\+Queue}}$<$ std\+::string $>$$>$ $\ast$writer\+Data)
 \item 
 \mbox{\Hypertarget{class_o_s_m_downloader_a75a066c060188fb4ba1e44f363354ce7}\label{class_o_s_m_downloader_a75a066c060188fb4ba1e44f363354ce7}} 
 static int {\bfseries osm\+Header\+Writer} (char $\ast$data, size\+\_\+t size, size\+\_\+t nmemb, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_o_s_m_download_queue}{O\+S\+M\+Download\+Queue}}$<$ std\+::string $>$$>$ $\ast$writer\+Data)
@@ -51,7 +49,19 @@ Created on\+: Apr 30, 2020 Author\+: Barrett Rose
 \doxysubsubsection{\texorpdfstring{downloadOSMap()}{downloadOSMap()}}
 {\footnotesize\ttfamily std\+::string O\+S\+M\+Downloader\+::download\+O\+S\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbounding__box__t}{bounding\+\_\+box\+\_\+t}}}]{box }\end{DoxyParamCaption})}
 
-This is the main function to initiate downloading with libcurl. It initializes the curl connection and performs the download. 
+This is the main function to initiate downloading with libcurl. It initializes the curl connection and performs the download. \mbox{\Hypertarget{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}\label{class_o_s_m_downloader_a38c2c2cc8512ba0a690fa987601ed841}} 
+\index{OSMDownloader@{OSMDownloader}!initMappingCurl@{initMappingCurl}}
+\index{initMappingCurl@{initMappingCurl}!OSMDownloader@{OSMDownloader}}
+\doxysubsubsection{\texorpdfstring{initMappingCurl()}{initMappingCurl()}}
+{\footnotesize\ttfamily bool O\+S\+M\+Downloader\+::init\+Mapping\+Curl (\begin{DoxyParamCaption}\item[{C\+U\+RL $\ast$\&}]{conn,  }\item[{const char $\ast$}]{url }\end{DoxyParamCaption})}
+
+This is the function where libcurl options are set. The callback functions are set, as well as the data structures, to which pointers are passed to the callbacks are specified. \mbox{\Hypertarget{class_o_s_m_downloader_ac2bceeb5d8a98ce4f2b7aeaa4802fa21}\label{class_o_s_m_downloader_ac2bceeb5d8a98ce4f2b7aeaa4802fa21}} 
+\index{OSMDownloader@{OSMDownloader}!osmMapWriter@{osmMapWriter}}
+\index{osmMapWriter@{osmMapWriter}!OSMDownloader@{OSMDownloader}}
+\doxysubsubsection{\texorpdfstring{osmMapWriter()}{osmMapWriter()}}
+{\footnotesize\ttfamily int O\+S\+M\+Downloader\+::osm\+Map\+Writer (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_o_s_m_download_queue}{O\+S\+M\+Download\+Queue}}$<$ std\+::string $>$$>$ $\ast$}]{writer\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This is the method libcurl uses as a callback to write data. The function also pushes data to the Downloader\+Queue. The function name is set in the init\+Mappingcurl function. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -68,11 +68,12 @@ All class members that are set to argument values are initialized through member
 All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways.
 [doc/html/functions.html](doc/html/functions.html)
 
-Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
+Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions. **SEVERAL CLASSES**
 
 
 Inheritance hierarchies are logical. Composition is used instead of inheritance when appropriate. Abstract classes are composed of pure virtual functions. Override functions are specified.
  [OSMQueue.h](include/OSMQueue.h#L27) line27
+ [CapstoneDrawingArea.h](include/CapstoneDrawingArea.h#L30-33) line30-33 
 
 
 One function is overloaded with different signatures for the same function name.
@@ -92,10 +93,12 @@ At least two variables are defined as references, or two functions use pass-by-r
   [CairoDrawer.cpp](src/CairoDrawer.cpp#L39) line39
 
 At least one class that uses unmanaged dynamically allocated memory, along with any class that otherwise needs to modify state upon the termination of an object, uses a destructor.
-TODO
+ [OSMDataParser.h](include/OSMDataParser.h#L132) line132
+  [OSMDataParser.h](include/OSMDataParser.h#L171) line171  
+  **That I remember this is the only place I explicitly allocate heap memory. **
 
 The project follows the Resource Acquisition Is Initialization pattern where appropriate, by allocating objects at compile-time, initializing objects when they are declared, and utilizing scope to ensure their automatic destruction.
-TODO
+ [CapstoneMapping.cpp](src/CapstoneMapping.cpp#L14-16) line14-16
 
 For all classes, if any one of the copy constructor, copy assignment operator, move constructor, move assignment operator, and destructor are defined, then all of these functions are defined.
  [OSMDataParser.cpp](src/OSMDataParser.cpp#L17-49) line17-49

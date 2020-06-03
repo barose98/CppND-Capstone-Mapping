@@ -306,52 +306,53 @@
 <codeline lineno="129"><highlight class="normal">std::string<sp/><ref refid="d3/d4b/class_o_s_m_data_parser_1a158aa7b822fc31dbbdde4372a6cbc28b" kindref="member">OSMDataParser::receiveOSMXML</ref>(std::shared_ptr&lt;CairoDrawer&gt;<sp/>drawer)</highlight></codeline>
 <codeline lineno="130"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;OSM<sp/>Data<sp/>Receiving&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>parsingStarted<sp/><sp/>=<sp/>std::chrono::system_clock::now();</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>xml_data;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xml_data&lt;&lt;<sp/>parser_queue-&gt;pull()<sp/>;</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(xml_data.str().find(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">)<sp/>!=<sp/>std::string::npos){</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/>xml_data.str()<sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xml_data<sp/>=<sp/>std::stringstream(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(<sp/>!xml_data.str().empty()<sp/>&amp;&amp;<sp/>xml_data.str().substr(xml_data.str().length()-7<sp/>,<sp/>6<sp/>)<sp/><sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/osm&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;OSM<sp/>Data<sp/>Received&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!xml_data.str().empty()){</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Parsing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d3/d4b/class_o_s_m_data_parser_1a7415daf804f35758e15af6859ed4cecf" kindref="member">parseOSMXML</ref>(drawer,<sp/>xml_data);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Finished<sp/>Parsing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Drawing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::future&lt;bool&gt;&gt;<sp/><sp/>futures={};</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::thread&gt;<sp/>threads<sp/>={};</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">//TODO:<sp/>SLOW</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>way<sp/>:<sp/>drawer-&gt;ways){</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::promise&lt;bool&gt;<sp/>promise;</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::future&lt;bool&gt;<sp/>result<sp/>=promise.get_future();</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::thread<sp/>t(&amp;CairoDrawer::drawWay,<sp/>*(drawer.get()),<sp/>std::move(promise),<sp/>std::move(way));</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>drawing_queue-&gt;push(result.get());</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>threads.emplace_back(std::move(t));</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;spawned&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>drawer-&gt;drawBorder();</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>drawer-&gt;drawCenter();</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>drawer-&gt;drawGrid(5);</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>drawing_queue-&gt;push(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>drawing_queue-&gt;push(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeSinceParsingStarted=<sp/>std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(std::chrono::system_clock::now()<sp/>-<sp/>parsingStarted).count();</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Parsing/Drawing<sp/>took<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;timeSinceParsingStarted&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>milliseconds&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;threads.size();<sp/>++i){</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>std::move(<sp/>threads.at(i)<sp/>)).join();</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Finished<sp/>Drawing&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>state<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/dfc/struct_parser_struct" kindref="compound">ParserStruct</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>parsingStarted<sp/><sp/>=<sp/>std::chrono::system_clock::now();</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>std::stringstream<sp/>xml_data;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xml_data&lt;&lt;<sp/>parser_queue-&gt;pull()<sp/>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(xml_data.str().find(</highlight><highlight class="stringliteral">&quot;&lt;downloaderError/&gt;&quot;</highlight><highlight class="normal">)<sp/>!=<sp/>std::string::npos){</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/><sp/>xml_data.str()<sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xml_data<sp/>=<sp/>std::stringstream(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(<sp/>!xml_data.str().empty()<sp/>&amp;&amp;<sp/>xml_data.str().substr(xml_data.str().length()-7<sp/>,<sp/>6<sp/>)<sp/><sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;&lt;/osm&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;OSM<sp/>Data<sp/>Received&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!xml_data.str().empty()){</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Parsing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d3/d4b/class_o_s_m_data_parser_1a7415daf804f35758e15af6859ed4cecf" kindref="member">parseOSMXML</ref>(drawer,<sp/>xml_data);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Finished<sp/>Parsing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;Drawing&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::future&lt;bool&gt;&gt;<sp/><sp/>futures={};</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::thread&gt;<sp/>threads<sp/>={};</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//TODO:<sp/>SLOW</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<ref refid="d8/dc3/struct_way_struct" kindref="compound">WayStruct</ref><sp/>way<sp/>:<sp/>drawer-&gt;ways){</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::promise&lt;bool&gt;<sp/>promise;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::future&lt;bool&gt;<sp/>result<sp/>=promise.get_future();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::thread<sp/>t(&amp;CairoDrawer::drawWay,<sp/>*(drawer.get()),<sp/>std::move(promise),<sp/>std::move(way));</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>drawing_queue-&gt;push(result.get());</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>threads.emplace_back(std::move(t));</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/><sp/></highlight><highlight class="stringliteral">&quot;spawned&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>drawer-&gt;drawBorder();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>drawer-&gt;drawCenter();</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>drawer-&gt;drawGrid(5);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>drawing_queue-&gt;push(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>drawing_queue-&gt;push(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>timeSinceParsingStarted=<sp/>std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(std::chrono::system_clock::now()<sp/>-<sp/>parsingStarted).count();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Parsing/Drawing<sp/>took<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;timeSinceParsingStarted&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>milliseconds&quot;</highlight><highlight class="normal"><sp/><sp/>&lt;&lt;std::endl;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;threads.size();<sp/>++i){</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>std::move(<sp/>threads.at(i)<sp/>)).join();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Finished<sp/>Drawing&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/OSMDataParser.cpp"/>
   </compounddef>

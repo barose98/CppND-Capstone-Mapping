@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="include/CapstoneMapping.h" line="45" column="10" bodyfile="src/CapstoneMapping.cpp" bodystart="29" bodyend="46"/>
+        <location file="include/CapstoneMapping.h" line="45" column="10" bodyfile="src/CapstoneMapping.cpp" bodystart="29" bodyend="43"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

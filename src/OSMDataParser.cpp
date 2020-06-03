@@ -129,6 +129,7 @@ void OSMDataParser::parseOSMXML(std::shared_ptr<CairoDrawer> drawer, std::string
 std::string OSMDataParser::receiveOSMXML(std::shared_ptr<CairoDrawer> drawer)
 {
     std::cout << "OSM Data Receiving"  <<std::endl;
+    state = new ParserStruct();
     parsingStarted  = std::chrono::system_clock::now();
     std::stringstream xml_data;
     do{

@@ -266,21 +266,18 @@
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="df/d33/structbounding__box__t" kindref="compound">bounding_box_t</ref><sp/>bbox(latlon_utility-&gt;calculateBigMapLatlonOrigin(),<sp/>latlon_utility-&gt;getBigMapLatlonEdge());</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d5a/class_o_s_m_downloader" kindref="compound">OSMDownloader</ref><sp/>downloader(downloading_queue);</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>getting_future<sp/>=<sp/>std::async(std::launch::async,<sp/>&amp;<ref refid="d4/d5a/class_o_s_m_downloader_1a9c117edca49bd0e9894c092ccc3221b1" kindref="member">OSMDownloader::downloadOSMap</ref>,<sp/>std::move(downloader),<sp/>bbox<sp/><sp/>);</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>getting_future.get()<sp/><sp/><sp/>&lt;&lt;std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>pixel_width<sp/>=<sp/>this-&gt;screen_utility-&gt;getBigMapPixelSize().width;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>pixel_height=<sp/>this-&gt;screen_utility-&gt;getBigMapPixelSize().height;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>mapping_surface<sp/>=<sp/>Cairo::RefPtr&lt;Cairo::Surface&gt;(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32,<sp/>pixel_width,<sp/>pixel_height)<sp/>)<sp/><sp/>);</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>Cairo::RefPtr&lt;Cairo::Context&gt;<sp/>context<sp/>=<sp/>Cairo::Context::create(mapping_surface);</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;drawer-&gt;setMappingSurface(mapping_surface);</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d4b/class_o_s_m_data_parser" kindref="compound">OSMDataParser</ref><sp/>parser(<sp/>downloading_queue,<sp/>drawing_queue);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>parsing_future<sp/>=<sp/>std::async(std::launch::async,<sp/>&amp;<ref refid="d3/d4b/class_o_s_m_data_parser_1a158aa7b822fc31dbbdde4372a6cbc28b" kindref="member">OSMDataParser::receiveOSMXML</ref>,<sp/>std::move(parser),<sp/>drawer<sp/><sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>pixel_width<sp/>=<sp/>this-&gt;screen_utility-&gt;getBigMapPixelSize().width;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>pixel_height=<sp/>this-&gt;screen_utility-&gt;getBigMapPixelSize().height;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>mapping_surface<sp/>=<sp/>Cairo::RefPtr&lt;Cairo::Surface&gt;(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Cairo::Surface(cairo_image_surface_create(CAIRO_FORMAT_ARGB32,<sp/>pixel_width,<sp/>pixel_height)<sp/>)<sp/><sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;drawer-&gt;setMappingSurface(mapping_surface);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d4b/class_o_s_m_data_parser" kindref="compound">OSMDataParser</ref><sp/>parser(<sp/>downloading_queue,<sp/>drawing_queue);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>parsing_future<sp/>=<sp/>std::async(std::launch::async,<sp/>&amp;<ref refid="d3/d4b/class_o_s_m_data_parser_1a158aa7b822fc31dbbdde4372a6cbc28b" kindref="member">OSMDataParser::receiveOSMXML</ref>,<sp/>std::move(parser),<sp/>drawer<sp/><sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="src/CapstoneMapping.cpp"/>
   </compounddef>
